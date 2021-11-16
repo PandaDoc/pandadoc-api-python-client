@@ -2,7 +2,7 @@
 PandaDoc SDK spans a broad range of functionality to help you build incredible documents automation experiences inside your product.
 
 ## Docs
-- [Official public API documentation](https://developers.pandadoc.com/reference/about)
+[Official public API documentation](https://developers.pandadoc.com/reference/about)
 
 ## Requirements
 python >= 3.6
@@ -25,28 +25,28 @@ import pandadoc_client
 ```python
 from pprint import pprint
 
-import openapi_client
-from openapi_client.api import templates_api
+import pandadoc_client
+from pandadoc_client.api import templates_api
 
 # Configure API key authorization: apiKey
 api_key = "YOUR_API_KEY"
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
-cfg = openapi_client.Configuration(
+cfg = pandadoc_client.Configuration(
     host = "https://api.pandadoc.com",
     api_key={"apiKey": f"API-Key {api_key}"},
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(cfg) as api_client:
+with pandadoc_client.ApiClient(cfg) as api_client:
     # Create an instance of the API class
     api_instance = templates_api.TemplatesApi(api_client)
 
     try:
         resp = api_instance.list_templates(tag="doe-inc-proposals")
         pprint(resp)
-    except openapi_client.ApiException as e:
+    except pandadoc_client.ApiException as e:
         pprint("Exception when calling TemplatesApi->list_templates: %s\n" % e)
 ```
 
