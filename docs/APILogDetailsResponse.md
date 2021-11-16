@@ -1,0 +1,27 @@
+# APILogDetailsResponse
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] 
+**url** | **str** |  | [optional] 
+**method** | **str** |  | [optional] 
+**status** | **int** |  | [optional] 
+**request_time** | **str** |  | [optional] 
+**response_time** | **str** |  | [optional] 
+**response_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
+**query_params_string** | **str** |  | [optional] 
+**query_params_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
+**request_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
+**token_type** | **str** |  | [optional] 
+**application** | **str, none_type** |  | [optional] 
+**key** | **str** |  | [optional] 
+**request_id** | **str** |  | [optional] 
+**user_email** | **str** |  | [optional] 
+**user_id** | **str** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
