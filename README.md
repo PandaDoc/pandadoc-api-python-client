@@ -11,9 +11,9 @@ Python >= 3.6
 #### pip install
 If the python package is hosted on a repository, you can install directly using:
 ```sh
-pip install git+https://github.com/PandaDoc/pandadoc-api-python-client.git
+pip install pandadoc-python-client
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/PandaDoc/pandadoc-api-python-client.git`)
+(you may need to run `pip` with root permission: `sudo pip install pandadoc-python-client`)
 
 Then import the package:
 ```python
