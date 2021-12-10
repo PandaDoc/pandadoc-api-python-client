@@ -21,15 +21,15 @@ Returns details of the specific API log event.
 * OAuth Authentication (oauth2):
 
 ```python
-import time
 import pandadoc_client
 from pandadoc_client.api import api_logs_api
 from pandadoc_client.model.api_log_details_response import APILogDetailsResponse
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host = "https://api.pandadoc.com"
+    host="https://api.pandadoc.com",
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,21 +39,19 @@ configuration = pandadoc_client.Configuration(
 
 # Configure API key authorization: apiKey
 configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+configuration.api_key_prefix['apiKey'] = 'API-Key'
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = pandadoc_client.Configuration(
-    host = "https://api.pandadoc.com"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# configuration = pandadoc_client.Configuration(
+#    host="https://api.pandadoc.com",
+# )
+# configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_logs_api.APILogsApi(api_client)
-    id = "id_example" # str | Log event id.
+    id = "AXp2jrHMK2MKv_lRqmQ"  # str | Log event id.
 
     # example passing only required values which don't have defaults set
     try:
@@ -63,7 +61,6 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     except pandadoc_client.ApiException as e:
         print("Exception when calling APILogsApi->details_api_log: %s\n" % e)
 ```
-
 
 ### Parameters
 
@@ -94,7 +91,7 @@ Name | Type | Description  | Notes
 **404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 # **list_api_logs**
 > APILogListResponse list_api_logs()
@@ -109,15 +106,15 @@ Get the list of all logs within the selected workspace. Optionally filter by dat
 * OAuth Authentication (oauth2):
 
 ```python
-import time
 import pandadoc_client
 from pandadoc_client.api import api_logs_api
 from pandadoc_client.model.api_log_list_response import APILogListResponse
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host = "https://api.pandadoc.com"
+    host="https://api.pandadoc.com",
 )
 
 # The client must configure the authentication and authorization parameters
@@ -127,43 +124,45 @@ configuration = pandadoc_client.Configuration(
 
 # Configure API key authorization: apiKey
 configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['apiKey'] = 'Bearer'
+configuration.api_key_prefix['apiKey'] = 'API-Key'
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = pandadoc_client.Configuration(
-    host = "https://api.pandadoc.com"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# configuration = pandadoc_client.Configuration(
+#    host="https://api.pandadoc.com",
+# )
+# configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_logs_api.APILogsApi(api_client)
-    since = "since_example" # str | Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as \"-90d\" (for past 90 days). (optional)
-    to = "to_example" # str | Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as \"-10d\" (for past 10 days) or a special \"now\" value. (optional)
-    count = 1 # int | The amount of items on each page. (optional)
-    page = 1 # int | Page number of the results returned. (optional)
-    statuses = [
-        100,
-    ] # [int] | Returns only the predefined status codes. Allows 1xx, 2xx, 3xx, 4xx, and 5xx. (optional)
-    methods = [
-        "GET",
-    ] # [str] | Returns only the predefined HTTP methods. Allows GET, POST, PUT, PATCH, and DELETE. (optional)
-    search = "search_example" # str | Returns the results containing a string. (optional)
-    environment_type = "PRODUCTION" # str | Returns logs for production/sandbox. (optional)
+    since = "-7d"  # str | Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as \"-90d\" (for past 90 days). (optional)
+    to = "now"  # str | Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as \"-10d\" (for past 10 days) or a special \"now\" value. (optional)
+    count = 10  # int | The amount of items on each page. (optional)
+    page = 1  # int | Page number of the results returned. (optional)
+    statuses = [400,500]  # [int] | Returns only the predefined status codes. Allows 1xx, 2xx, 3xx, 4xx, and 5xx. (optional)
+    methods = ["GET","POST"]  # [str] | Returns only the predefined HTTP methods. Allows GET, POST, PUT, PATCH, and DELETE. (optional)
+    search = "documents/hryJY9mqYZHjQCYQuSjRQg/send"  # str | Returns the results containing a string. (optional)
+    environment_type = "PRODUCTION"  # str | Returns logs for production/sandbox. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List API Log
-        api_response = api_instance.list_api_logs(since=since, to=to, count=count, page=page, statuses=statuses, methods=methods, search=search, environment_type=environment_type)
+        api_response = api_instance.list_api_logs(
+            since=since,
+            to=to,
+            count=count,
+            page=page,
+            statuses=statuses,
+            methods=methods,
+            search=search,
+            environment_type=environment_type,
+        )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling APILogsApi->list_api_logs: %s\n" % e)
 ```
-
 
 ### Parameters
 
@@ -201,5 +200,5 @@ Name | Type | Description  | Notes
 **401** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
