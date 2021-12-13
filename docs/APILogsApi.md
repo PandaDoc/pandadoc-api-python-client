@@ -4,12 +4,12 @@ All URIs are relative to *https://api.pandadoc.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**details_api_log**](APILogsApi.md#details_api_log) | **GET** /public/v1/logs/{id} | Details API Log
-[**list_api_logs**](APILogsApi.md#list_api_logs) | **GET** /public/v1/logs | List API Log
+[**details_log**](APILogsApi.md#details_log) | **GET** /public/v1/logs/{id} | Details API Log
+[**list_logs**](APILogsApi.md#list_logs) | **GET** /public/v1/logs | List API Log
 
 
-# **details_api_log**
-> APILogDetailsResponse details_api_log(id)
+# **details_log**
+> APILogDetailsResponse details_log(id)
 
 Details API Log
 
@@ -56,10 +56,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Details API Log
-        api_response = api_instance.details_api_log(id)
+        api_response = api_instance.details_log(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling APILogsApi->details_api_log: %s\n" % e)
+        print("Exception when calling APILogsApi->details_log: %s\n" % e)
 ```
 
 ### Parameters
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **list_api_logs**
-> APILogListResponse list_api_logs()
+# **list_logs**
+> APILogListResponse list_logs()
 
 List API Log
 
@@ -149,7 +149,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List API Log
-        api_response = api_instance.list_api_logs(
+        api_response = api_instance.list_logs(
             since=since,
             to=to,
             count=count,
@@ -161,7 +161,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling APILogsApi->list_api_logs: %s\n" % e)
+        print("Exception when calling APILogsApi->list_logs: %s\n" % e)
 ```
 
 ### Parameters

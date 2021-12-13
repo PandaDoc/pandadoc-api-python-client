@@ -60,19 +60,16 @@ def create_doc_from_sample_template(api_instance):
             options=PricingTableRequestOptions(
                 currency='USD',
                 discount=PricingTableRequestOptionsDiscount(
-                    is_global=True,
                     type='absolute',
                     name='Global Discount',
                     value=2.26,
                 ),
                 tax_first=PricingTableRequestOptionsTaxFirst(
-                    is_global=True,
                     type='percent',
                     name='Tax First',
                     value=2.26,
                 ),
                 tax_second=PricingTableRequestOptionsTaxSecond(
-                    is_global=True,
                     type='percent',
                     name='Tax Second',
                     value=2.26,
@@ -159,7 +156,7 @@ def create_doc_from_sample_template(api_instance):
             ),
         ],
     )
-    return api_instance.document_create(document_create_request=document_create_request)
+    return api_instance.create_document(document_create_request=document_create_request)
 
 
 def ensure_document_created(api_instance, document):
@@ -182,7 +179,7 @@ def ensure_document_created(api_instance, document):
         sleep(2)
         retries += 1
 
-        doc_status = api_instance.document_status(document['id'])
+        doc_status = api_instance.status_document(document['id'])
         if doc_status.status == 'document.draft':
             return
 

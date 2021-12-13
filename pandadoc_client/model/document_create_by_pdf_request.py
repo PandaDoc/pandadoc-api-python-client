@@ -29,8 +29,8 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pandadoc_client.model.document_create_by_pdf_request_recipients import DocumentCreateByPdfRequestRecipients
-    globals()['DocumentCreateByPdfRequestRecipients'] = DocumentCreateByPdfRequestRecipients
+    from pandadoc_client.model.document_create_by_template_request_recipients import DocumentCreateByTemplateRequestRecipients
+    globals()['DocumentCreateByTemplateRequestRecipients'] = DocumentCreateByTemplateRequestRecipients
 
 
 class DocumentCreateByPdfRequest(ModelNormal):
@@ -87,7 +87,7 @@ class DocumentCreateByPdfRequest(ModelNormal):
         lazy_import()
         return {
             'url': (str,),  # noqa: E501
-            'recipients': ([DocumentCreateByPdfRequestRecipients],),  # noqa: E501
+            'recipients': ([DocumentCreateByTemplateRequestRecipients],),  # noqa: E501
             'parse_form_fields': (bool,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
@@ -117,13 +117,12 @@ class DocumentCreateByPdfRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, url, recipients, parse_form_fields, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, url, recipients, *args, **kwargs):  # noqa: E501
         """DocumentCreateByPdfRequest - a model defined in OpenAPI
 
         Args:
             url (str): Use a URL to specify the PDF. We support only URLs starting with https.
-            recipients ([DocumentCreateByPdfRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the `email` parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter is passed, a person is assigned all fields matching their corresponding role. If a role was not passed, a person receives a read-only link to view the document. If the `first_name` and `last_name` are not passed, the system does this 1. Creates a new contact, if none exists with the given `email`; or 2. Gets the existing contact with the given `email` that already exists.
-            parse_form_fields (bool): Set this parameter as `true` if you create a document from a PDF with form fields and as `false` if you upload a PDF with field tags.
+            recipients ([DocumentCreateByTemplateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -156,6 +155,7 @@ class DocumentCreateByPdfRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            parse_form_fields (bool): Set this parameter as `true` if you create a document from a PDF with form fields and as `false` if you upload a PDF with field tags.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             tags ([str]): Mark your document with one or several tags.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): If you are creating a document from a PDF with field tags, you can pass a list of the fields you'd like to pre-fill in the document. If you are creating a document from a PDF with form fields, list all the fields and provide the `role` parameter so that the fields are assigned to document recipients. You can provide empty value for the field so that it's not pre-filled: \"value\": \"\". . [optional]  # noqa: E501
@@ -189,7 +189,6 @@ class DocumentCreateByPdfRequest(ModelNormal):
 
         self.url = url
         self.recipients = recipients
-        self.parse_form_fields = parse_form_fields
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,13 +209,12 @@ class DocumentCreateByPdfRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, url, recipients, parse_form_fields, *args, **kwargs):  # noqa: E501
+    def __init__(self, url, recipients, *args, **kwargs):  # noqa: E501
         """DocumentCreateByPdfRequest - a model defined in OpenAPI
 
         Args:
             url (str): Use a URL to specify the PDF. We support only URLs starting with https.
-            recipients ([DocumentCreateByPdfRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the `email` parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter is passed, a person is assigned all fields matching their corresponding role. If a role was not passed, a person receives a read-only link to view the document. If the `first_name` and `last_name` are not passed, the system does this 1. Creates a new contact, if none exists with the given `email`; or 2. Gets the existing contact with the given `email` that already exists.
-            parse_form_fields (bool): Set this parameter as `true` if you create a document from a PDF with form fields and as `false` if you upload a PDF with field tags.
+            recipients ([DocumentCreateByTemplateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,6 +247,7 @@ class DocumentCreateByPdfRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            parse_form_fields (bool): Set this parameter as `true` if you create a document from a PDF with form fields and as `false` if you upload a PDF with field tags.. [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             tags ([str]): Mark your document with one or several tags.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): If you are creating a document from a PDF with field tags, you can pass a list of the fields you'd like to pre-fill in the document. If you are creating a document from a PDF with form fields, list all the fields and provide the `role` parameter so that the fields are assigned to document recipients. You can provide empty value for the field so that it's not pre-filled: \"value\": \"\". . [optional]  # noqa: E501
@@ -280,7 +279,6 @@ class DocumentCreateByPdfRequest(ModelNormal):
 
         self.url = url
         self.recipients = recipients
-        self.parse_form_fields = parse_form_fields
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

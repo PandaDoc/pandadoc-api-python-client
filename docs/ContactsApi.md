@@ -4,15 +4,15 @@ All URIs are relative to *https://api.pandadoc.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**contact_create**](ContactsApi.md#contact_create) | **POST** /public/v1/contacts | Create contact
-[**contact_delete**](ContactsApi.md#contact_delete) | **DELETE** /public/v1/contacts/{id} | Delete contact by id
-[**contact_details**](ContactsApi.md#contact_details) | **GET** /public/v1/contacts/{id} | Get contact details by id
-[**contact_list**](ContactsApi.md#contact_list) | **GET** /public/v1/contacts | List contacts
-[**contact_update**](ContactsApi.md#contact_update) | **PATCH** /public/v1/contacts/{id} | Update contact by id
+[**create_contact**](ContactsApi.md#create_contact) | **POST** /public/v1/contacts | Create contact
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /public/v1/contacts/{id} | Delete contact by id
+[**details_contact**](ContactsApi.md#details_contact) | **GET** /public/v1/contacts/{id} | Get contact details by id
+[**list_contacts**](ContactsApi.md#list_contacts) | **GET** /public/v1/contacts | List contacts
+[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /public/v1/contacts/{id} | Update contact by id
 
 
-# **contact_create**
-> ContactDetailsResponse contact_create(contact_create_request)
+# **create_contact**
+> ContactDetailsResponse create_contact(contact_create_request)
 
 Create contact
 
@@ -69,10 +69,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create contact
-        api_response = api_instance.contact_create(contact_create_request)
+        api_response = api_instance.create_contact(contact_create_request)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling ContactsApi->contact_create: %s\n" % e)
+        print("Exception when calling ContactsApi->create_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -106,8 +106,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **contact_delete**
-> contact_delete(id)
+# **delete_contact**
+> delete_contact(id)
 
 Delete contact by id
 
@@ -151,9 +151,9 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Delete contact by id
-        api_instance.contact_delete(id)
+        api_instance.delete_contact(id)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling ContactsApi->contact_delete: %s\n" % e)
+        print("Exception when calling ContactsApi->delete_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -188,8 +188,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **contact_details**
-> ContactDetailsResponse contact_details(id)
+# **details_contact**
+> ContactDetailsResponse details_contact(id)
 
 Get contact details by id
 
@@ -234,10 +234,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get contact details by id
-        api_response = api_instance.contact_details(id)
+        api_response = api_instance.details_contact(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling ContactsApi->contact_details: %s\n" % e)
+        print("Exception when calling ContactsApi->details_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -272,8 +272,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **contact_list**
-> ContactListResponse contact_list()
+# **list_contacts**
+> ContactListResponse list_contacts()
 
 List contacts
 
@@ -317,10 +317,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # List contacts
-        api_response = api_instance.contact_list()
+        api_response = api_instance.list_contacts()
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling ContactsApi->contact_list: %s\n" % e)
+        print("Exception when calling ContactsApi->list_contacts: %s\n" % e)
 ```
 
 ### Parameters
@@ -352,8 +352,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **contact_update**
-> ContactDetailsResponse contact_update(id, contact_update_request)
+# **update_contact**
+> ContactDetailsResponse update_contact(id, contact_update_request)
 
 Update contact by id
 
@@ -411,10 +411,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Update contact by id
-        api_response = api_instance.contact_update(id, contact_update_request)
+        api_response = api_instance.update_contact(id, contact_update_request)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling ContactsApi->contact_update: %s\n" % e)
+        print("Exception when calling ContactsApi->update_contact: %s\n" % e)
 ```
 
 ### Parameters

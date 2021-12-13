@@ -75,7 +75,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'pandadoc_python_client/1.1.0'
+        self.user_agent = 'pandadoc_python_client/2.0.0'
 
     def __enter__(self):
         return self
@@ -761,10 +761,10 @@ class Endpoint(object):
         Example:
 
         api_instance = APILogsApi()
-        api_instance.details_api_log  # this is an instance of the class Endpoint
-        api_instance.details_api_log()  # this invokes api_instance.details_api_log.__call__()
+        api_instance.details_log  # this is an instance of the class Endpoint
+        api_instance.details_log()  # this invokes api_instance.details_log.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.details_api_log.callable or self.callable in this class
+        api_instance.details_log.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

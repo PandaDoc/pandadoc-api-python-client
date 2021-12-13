@@ -87,7 +87,7 @@ class TemplatesApi(object):
             },
             api_client=api_client
         )
-        self.details_temaplate_endpoint = _Endpoint(
+        self.details_template_endpoint = _Endpoint(
             settings={
                 'response_type': (TemplateDetailsResponse,),
                 'auth': [
@@ -95,7 +95,7 @@ class TemplatesApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/templates/{id}/details',
-                'operation_id': 'details_temaplate',
+                'operation_id': 'details_template',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -302,7 +302,7 @@ class TemplatesApi(object):
             id
         return self.delete_template_endpoint.call_with_http_info(**kwargs)
 
-    def details_temaplate(
+    def details_template(
         self,
         id,
         **kwargs
@@ -313,7 +313,7 @@ class TemplatesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.details_temaplate(id, async_req=True)
+        >>> thread = api.details_template(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -366,7 +366,7 @@ class TemplatesApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.details_temaplate_endpoint.call_with_http_info(**kwargs)
+        return self.details_template_endpoint.call_with_http_info(**kwargs)
 
     def list_templates(
         self,

@@ -35,7 +35,7 @@ class APILogsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.details_api_log_endpoint = _Endpoint(
+        self.details_log_endpoint = _Endpoint(
             settings={
                 'response_type': (APILogDetailsResponse,),
                 'auth': [
@@ -43,7 +43,7 @@ class APILogsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/logs/{id}',
-                'operation_id': 'details_api_log',
+                'operation_id': 'details_log',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -87,7 +87,7 @@ class APILogsApi(object):
             },
             api_client=api_client
         )
-        self.list_api_logs_endpoint = _Endpoint(
+        self.list_logs_endpoint = _Endpoint(
             settings={
                 'response_type': (APILogListResponse,),
                 'auth': [
@@ -95,7 +95,7 @@ class APILogsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/logs',
-                'operation_id': 'list_api_logs',
+                'operation_id': 'list_logs',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -209,7 +209,7 @@ class APILogsApi(object):
             api_client=api_client
         )
 
-    def details_api_log(
+    def details_log(
         self,
         id,
         **kwargs
@@ -220,7 +220,7 @@ class APILogsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.details_api_log(id, async_req=True)
+        >>> thread = api.details_log(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -273,9 +273,9 @@ class APILogsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.details_api_log_endpoint.call_with_http_info(**kwargs)
+        return self.details_log_endpoint.call_with_http_info(**kwargs)
 
-    def list_api_logs(
+    def list_logs(
         self,
         **kwargs
     ):
@@ -285,7 +285,7 @@ class APILogsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_api_logs(async_req=True)
+        >>> thread = api.list_logs(async_req=True)
         >>> result = thread.get()
 
 
@@ -342,5 +342,5 @@ class APILogsApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.list_api_logs_endpoint.call_with_http_info(**kwargs)
+        return self.list_logs_endpoint.call_with_http_info(**kwargs)
 

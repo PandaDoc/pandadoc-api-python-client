@@ -4,15 +4,15 @@ All URIs are relative to *https://api.pandadoc.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**document_attachment_create**](DocumentAttachmentsApi.md#document_attachment_create) | **POST** /public/v1/documents/{id}/attachments | Document Attachment Create
-[**document_attachment_delete**](DocumentAttachmentsApi.md#document_attachment_delete) | **DELETE** /public/v1/documents/{id}/attachments/{attachment_id} | Document Attachment Delete
-[**document_attachment_details**](DocumentAttachmentsApi.md#document_attachment_details) | **GET** /public/v1/documents/{id}/attachments/{attachment_id} | Document Attachment Details
-[**document_attachment_download**](DocumentAttachmentsApi.md#document_attachment_download) | **GET** /public/v1/documents/{id}/attachments/{attachment_id}/download | Document Attachment Download
-[**document_attachments_list**](DocumentAttachmentsApi.md#document_attachments_list) | **GET** /public/v1/documents/{id}/attachments | Document Attachment List
+[**create_document_attachment**](DocumentAttachmentsApi.md#create_document_attachment) | **POST** /public/v1/documents/{id}/attachments | Document Attachment Create
+[**delete_document_attachment**](DocumentAttachmentsApi.md#delete_document_attachment) | **DELETE** /public/v1/documents/{id}/attachments/{attachment_id} | Document Attachment Delete
+[**details_document_attachment**](DocumentAttachmentsApi.md#details_document_attachment) | **GET** /public/v1/documents/{id}/attachments/{attachment_id} | Document Attachment Details
+[**download_document_attachment**](DocumentAttachmentsApi.md#download_document_attachment) | **GET** /public/v1/documents/{id}/attachments/{attachment_id}/download | Document Attachment Download
+[**list_document_attachments**](DocumentAttachmentsApi.md#list_document_attachments) | **GET** /public/v1/documents/{id}/attachments | Document Attachment List
 
 
-# **document_attachment_create**
-> DocumentAttachmentResponse document_attachment_create(id)
+# **create_document_attachment**
+> DocumentAttachmentResponse create_document_attachment(id)
 
 Document Attachment Create
 
@@ -62,16 +62,16 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Document Attachment Create
-        api_response = api_instance.document_attachment_create(id)
+        api_response = api_instance.create_document_attachment(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachment_create: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->create_document_attachment: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Document Attachment Create
-        api_response = api_instance.document_attachment_create(
+        api_response = api_instance.create_document_attachment(
             id,
             file=file,
             source=source,
@@ -79,7 +79,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachment_create: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->create_document_attachment: %s\n" % e)
 ```
 
 ### Parameters
@@ -117,8 +117,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **document_attachment_delete**
-> document_attachment_delete(id, attachment_id)
+# **delete_document_attachment**
+> delete_document_attachment(id, attachment_id)
 
 Document Attachment Delete
 
@@ -165,9 +165,9 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Document Attachment Delete
-        api_instance.document_attachment_delete(id, attachment_id)
+        api_instance.delete_document_attachment(id, attachment_id)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachment_delete: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->delete_document_attachment: %s\n" % e)
 ```
 
 ### Parameters
@@ -202,8 +202,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **document_attachment_details**
-> DocumentAttachmentResponse document_attachment_details(id, attachment_id)
+# **details_document_attachment**
+> DocumentAttachmentResponse details_document_attachment(id, attachment_id)
 
 Document Attachment Details
 
@@ -251,10 +251,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Document Attachment Details
-        api_response = api_instance.document_attachment_details(id, attachment_id)
+        api_response = api_instance.details_document_attachment(id, attachment_id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachment_details: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->details_document_attachment: %s\n" % e)
 ```
 
 ### Parameters
@@ -289,8 +289,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **document_attachment_download**
-> file_type document_attachment_download(id, attachment_id)
+# **download_document_attachment**
+> file_type download_document_attachment(id, attachment_id)
 
 Document Attachment Download
 
@@ -337,10 +337,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Document Attachment Download
-        api_response = api_instance.document_attachment_download(id, attachment_id)
+        api_response = api_instance.download_document_attachment(id, attachment_id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachment_download: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->download_document_attachment: %s\n" % e)
 ```
 
 ### Parameters
@@ -375,8 +375,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **document_attachments_list**
-> [DocumentAttachmentResponse] document_attachments_list(id)
+# **list_document_attachments**
+> [DocumentAttachmentResponse] list_document_attachments(id)
 
 Document Attachment List
 
@@ -423,10 +423,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Document Attachment List
-        api_response = api_instance.document_attachments_list(id)
+        api_response = api_instance.list_document_attachments(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling DocumentAttachmentsApi->document_attachments_list: %s\n" % e)
+        print("Exception when calling DocumentAttachmentsApi->list_document_attachments: %s\n" % e)
 ```
 
 ### Parameters

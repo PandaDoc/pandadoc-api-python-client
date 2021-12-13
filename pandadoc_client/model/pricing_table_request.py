@@ -113,8 +113,11 @@ class PricingTableRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
         """PricingTableRequest - a model defined in OpenAPI
+
+        Args:
+            name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,7 +150,6 @@ class PricingTableRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             data_merge (bool): When set to true all field names in data rows must be passed as external names defined in the template.. [optional]  # noqa: E501
             options (PricingTableRequestOptions): [optional]  # noqa: E501
             sections ([PricingTableRequestSections]): [optional]  # noqa: E501
@@ -178,6 +180,7 @@ class PricingTableRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,8 +201,11 @@ class PricingTableRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, *args, **kwargs):  # noqa: E501
         """PricingTableRequest - a model defined in OpenAPI
+
+        Args:
+            name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,7 +238,6 @@ class PricingTableRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             data_merge (bool): When set to true all field names in data rows must be passed as external names defined in the template.. [optional]  # noqa: E501
             options (PricingTableRequestOptions): [optional]  # noqa: E501
             sections ([PricingTableRequestSections]): [optional]  # noqa: E501
@@ -261,6 +266,7 @@ class PricingTableRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

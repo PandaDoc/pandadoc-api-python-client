@@ -35,7 +35,7 @@ class MembersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.current_member_details_endpoint = _Endpoint(
+        self.details_current_member_endpoint = _Endpoint(
             settings={
                 'response_type': (MemberDetailsResponse,),
                 'auth': [
@@ -43,7 +43,7 @@ class MembersApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/members/current',
-                'operation_id': 'current_member_details',
+                'operation_id': 'details_current_member',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -80,7 +80,7 @@ class MembersApi(object):
             },
             api_client=api_client
         )
-        self.member_details_endpoint = _Endpoint(
+        self.details_member_endpoint = _Endpoint(
             settings={
                 'response_type': (MemberDetailsResponse,),
                 'auth': [
@@ -88,7 +88,7 @@ class MembersApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/members/{id}',
-                'operation_id': 'member_details',
+                'operation_id': 'details_member',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -132,7 +132,7 @@ class MembersApi(object):
             },
             api_client=api_client
         )
-        self.member_list_endpoint = _Endpoint(
+        self.list_members_endpoint = _Endpoint(
             settings={
                 'response_type': (MemberListResponse,),
                 'auth': [
@@ -140,7 +140,7 @@ class MembersApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/members',
-                'operation_id': 'member_list',
+                'operation_id': 'list_members',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -178,7 +178,7 @@ class MembersApi(object):
             api_client=api_client
         )
 
-    def current_member_details(
+    def details_current_member(
         self,
         **kwargs
     ):
@@ -188,7 +188,7 @@ class MembersApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.current_member_details(async_req=True)
+        >>> thread = api.details_current_member(async_req=True)
         >>> result = thread.get()
 
 
@@ -237,9 +237,9 @@ class MembersApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.current_member_details_endpoint.call_with_http_info(**kwargs)
+        return self.details_current_member_endpoint.call_with_http_info(**kwargs)
 
-    def member_details(
+    def details_member(
         self,
         id,
         **kwargs
@@ -250,7 +250,7 @@ class MembersApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.member_details(id, async_req=True)
+        >>> thread = api.details_member(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -303,9 +303,9 @@ class MembersApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.member_details_endpoint.call_with_http_info(**kwargs)
+        return self.details_member_endpoint.call_with_http_info(**kwargs)
 
-    def member_list(
+    def list_members(
         self,
         **kwargs
     ):
@@ -315,7 +315,7 @@ class MembersApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.member_list(async_req=True)
+        >>> thread = api.list_members(async_req=True)
         >>> result = thread.get()
 
 
@@ -364,5 +364,5 @@ class MembersApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.member_list_endpoint.call_with_http_info(**kwargs)
+        return self.list_members_endpoint.call_with_http_info(**kwargs)
 
