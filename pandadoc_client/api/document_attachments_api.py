@@ -34,7 +34,7 @@ class DocumentAttachmentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.document_attachment_create_endpoint = _Endpoint(
+        self.create_document_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': (DocumentAttachmentResponse,),
                 'auth': [
@@ -42,7 +42,7 @@ class DocumentAttachmentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/attachments',
-                'operation_id': 'document_attachment_create',
+                'operation_id': 'create_document_attachment',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -103,7 +103,7 @@ class DocumentAttachmentsApi(object):
             },
             api_client=api_client
         )
-        self.document_attachment_delete_endpoint = _Endpoint(
+        self.delete_document_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -111,7 +111,7 @@ class DocumentAttachmentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/attachments/{attachment_id}',
-                'operation_id': 'document_attachment_delete',
+                'operation_id': 'delete_document_attachment',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -161,7 +161,7 @@ class DocumentAttachmentsApi(object):
             },
             api_client=api_client
         )
-        self.document_attachment_details_endpoint = _Endpoint(
+        self.details_document_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': (DocumentAttachmentResponse,),
                 'auth': [
@@ -169,7 +169,7 @@ class DocumentAttachmentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/attachments/{attachment_id}',
-                'operation_id': 'document_attachment_details',
+                'operation_id': 'details_document_attachment',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -219,7 +219,7 @@ class DocumentAttachmentsApi(object):
             },
             api_client=api_client
         )
-        self.document_attachment_download_endpoint = _Endpoint(
+        self.download_document_attachment_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
                 'auth': [
@@ -227,7 +227,7 @@ class DocumentAttachmentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/attachments/{attachment_id}/download',
-                'operation_id': 'document_attachment_download',
+                'operation_id': 'download_document_attachment',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -278,7 +278,7 @@ class DocumentAttachmentsApi(object):
             },
             api_client=api_client
         )
-        self.document_attachments_list_endpoint = _Endpoint(
+        self.list_document_attachments_endpoint = _Endpoint(
             settings={
                 'response_type': ([DocumentAttachmentResponse],),
                 'auth': [
@@ -286,7 +286,7 @@ class DocumentAttachmentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/attachments',
-                'operation_id': 'document_attachments_list',
+                'operation_id': 'list_document_attachments',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -331,7 +331,7 @@ class DocumentAttachmentsApi(object):
             api_client=api_client
         )
 
-    def document_attachment_create(
+    def create_document_attachment(
         self,
         id,
         **kwargs
@@ -342,7 +342,7 @@ class DocumentAttachmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_attachment_create(id, async_req=True)
+        >>> thread = api.create_document_attachment(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -398,9 +398,9 @@ class DocumentAttachmentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.document_attachment_create_endpoint.call_with_http_info(**kwargs)
+        return self.create_document_attachment_endpoint.call_with_http_info(**kwargs)
 
-    def document_attachment_delete(
+    def delete_document_attachment(
         self,
         id,
         attachment_id,
@@ -412,7 +412,7 @@ class DocumentAttachmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_attachment_delete(id, attachment_id, async_req=True)
+        >>> thread = api.delete_document_attachment(id, attachment_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -468,9 +468,9 @@ class DocumentAttachmentsApi(object):
             id
         kwargs['attachment_id'] = \
             attachment_id
-        return self.document_attachment_delete_endpoint.call_with_http_info(**kwargs)
+        return self.delete_document_attachment_endpoint.call_with_http_info(**kwargs)
 
-    def document_attachment_details(
+    def details_document_attachment(
         self,
         id,
         attachment_id,
@@ -482,7 +482,7 @@ class DocumentAttachmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_attachment_details(id, attachment_id, async_req=True)
+        >>> thread = api.details_document_attachment(id, attachment_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -538,9 +538,9 @@ class DocumentAttachmentsApi(object):
             id
         kwargs['attachment_id'] = \
             attachment_id
-        return self.document_attachment_details_endpoint.call_with_http_info(**kwargs)
+        return self.details_document_attachment_endpoint.call_with_http_info(**kwargs)
 
-    def document_attachment_download(
+    def download_document_attachment(
         self,
         id,
         attachment_id,
@@ -552,7 +552,7 @@ class DocumentAttachmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_attachment_download(id, attachment_id, async_req=True)
+        >>> thread = api.download_document_attachment(id, attachment_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -608,9 +608,9 @@ class DocumentAttachmentsApi(object):
             id
         kwargs['attachment_id'] = \
             attachment_id
-        return self.document_attachment_download_endpoint.call_with_http_info(**kwargs)
+        return self.download_document_attachment_endpoint.call_with_http_info(**kwargs)
 
-    def document_attachments_list(
+    def list_document_attachments(
         self,
         id,
         **kwargs
@@ -621,7 +621,7 @@ class DocumentAttachmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_attachments_list(id, async_req=True)
+        >>> thread = api.list_document_attachments(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -674,5 +674,5 @@ class DocumentAttachmentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.document_attachments_list_endpoint.call_with_http_info(**kwargs)
+        return self.list_document_attachments_endpoint.call_with_http_info(**kwargs)
 

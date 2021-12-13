@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | [optional] 
+**name** | **str** |  | 
 **data_merge** | **bool** | When set to true all field names in data rows must be passed as external names defined in the template. | [optional] 
 **options** | [**PricingTableRequestOptions**](PricingTableRequestOptions.md) |  | [optional] 
 **sections** | [**[PricingTableRequestSections]**](PricingTableRequestSections.md) |  | [optional] 

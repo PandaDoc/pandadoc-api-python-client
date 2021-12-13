@@ -45,7 +45,7 @@ def create_document_from_sample_template_pdf_url(api_instance):
         parse_form_fields=False,
     )
 
-    return api_instance.document_create(document_create_request=document_create_request)
+    return api_instance.create_document(document_create_request=document_create_request)
 
 
 def ensure_document_created(api_instance, document):
@@ -68,7 +68,7 @@ def ensure_document_created(api_instance, document):
         sleep(2)
         retries += 1
 
-        doc_status = api_instance.document_status(document['id'])
+        doc_status = api_instance.status_document(document['id'])
         if doc_status.status == 'document.draft':
             return
 

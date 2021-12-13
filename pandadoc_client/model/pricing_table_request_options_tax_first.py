@@ -83,7 +83,6 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'is_global': (bool,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'value': (float,),  # noqa: E501
@@ -95,7 +94,6 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
 
 
     attribute_map = {
-        'is_global': 'is_global',  # noqa: E501
         'type': 'type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'value': 'value',  # noqa: E501
@@ -108,10 +106,15 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, value, *args, **kwargs):  # noqa: E501
         """PricingTableRequestOptionsTaxFirst - a model defined in OpenAPI
 
+        Args:
+            name (str):
+            value (float):
+
         Keyword Args:
+            type (str): defaults to "percent", must be one of ["percent", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -142,12 +145,9 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_global (bool): [optional]  # noqa: E501
-            type (str): [optional] if omitted the server will use the default value of "percent"  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            value (float): [optional]  # noqa: E501
         """
 
+        type = kwargs.get('type', "percent")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -173,6 +173,9 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
+        self.name = name
+        self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,10 +196,15 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, value, *args, **kwargs):  # noqa: E501
         """PricingTableRequestOptionsTaxFirst - a model defined in OpenAPI
 
+        Args:
+            name (str):
+            value (float):
+
         Keyword Args:
+            type (str): defaults to "percent", must be one of ["percent", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -227,12 +235,9 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_global (bool): [optional]  # noqa: E501
-            type (str): [optional] if omitted the server will use the default value of "percent"  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            value (float): [optional]  # noqa: E501
         """
 
+        type = kwargs.get('type', "percent")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -256,6 +261,9 @@ class PricingTableRequestOptionsTaxFirst(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.type = type
+        self.name = name
+        self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

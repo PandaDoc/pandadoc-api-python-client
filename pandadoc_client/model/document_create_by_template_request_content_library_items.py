@@ -29,7 +29,9 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pandadoc_client.model.document_create_by_template_request_recipients import DocumentCreateByTemplateRequestRecipients
     from pandadoc_client.model.pricing_table_request import PricingTableRequest
+    globals()['DocumentCreateByTemplateRequestRecipients'] = DocumentCreateByTemplateRequestRecipients
     globals()['PricingTableRequest'] = PricingTableRequest
 
 
@@ -86,8 +88,10 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
         """
         lazy_import()
         return {
-            'pricing_tables': ([PricingTableRequest],),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'pricing_tables': ([PricingTableRequest],),  # noqa: E501
+            'recipients': ([DocumentCreateByTemplateRequestRecipients],),  # noqa: E501
         }
 
     @cached_property
@@ -96,8 +100,10 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
 
 
     attribute_map = {
-        'pricing_tables': 'pricing_tables',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'fields': 'fields',  # noqa: E501
+        'pricing_tables': 'pricing_tables',  # noqa: E501
+        'recipients': 'recipients',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,8 +113,11 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequestContentLibraryItems - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,8 +150,9 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             pricing_tables ([PricingTableRequest]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            recipients ([DocumentCreateByTemplateRequestRecipients]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +180,7 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +201,11 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequestContentLibraryItems - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +238,9 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             pricing_tables ([PricingTableRequest]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            recipients ([DocumentCreateByTemplateRequestRecipients]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +266,7 @@ class DocumentCreateByTemplateRequestContentLibraryItems(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

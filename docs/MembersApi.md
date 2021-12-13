@@ -4,13 +4,13 @@ All URIs are relative to *https://api.pandadoc.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**current_member_details**](MembersApi.md#current_member_details) | **GET** /public/v1/members/current | Current member details
-[**member_details**](MembersApi.md#member_details) | **GET** /public/v1/members/{id} | Member details
-[**member_list**](MembersApi.md#member_list) | **GET** /public/v1/members | List members
+[**details_current_member**](MembersApi.md#details_current_member) | **GET** /public/v1/members/current | Current member details
+[**details_member**](MembersApi.md#details_member) | **GET** /public/v1/members/{id} | Member details
+[**list_members**](MembersApi.md#list_members) | **GET** /public/v1/members | List members
 
 
-# **current_member_details**
-> MemberDetailsResponse current_member_details()
+# **details_current_member**
+> MemberDetailsResponse details_current_member()
 
 Current member details
 
@@ -56,10 +56,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # Current member details
-        api_response = api_instance.current_member_details()
+        api_response = api_instance.details_current_member()
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling MembersApi->current_member_details: %s\n" % e)
+        print("Exception when calling MembersApi->details_current_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -91,8 +91,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **member_details**
-> MemberDetailsResponse member_details(id)
+# **details_member**
+> MemberDetailsResponse details_member(id)
 
 Member details
 
@@ -139,10 +139,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Member details
-        api_response = api_instance.member_details(id)
+        api_response = api_instance.details_member(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling MembersApi->member_details: %s\n" % e)
+        print("Exception when calling MembersApi->details_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -177,8 +177,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **member_list**
-> MemberListResponse member_list()
+# **list_members**
+> MemberListResponse list_members()
 
 List members
 
@@ -224,10 +224,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
         # List members
-        api_response = api_instance.member_list()
+        api_response = api_instance.list_members()
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling MembersApi->member_list: %s\n" % e)
+        print("Exception when calling MembersApi->list_members: %s\n" % e)
 ```
 
 ### Parameters

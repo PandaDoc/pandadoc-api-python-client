@@ -37,7 +37,7 @@ class ContactsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.contact_create_endpoint = _Endpoint(
+        self.create_contact_endpoint = _Endpoint(
             settings={
                 'response_type': (ContactDetailsResponse,),
                 'auth': [
@@ -45,7 +45,7 @@ class ContactsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/contacts',
-                'operation_id': 'contact_create',
+                'operation_id': 'create_contact',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -90,7 +90,7 @@ class ContactsApi(object):
             },
             api_client=api_client
         )
-        self.contact_delete_endpoint = _Endpoint(
+        self.delete_contact_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -98,7 +98,7 @@ class ContactsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/contacts/{id}',
-                'operation_id': 'contact_delete',
+                'operation_id': 'delete_contact',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -142,7 +142,7 @@ class ContactsApi(object):
             },
             api_client=api_client
         )
-        self.contact_details_endpoint = _Endpoint(
+        self.details_contact_endpoint = _Endpoint(
             settings={
                 'response_type': (ContactDetailsResponse,),
                 'auth': [
@@ -150,7 +150,7 @@ class ContactsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/contacts/{id}',
-                'operation_id': 'contact_details',
+                'operation_id': 'details_contact',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -194,7 +194,7 @@ class ContactsApi(object):
             },
             api_client=api_client
         )
-        self.contact_list_endpoint = _Endpoint(
+        self.list_contacts_endpoint = _Endpoint(
             settings={
                 'response_type': (ContactListResponse,),
                 'auth': [
@@ -202,7 +202,7 @@ class ContactsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/contacts',
-                'operation_id': 'contact_list',
+                'operation_id': 'list_contacts',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -239,7 +239,7 @@ class ContactsApi(object):
             },
             api_client=api_client
         )
-        self.contact_update_endpoint = _Endpoint(
+        self.update_contact_endpoint = _Endpoint(
             settings={
                 'response_type': (ContactDetailsResponse,),
                 'auth': [
@@ -247,7 +247,7 @@ class ContactsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/contacts/{id}',
-                'operation_id': 'contact_update',
+                'operation_id': 'update_contact',
                 'http_method': 'PATCH',
                 'servers': None,
             },
@@ -299,7 +299,7 @@ class ContactsApi(object):
             api_client=api_client
         )
 
-    def contact_create(
+    def create_contact(
         self,
         contact_create_request,
         **kwargs
@@ -309,7 +309,7 @@ class ContactsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.contact_create(contact_create_request, async_req=True)
+        >>> thread = api.create_contact(contact_create_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -362,9 +362,9 @@ class ContactsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['contact_create_request'] = \
             contact_create_request
-        return self.contact_create_endpoint.call_with_http_info(**kwargs)
+        return self.create_contact_endpoint.call_with_http_info(**kwargs)
 
-    def contact_delete(
+    def delete_contact(
         self,
         id,
         **kwargs
@@ -374,7 +374,7 @@ class ContactsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.contact_delete(id, async_req=True)
+        >>> thread = api.delete_contact(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -427,9 +427,9 @@ class ContactsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.contact_delete_endpoint.call_with_http_info(**kwargs)
+        return self.delete_contact_endpoint.call_with_http_info(**kwargs)
 
-    def contact_details(
+    def details_contact(
         self,
         id,
         **kwargs
@@ -439,7 +439,7 @@ class ContactsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.contact_details(id, async_req=True)
+        >>> thread = api.details_contact(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -492,9 +492,9 @@ class ContactsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.contact_details_endpoint.call_with_http_info(**kwargs)
+        return self.details_contact_endpoint.call_with_http_info(**kwargs)
 
-    def contact_list(
+    def list_contacts(
         self,
         **kwargs
     ):
@@ -503,7 +503,7 @@ class ContactsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.contact_list(async_req=True)
+        >>> thread = api.list_contacts(async_req=True)
         >>> result = thread.get()
 
 
@@ -552,9 +552,9 @@ class ContactsApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.contact_list_endpoint.call_with_http_info(**kwargs)
+        return self.list_contacts_endpoint.call_with_http_info(**kwargs)
 
-    def contact_update(
+    def update_contact(
         self,
         id,
         contact_update_request,
@@ -565,7 +565,7 @@ class ContactsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.contact_update(id, contact_update_request, async_req=True)
+        >>> thread = api.update_contact(id, contact_update_request, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -621,5 +621,5 @@ class ContactsApi(object):
             id
         kwargs['contact_update_request'] = \
             contact_update_request
-        return self.contact_update_endpoint.call_with_http_info(**kwargs)
+        return self.update_contact_endpoint.call_with_http_info(**kwargs)
 

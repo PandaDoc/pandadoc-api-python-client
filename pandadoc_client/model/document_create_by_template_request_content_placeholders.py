@@ -86,8 +86,8 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
         """
         lazy_import()
         return {
-            'content_library_items': ([DocumentCreateByTemplateRequestContentLibraryItems],),  # noqa: E501
             'block_id': (str,),  # noqa: E501
+            'content_library_items': ([DocumentCreateByTemplateRequestContentLibraryItems],),  # noqa: E501
         }
 
     @cached_property
@@ -96,8 +96,8 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
 
 
     attribute_map = {
-        'content_library_items': 'content_library_items',  # noqa: E501
         'block_id': 'block_id',  # noqa: E501
+        'content_library_items': 'content_library_items',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,8 +107,11 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, block_id, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequestContentPlaceholders - a model defined in OpenAPI
+
+        Args:
+            block_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,7 +145,6 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             content_library_items ([DocumentCreateByTemplateRequestContentLibraryItems]): [optional]  # noqa: E501
-            block_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,7 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.block_id = block_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +193,11 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, block_id, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequestContentPlaceholders - a model defined in OpenAPI
+
+        Args:
+            block_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -225,7 +231,6 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             content_library_items ([DocumentCreateByTemplateRequestContentLibraryItems]): [optional]  # noqa: E501
-            block_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +256,7 @@ class DocumentCreateByTemplateRequestContentPlaceholders(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.block_id = block_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

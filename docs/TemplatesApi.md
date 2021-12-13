@@ -5,7 +5,7 @@ All URIs are relative to *https://api.pandadoc.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_template**](TemplatesApi.md#delete_template) | **DELETE** /public/v1/templates/{id} | Delete Template
-[**details_temaplate**](TemplatesApi.md#details_temaplate) | **GET** /public/v1/templates/{id}/details | Details Template
+[**details_template**](TemplatesApi.md#details_template) | **GET** /public/v1/templates/{id}/details | Details Template
 [**list_templates**](TemplatesApi.md#list_templates) | **GET** /public/v1/templates | List Templates
 
 
@@ -94,8 +94,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
-# **details_temaplate**
-> TemplateDetailsResponse details_temaplate(id)
+# **details_template**
+> TemplateDetailsResponse details_template(id)
 
 Details Template
 
@@ -142,10 +142,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Details Template
-        api_response = api_instance.details_temaplate(id)
+        api_response = api_instance.details_template(id)
         pprint(api_response)
     except pandadoc_client.ApiException as e:
-        print("Exception when calling TemplatesApi->details_temaplate: %s\n" % e)
+        print("Exception when calling TemplatesApi->details_template: %s\n" % e)
 ```
 
 ### Parameters

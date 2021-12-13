@@ -87,10 +87,10 @@ class PricingTableRequestData(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
             'price': (float,),  # noqa: E501
-            'cost': (float,),  # noqa: E501
             'qty': (int,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
+            'cost': (float,),  # noqa: E501
             'sku': (str, none_type,),  # noqa: E501
             'discount': (PricingTableRequestDataDiscount,),  # noqa: E501
             'tax_first': (PricingTableRequestDataDiscount,),  # noqa: E501
@@ -104,10 +104,10 @@ class PricingTableRequestData(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'price': 'price',  # noqa: E501
-        'cost': 'cost',  # noqa: E501
         'qty': 'qty',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'cost': 'cost',  # noqa: E501
         'sku': 'sku',  # noqa: E501
         'discount': 'discount',  # noqa: E501
         'tax_first': 'tax_first',  # noqa: E501
@@ -121,8 +121,13 @@ class PricingTableRequestData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, price, qty, *args, **kwargs):  # noqa: E501
         """PricingTableRequestData - a model defined in OpenAPI
+
+        Args:
+            name (str):
+            price (float):
+            qty (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -155,11 +160,8 @@ class PricingTableRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            price (float): [optional]  # noqa: E501
             cost (float): [optional]  # noqa: E501
-            qty (int): [optional]  # noqa: E501
             sku (str, none_type): [optional]  # noqa: E501
             discount (PricingTableRequestDataDiscount): [optional]  # noqa: E501
             tax_first (PricingTableRequestDataDiscount): [optional]  # noqa: E501
@@ -191,6 +193,9 @@ class PricingTableRequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.price = price
+        self.qty = qty
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,8 +216,13 @@ class PricingTableRequestData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, price, qty, *args, **kwargs):  # noqa: E501
         """PricingTableRequestData - a model defined in OpenAPI
+
+        Args:
+            name (str):
+            price (float):
+            qty (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,11 +255,8 @@ class PricingTableRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            price (float): [optional]  # noqa: E501
             cost (float): [optional]  # noqa: E501
-            qty (int): [optional]  # noqa: E501
             sku (str, none_type): [optional]  # noqa: E501
             discount (PricingTableRequestDataDiscount): [optional]  # noqa: E501
             tax_first (PricingTableRequestDataDiscount): [optional]  # noqa: E501
@@ -279,6 +286,9 @@ class PricingTableRequestData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
+        self.price = price
+        self.qty = qty
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

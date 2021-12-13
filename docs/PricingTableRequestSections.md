@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **str** |  | [optional] 
+**title** | **str** |  | 
 **default** | **bool** |  | [optional] 
 **multichoice_enabled** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **rows** | [**[PricingTableRequestRows]**](PricingTableRequestRows.md) |  | [optional] 

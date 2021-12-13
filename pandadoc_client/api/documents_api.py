@@ -50,6 +50,243 @@ class DocumentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.change_document_status_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/status',
+                'operation_id': 'change_document_status',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'document_status_change_request',
+                ],
+                'required': [
+                    'id',
+                    'document_status_change_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'document_status_change_request':
+                        (DocumentStatusChangeRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'document_status_change_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (DocumentCreateResponse,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents',
+                'operation_id': 'create_document',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'document_create_request',
+                    'editor_ver',
+                ],
+                'required': [
+                    'document_create_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'document_create_request':
+                        (DocumentCreateRequest,),
+                    'editor_ver':
+                        (str,),
+                },
+                'attribute_map': {
+                    'editor_ver': 'editor_ver',
+                },
+                'location_map': {
+                    'document_create_request': 'body',
+                    'editor_ver': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_document_link_endpoint = _Endpoint(
+            settings={
+                'response_type': (DocumentCreateLinkResponse,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/session',
+                'operation_id': 'create_document_link',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'document_create_link_request',
+                ],
+                'required': [
+                    'id',
+                    'document_create_link_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'document_create_link_request':
+                        (DocumentCreateLinkRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'document_create_link_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_linked_object_endpoint = _Endpoint(
+            settings={
+                'response_type': (LinkedObjectCreateResponse,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/linked-objects',
+                'operation_id': 'create_linked_object',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'linked_object_create_request',
+                ],
+                'required': [
+                    'id',
+                    'linked_object_create_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'linked_object_create_request':
+                        (LinkedObjectCreateRequest,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'linked_object_create_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.delete_document_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -102,85 +339,26 @@ class DocumentsApi(object):
             },
             api_client=api_client
         )
-        self.document_create_endpoint = _Endpoint(
+        self.delete_linked_object_endpoint = _Endpoint(
             settings={
-                'response_type': (DocumentCreateResponse,),
+                'response_type': None,
                 'auth': [
                     'apiKey',
                     'oauth2'
                 ],
-                'endpoint_path': '/public/v1/documents',
-                'operation_id': 'document_create',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'document_create_request',
-                    'editor_ver',
-                ],
-                'required': [
-                    'document_create_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'document_create_request':
-                        (DocumentCreateRequest,),
-                    'editor_ver':
-                        (str,),
-                },
-                'attribute_map': {
-                    'editor_ver': 'editor_ver',
-                },
-                'location_map': {
-                    'document_create_request': 'body',
-                    'editor_ver': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.document_create_link_endpoint = _Endpoint(
-            settings={
-                'response_type': (DocumentCreateLinkResponse,),
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/session',
-                'operation_id': 'document_create_link',
-                'http_method': 'POST',
+                'endpoint_path': '/public/v1/documents/{id}/linked-objects/{linked_object_id}',
+                'operation_id': 'delete_linked_object',
+                'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'document_create_link_request',
+                    'linked_object_id',
                 ],
                 'required': [
                     'id',
-                    'document_create_link_request',
+                    'linked_object_id',
                 ],
                 'nullable': [
                 ],
@@ -197,15 +375,16 @@ class DocumentsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'document_create_link_request':
-                        (DocumentCreateLinkRequest,),
+                    'linked_object_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'linked_object_id': 'linked_object_id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'document_create_link_request': 'body',
+                    'linked_object_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -214,13 +393,11 @@ class DocumentsApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [
-                    'application/json'
-                ]
+                'content_type': [],
             },
             api_client=api_client
         )
-        self.document_details_endpoint = _Endpoint(
+        self.details_document_endpoint = _Endpoint(
             settings={
                 'response_type': (DocumentDetailsResponse,),
                 'auth': [
@@ -228,7 +405,7 @@ class DocumentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/details',
-                'operation_id': 'document_details',
+                'operation_id': 'details_document',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -272,7 +449,133 @@ class DocumentsApi(object):
             },
             api_client=api_client
         )
-        self.document_list_endpoint = _Endpoint(
+        self.download_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/download',
+                'operation_id': 'download_document',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'watermark_color',
+                    'watermark_font_size',
+                    'watermark_opacity',
+                    'watermark_text',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'watermark_color':
+                        (str,),
+                    'watermark_font_size':
+                        (int,),
+                    'watermark_opacity':
+                        (float,),
+                    'watermark_text':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'watermark_color': 'watermark_color',
+                    'watermark_font_size': 'watermark_font_size',
+                    'watermark_opacity': 'watermark_opacity',
+                    'watermark_text': 'watermark_text',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'watermark_color': 'query',
+                    'watermark_font_size': 'query',
+                    'watermark_opacity': 'query',
+                    'watermark_text': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/pdf',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.download_protected_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/download-protected',
+                'operation_id': 'download_protected_document',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/pdf',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_documents_endpoint = _Endpoint(
             settings={
                 'response_type': (DocumentListResponse,),
                 'auth': [
@@ -280,7 +583,7 @@ class DocumentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents',
-                'operation_id': 'document_list',
+                'operation_id': 'list_documents',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -427,303 +730,7 @@ class DocumentsApi(object):
             },
             api_client=api_client
         )
-        self.document_status_endpoint = _Endpoint(
-            settings={
-                'response_type': (DocumentStatusResponse,),
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}',
-                'operation_id': 'document_status',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.document_status_change_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/status',
-                'operation_id': 'document_status_change',
-                'http_method': 'PATCH',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'document_status_change_request',
-                ],
-                'required': [
-                    'id',
-                    'document_status_change_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    'document_status_change_request':
-                        (DocumentStatusChangeRequest,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'document_status_change_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.download_document_endpoint = _Endpoint(
-            settings={
-                'response_type': (file_type,),
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/download',
-                'operation_id': 'download_document',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'watermark_color',
-                    'watermark_font_size',
-                    'watermark_opacity',
-                    'watermark_text',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    'watermark_color':
-                        (str,),
-                    'watermark_font_size':
-                        (int,),
-                    'watermark_opacity':
-                        (float,),
-                    'watermark_text':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    'watermark_color': 'watermark_color',
-                    'watermark_font_size': 'watermark_font_size',
-                    'watermark_opacity': 'watermark_opacity',
-                    'watermark_text': 'watermark_text',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'watermark_color': 'query',
-                    'watermark_font_size': 'query',
-                    'watermark_opacity': 'query',
-                    'watermark_text': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/pdf',
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.download_protected_document_endpoint = _Endpoint(
-            settings={
-                'response_type': (file_type,),
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/download-protected',
-                'operation_id': 'download_protected_document',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                ],
-                'required': [
-                    'id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/pdf',
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.linked_object_delete_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/linked-objects/{linked_object_id}',
-                'operation_id': 'linked_object_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'linked_object_id',
-                ],
-                'required': [
-                    'id',
-                    'linked_object_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    'linked_object_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                    'linked_object_id': 'linked_object_id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'linked_object_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.linked_object_list_endpoint = _Endpoint(
+        self.list_linked_objects_endpoint = _Endpoint(
             settings={
                 'response_type': (LinkedObjectListResponse,),
                 'auth': [
@@ -731,7 +738,7 @@ class DocumentsApi(object):
                     'oauth2'
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/linked-objects',
-                'operation_id': 'linked_object_list',
+                'operation_id': 'list_linked_objects',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -772,65 +779,6 @@ class DocumentsApi(object):
                     'application/json'
                 ],
                 'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.linked_objects_create_endpoint = _Endpoint(
-            settings={
-                'response_type': (LinkedObjectCreateResponse,),
-                'auth': [
-                    'apiKey',
-                    'oauth2'
-                ],
-                'endpoint_path': '/public/v1/documents/{id}/linked-objects',
-                'operation_id': 'linked_objects_create',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'id',
-                    'linked_object_create_request',
-                ],
-                'required': [
-                    'id',
-                    'linked_object_create_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'id':
-                        (str,),
-                    'linked_object_create_request':
-                        (LinkedObjectCreateRequest,),
-                },
-                'attribute_map': {
-                    'id': 'id',
-                },
-                'location_map': {
-                    'id': 'path',
-                    'linked_object_create_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
             },
             api_client=api_client
         )
@@ -890,6 +838,58 @@ class DocumentsApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.status_document_endpoint = _Endpoint(
+            settings={
+                'response_type': (DocumentStatusResponse,),
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}',
+                'operation_id': 'status_document',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -1006,6 +1006,279 @@ class DocumentsApi(object):
             api_client=api_client
         )
 
+    def change_document_status(
+        self,
+        id,
+        document_status_change_request,
+        **kwargs
+    ):
+        """Document status change  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.change_document_status(id, document_status_change_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Specify document ID.
+            document_status_change_request (DocumentStatusChangeRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['document_status_change_request'] = \
+            document_status_change_request
+        return self.change_document_status_endpoint.call_with_http_info(**kwargs)
+
+    def create_document(
+        self,
+        document_create_request,
+        **kwargs
+    ):
+        """Create document  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_document(document_create_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            document_create_request (DocumentCreateRequest): Use a PandaDoc template or an existing PDF to create a document. See the creation request examples [by template](#/schemas/DocumentCreateByTemplateRequest) and [by pdf](#/schemas/DocumentCreateByPdfRequest) 
+
+        Keyword Args:
+            editor_ver (str): Set this parameter as `ev1` if you want to create a document from PDF with Classic Editor when both editors are enabled for the workspace.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DocumentCreateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['document_create_request'] = \
+            document_create_request
+        return self.create_document_endpoint.call_with_http_info(**kwargs)
+
+    def create_document_link(
+        self,
+        id,
+        document_create_link_request,
+        **kwargs
+    ):
+        """Create a Document Link  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_document_link(id, document_create_link_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Document ID
+            document_create_link_request (DocumentCreateLinkRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DocumentCreateLinkResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['document_create_link_request'] = \
+            document_create_link_request
+        return self.create_document_link_endpoint.call_with_http_info(**kwargs)
+
+    def create_linked_object(
+        self,
+        id,
+        linked_object_create_request,
+        **kwargs
+    ):
+        """Create Linked Object  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_linked_object(id, linked_object_create_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Specify document ID.
+            linked_object_create_request (LinkedObjectCreateRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            LinkedObjectCreateResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['linked_object_create_request'] = \
+            linked_object_create_request
+        return self.create_linked_object_endpoint.call_with_http_info(**kwargs)
+
     def delete_document(
         self,
         id,
@@ -1071,89 +1344,23 @@ class DocumentsApi(object):
             id
         return self.delete_document_endpoint.call_with_http_info(**kwargs)
 
-    def document_create(
-        self,
-        document_create_request,
-        **kwargs
-    ):
-        """Create document  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.document_create(document_create_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            document_create_request (DocumentCreateRequest): Use a PandaDoc template or an existing PDF to create a document. See the creation request examples [by template](#/schemas/DocumentCreateByTemplateRequest) and [by pdf](#/schemas/DocumentCreateByPdfRequest) 
-
-        Keyword Args:
-            editor_ver (str): Set this parameter as `ev1` if you want to create a document from PDF with Classic Editor when both editors are enabled for the workspace.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            DocumentCreateResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['document_create_request'] = \
-            document_create_request
-        return self.document_create_endpoint.call_with_http_info(**kwargs)
-
-    def document_create_link(
+    def delete_linked_object(
         self,
         id,
-        document_create_link_request,
+        linked_object_id,
         **kwargs
     ):
-        """Create a Document Link  # noqa: E501
+        """Delete Linked Object  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_create_link(id, document_create_link_request, async_req=True)
+        >>> thread = api.delete_linked_object(id, linked_object_id, async_req=True)
         >>> result = thread.get()
 
         Args:
-            id (str): Document ID
-            document_create_link_request (DocumentCreateLinkRequest):
+            id (str): Specify document ID.
+            linked_object_id (str): Specify linked object ID.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1177,7 +1384,7 @@ class DocumentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DocumentCreateLinkResponse
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1202,11 +1409,11 @@ class DocumentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        kwargs['document_create_link_request'] = \
-            document_create_link_request
-        return self.document_create_link_endpoint.call_with_http_info(**kwargs)
+        kwargs['linked_object_id'] = \
+            linked_object_id
+        return self.delete_linked_object_endpoint.call_with_http_info(**kwargs)
 
-    def document_details(
+    def details_document(
         self,
         id,
         **kwargs
@@ -1216,7 +1423,7 @@ class DocumentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.document_details(id, async_req=True)
+        >>> thread = api.details_document(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -1269,222 +1476,7 @@ class DocumentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.document_details_endpoint.call_with_http_info(**kwargs)
-
-    def document_list(
-        self,
-        **kwargs
-    ):
-        """List documents  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.document_list(async_req=True)
-        >>> result = thread.get()
-
-
-        Keyword Args:
-            completed_from (str): Return results where the `date_completed` field (ISO 8601) is greater than or equal to this value.. [optional]
-            completed_to (str): Return results where the `date_completed` field (ISO 8601) is less than or equal to this value.. [optional]
-            contact_id (str): Returns results where 'contact_id' is present in document as recipient or approver. [optional]
-            count (int): Specify how many document results to return. Default is 50 documents, maximum is 100 documents.. [optional]
-            created_from (str): Return results where the `date_created` field (ISO 8601) is greater than or equal to this value.. [optional]
-            created_to (str): Return results where the `date_created` field (ISO 8601) is less than this value.. [optional]
-            deleted (bool): Returns only the deleted documents.. [optional]
-            id (str): [optional]
-            folder_uuid (str): The UUID of the folder where the documents are stored.. [optional]
-            form_id (str): Specify the form used for documents creation. This parameter can't be used with template_id.. [optional]
-            membership_id (str): Returns results where 'membership_id' is present in document as owner (should be member uuid). [optional]
-            metadata (str): Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required.. [optional]
-            modified_from (str): Return results where the `date_modified` field (iso-8601) is greater than or equal to this value.. [optional]
-            modified_to (str): Return results where the `date_modified` field (iso-8601) is less than this value.. [optional]
-            order_by (DocumentOrderingFieldsEnum): Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC.. [optional]
-            page (int): Specify which page of the dataset to return.. [optional]
-            q (str): Search query. Filter by document reference number (this token is stored on the template level) or name.. [optional]
-            status (DocumentStatusEnum): Specify the status of documents to return.   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
-            status__ne (DocumentStatusEnum): Specify the status of documents to return (exclude).   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
-            tag (str): Search tag. Filter by document tag.. [optional]
-            template_id (str): Specify the template used for documents creation. Parameter can't be used with form_id.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            DocumentListResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.document_list_endpoint.call_with_http_info(**kwargs)
-
-    def document_status(
-        self,
-        id,
-        **kwargs
-    ):
-        """Document status  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.document_status(id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (str): Specify document ID.
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            DocumentStatusResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        return self.document_status_endpoint.call_with_http_info(**kwargs)
-
-    def document_status_change(
-        self,
-        id,
-        document_status_change_request,
-        **kwargs
-    ):
-        """Document status change  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.document_status_change(id, document_status_change_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (str): Specify document ID.
-            document_status_change_request (DocumentStatusChangeRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['document_status_change_request'] = \
-            document_status_change_request
-        return self.document_status_change_endpoint.call_with_http_info(**kwargs)
+        return self.details_document_endpoint.call_with_http_info(**kwargs)
 
     def download_document(
         self,
@@ -1621,25 +1613,41 @@ class DocumentsApi(object):
             id
         return self.download_protected_document_endpoint.call_with_http_info(**kwargs)
 
-    def linked_object_delete(
+    def list_documents(
         self,
-        id,
-        linked_object_id,
         **kwargs
     ):
-        """Delete Linked Object  # noqa: E501
+        """List documents  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.linked_object_delete(id, linked_object_id, async_req=True)
+        >>> thread = api.list_documents(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            id (str): Specify document ID.
-            linked_object_id (str): Specify linked object ID.
 
         Keyword Args:
+            completed_from (str): Return results where the `date_completed` field (ISO 8601) is greater than or equal to this value.. [optional]
+            completed_to (str): Return results where the `date_completed` field (ISO 8601) is less than or equal to this value.. [optional]
+            contact_id (str): Returns results where 'contact_id' is present in document as recipient or approver. [optional]
+            count (int): Specify how many document results to return. Default is 50 documents, maximum is 100 documents.. [optional]
+            created_from (str): Return results where the `date_created` field (ISO 8601) is greater than or equal to this value.. [optional]
+            created_to (str): Return results where the `date_created` field (ISO 8601) is less than this value.. [optional]
+            deleted (bool): Returns only the deleted documents.. [optional]
+            id (str): [optional]
+            folder_uuid (str): The UUID of the folder where the documents are stored.. [optional]
+            form_id (str): Specify the form used for documents creation. This parameter can't be used with template_id.. [optional]
+            membership_id (str): Returns results where 'membership_id' is present in document as owner (should be member uuid). [optional]
+            metadata (str): Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required.. [optional]
+            modified_from (str): Return results where the `date_modified` field (iso-8601) is greater than or equal to this value.. [optional]
+            modified_to (str): Return results where the `date_modified` field (iso-8601) is less than this value.. [optional]
+            order_by (DocumentOrderingFieldsEnum): Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC.. [optional]
+            page (int): Specify which page of the dataset to return.. [optional]
+            q (str): Search query. Filter by document reference number (this token is stored on the template level) or name.. [optional]
+            status (DocumentStatusEnum): Specify the status of documents to return.   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
+            status__ne (DocumentStatusEnum): Specify the status of documents to return (exclude).   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
+            tag (str): Search tag. Filter by document tag.. [optional]
+            template_id (str): Specify the template used for documents creation. Parameter can't be used with form_id.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1661,7 +1669,7 @@ class DocumentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            DocumentListResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1684,13 +1692,9 @@ class DocumentsApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['linked_object_id'] = \
-            linked_object_id
-        return self.linked_object_delete_endpoint.call_with_http_info(**kwargs)
+        return self.list_documents_endpoint.call_with_http_info(**kwargs)
 
-    def linked_object_list(
+    def list_linked_objects(
         self,
         id,
         **kwargs
@@ -1700,7 +1704,7 @@ class DocumentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.linked_object_list(id, async_req=True)
+        >>> thread = api.list_linked_objects(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -1753,76 +1757,7 @@ class DocumentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
-        return self.linked_object_list_endpoint.call_with_http_info(**kwargs)
-
-    def linked_objects_create(
-        self,
-        id,
-        linked_object_create_request,
-        **kwargs
-    ):
-        """Create Linked Object  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.linked_objects_create(id, linked_object_create_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            id (str): Specify document ID.
-            linked_object_create_request (LinkedObjectCreateRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            LinkedObjectCreateResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['id'] = \
-            id
-        kwargs['linked_object_create_request'] = \
-            linked_object_create_request
-        return self.linked_objects_create_endpoint.call_with_http_info(**kwargs)
+        return self.list_linked_objects_endpoint.call_with_http_info(**kwargs)
 
     def send_document(
         self,
@@ -1892,6 +1827,71 @@ class DocumentsApi(object):
         kwargs['document_send_request'] = \
             document_send_request
         return self.send_document_endpoint.call_with_http_info(**kwargs)
+
+    def status_document(
+        self,
+        id,
+        **kwargs
+    ):
+        """Document status  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.status_document(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Specify document ID.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            DocumentStatusResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        return self.status_document_endpoint.call_with_http_info(**kwargs)
 
     def transfer_all_documents_ownership(
         self,

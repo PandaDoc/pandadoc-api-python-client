@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | [optional] 
+**name** | **str** |  | 
+**price** | **float** |  | 
+**qty** | **int** |  | 
 **description** | **str, none_type** |  | [optional] 
-**price** | **float** |  | [optional] 
 **cost** | **float** |  | [optional] 
-**qty** | **int** |  | [optional] 
 **sku** | **str, none_type** |  | [optional] 
 **discount** | [**PricingTableRequestDataDiscount**](PricingTableRequestDataDiscount.md) |  | [optional] 
 **tax_first** | [**PricingTableRequestDataDiscount**](PricingTableRequestDataDiscount.md) |  | [optional] 
