@@ -1,4 +1,4 @@
-# PricingTableRequestDataDiscount
+# PricingTableRequestRowDataTaxFirst
 
 
 ## Properties

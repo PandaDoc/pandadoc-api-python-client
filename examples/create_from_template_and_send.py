@@ -14,15 +14,8 @@ from pandadoc_client.model.document_send_request import DocumentSendRequest
 from pandadoc_client import ApiClient, Configuration
 from pandadoc_client.api import documents_api
 from pandadoc_client.model.pricing_table_request import PricingTableRequest
-from pandadoc_client.model.pricing_table_request_data import PricingTableRequestData
-from pandadoc_client.model.pricing_table_request_data_discount import (
-    PricingTableRequestDataDiscount,
-)
 from pandadoc_client.model.pricing_table_request_options import (
     PricingTableRequestOptions,
-)
-from pandadoc_client.model.pricing_table_request_options1 import (
-    PricingTableRequestOptions1,
 )
 from pandadoc_client.model.pricing_table_request_options_discount import (
     PricingTableRequestOptionsDiscount,
@@ -33,6 +26,11 @@ from pandadoc_client.model.pricing_table_request_options_tax_first import (
 from pandadoc_client.model.pricing_table_request_options_tax_second import (
     PricingTableRequestOptionsTaxSecond,
 )
+from pandadoc_client.model.pricing_table_request_row_data import PricingTableRequestRowData
+from pandadoc_client.model.pricing_table_request_row_data_discount import PricingTableRequestRowDataDiscount
+from pandadoc_client.model.pricing_table_request_row_data_tax_first import PricingTableRequestRowDataTaxFirst
+from pandadoc_client.model.pricing_table_request_row_data_tax_second import PricingTableRequestRowDataTaxSecond
+from pandadoc_client.model.pricing_table_request_row_options import PricingTableRequestRowOptions
 from pandadoc_client.model.pricing_table_request_rows import PricingTableRequestRows
 from pandadoc_client.model.pricing_table_request_sections import (
     PricingTableRequestSections,
@@ -82,27 +80,29 @@ def create_doc_from_sample_template(api_instance):
                     multichoice_enabled=False,
                     rows=[
                         PricingTableRequestRows(
-                            options=PricingTableRequestOptions1(
+                            options=PricingTableRequestRowOptions(
                                 qty_editable=True,
                                 optional_selected=True,
                                 optional=True,
                             ),
-                            data=PricingTableRequestData(
+                            data=PricingTableRequestRowData(
                                 name='Toy Panda',
                                 description='Fluffy!',
                                 price=10.0,
                                 cost=8.5,
                                 qty=3,
                                 sku='toy_panda',
-                                discount=PricingTableRequestDataDiscount(
+                                discount=PricingTableRequestRowDataDiscount(
                                     value=7.5,
                                     type='percent',
                                 ),
-                                tax_first=PricingTableRequestDataDiscount(
+                                tax_first=PricingTableRequestRowDataTaxFirst(
+                                    name='tax first',
                                     value=7.5,
                                     type='percent',
                                 ),
-                                tax_second=PricingTableRequestDataDiscount(
+                                tax_second=PricingTableRequestRowDataTaxSecond(
+                                    name='tax second',
                                     value=7.5,
                                     type='percent',
                                 ),

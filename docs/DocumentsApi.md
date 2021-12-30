@@ -209,27 +209,27 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                         multichoice_enabled=False,
                         rows=[
                             PricingTableRequestRows(
-                                options=PricingTableRequestOptions1(
+                                options=PricingTableRequestRowOptions(
                                     qty_editable=True,
                                     optional_selected=True,
                                     optional=True,
                                 ),
-                                data=PricingTableRequestData(
+                                data=PricingTableRequestRowData(
                                     name="Toy Panda",
                                     description="Fluffy!",
                                     price=10,
                                     cost=8.5,
                                     qty=3,
                                     sku="toy_panda",
-                                    discount=PricingTableRequestDataDiscount(
+                                    discount=PricingTableRequestRowDataDiscount(
                                         value=7.5,
                                         type="percent",
                                     ),
-                                    tax_first=PricingTableRequestDataDiscount(
+                                    tax_first=PricingTableRequestRowDataTaxFirst(
                                         value=7.5,
                                         type="percent",
                                     ),
-                                    tax_second=PricingTableRequestDataDiscount(
+                                    tax_second=PricingTableRequestRowDataTaxSecond(
                                         value=7.5,
                                         type="percent",
                                     ),
@@ -276,27 +276,27 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                                         multichoice_enabled=False,
                                         rows=[
                                             PricingTableRequestRows(
-                                                options=PricingTableRequestOptions1(
+                                                options=PricingTableRequestRowOptions(
                                                     qty_editable=True,
                                                     optional_selected=True,
                                                     optional=True,
                                                 ),
-                                                data=PricingTableRequestData(
+                                                data=PricingTableRequestRowData(
                                                     name="Toy Panda",
                                                     description="Fluffy!",
                                                     price=10,
                                                     cost=8.5,
                                                     qty=3,
                                                     sku="toy_panda",
-                                                    discount=PricingTableRequestDataDiscount(
+                                                    discount=PricingTableRequestRowDataDiscount(
                                                         value=7.5,
                                                         type="percent",
                                                     ),
-                                                    tax_first=PricingTableRequestDataDiscount(
+                                                    tax_first=PricingTableRequestRowDataTaxFirst(
                                                         value=7.5,
                                                         type="percent",
                                                     ),
-                                                    tax_second=PricingTableRequestDataDiscount(
+                                                    tax_second=PricingTableRequestRowDataTaxSecond(
                                                         value=7.5,
                                                         type="percent",
                                                     ),
@@ -1145,8 +1145,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Bad Request |  -  |
-**401** | Bad Request |  -  |
-**403** | Authentication error |  -  |
+**401** | Authentication error |  -  |
+**403** | Permission error |  -  |
 **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

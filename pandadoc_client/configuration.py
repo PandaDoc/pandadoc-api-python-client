@@ -198,6 +198,9 @@ conf = pandadoc_client.Configuration(
         self.proxy = None
         """Proxy URL
         """
+        self.no_proxy = None
+        """bypass proxy for host in the no_proxy list.
+        """
         self.proxy_headers = None
         """Proxy headers
         """
@@ -411,8 +414,8 @@ conf = pandadoc_client.Configuration(
         return "Python SDK Debug Report:\n"\
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
-               "Version of the API: 2.0.0\n"\
-               "SDK Package Version: 3.0.0".\
+               "Version of the API: 4.0.0\n"\
+               "SDK Package Version: 4.0.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
