@@ -23,16 +23,16 @@ from pandadoc_client.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pandadoc_client.model.pricing_table_request_data import PricingTableRequestData
-    from pandadoc_client.model.pricing_table_request_options1 import PricingTableRequestOptions1
-    globals()['PricingTableRequestData'] = PricingTableRequestData
-    globals()['PricingTableRequestOptions1'] = PricingTableRequestOptions1
+    from pandadoc_client.model.pricing_table_request_row_data import PricingTableRequestRowData
+    from pandadoc_client.model.pricing_table_request_row_options import PricingTableRequestRowOptions
+    globals()['PricingTableRequestRowData'] = PricingTableRequestRowData
+    globals()['PricingTableRequestRowOptions'] = PricingTableRequestRowOptions
 
 
 class PricingTableRequestRows(ModelNormal):
@@ -88,8 +88,8 @@ class PricingTableRequestRows(ModelNormal):
         """
         lazy_import()
         return {
-            'options': (PricingTableRequestOptions1,),  # noqa: E501
-            'data': (PricingTableRequestData,),  # noqa: E501
+            'options': (PricingTableRequestRowOptions,),  # noqa: E501
+            'data': (PricingTableRequestRowData,),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
@@ -145,8 +145,8 @@ class PricingTableRequestRows(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (PricingTableRequestOptions1): [optional]  # noqa: E501
-            data (PricingTableRequestData): [optional]  # noqa: E501
+            options (PricingTableRequestRowOptions): [optional]  # noqa: E501
+            data (PricingTableRequestRowData): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
@@ -229,8 +229,8 @@ class PricingTableRequestRows(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options (PricingTableRequestOptions1): [optional]  # noqa: E501
-            data (PricingTableRequestData): [optional]  # noqa: E501
+            options (PricingTableRequestRowOptions): [optional]  # noqa: E501
+            data (PricingTableRequestRowData): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 

@@ -23,8 +23,8 @@ from pandadoc_client.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pandadoc_client.exceptions import ApiAttributeError
 
 
@@ -32,14 +32,12 @@ def lazy_import():
     from pandadoc_client.model.content_library_item_response_created_by import ContentLibraryItemResponseCreatedBy
     from pandadoc_client.model.pricing_tables_response import PricingTablesResponse
     from pandadoc_client.model.template_details_response_content_placeholders import TemplateDetailsResponseContentPlaceholders
-    from pandadoc_client.model.template_details_response_fields import TemplateDetailsResponseFields
     from pandadoc_client.model.template_details_response_images import TemplateDetailsResponseImages
     from pandadoc_client.model.template_details_response_roles import TemplateDetailsResponseRoles
     from pandadoc_client.model.template_details_response_tokens import TemplateDetailsResponseTokens
     globals()['ContentLibraryItemResponseCreatedBy'] = ContentLibraryItemResponseCreatedBy
     globals()['PricingTablesResponse'] = PricingTablesResponse
     globals()['TemplateDetailsResponseContentPlaceholders'] = TemplateDetailsResponseContentPlaceholders
-    globals()['TemplateDetailsResponseFields'] = TemplateDetailsResponseFields
     globals()['TemplateDetailsResponseImages'] = TemplateDetailsResponseImages
     globals()['TemplateDetailsResponseRoles'] = TemplateDetailsResponseRoles
     globals()['TemplateDetailsResponseTokens'] = TemplateDetailsResponseTokens
@@ -105,7 +103,7 @@ class TemplateDetailsResponse(ModelNormal):
             'created_by': (ContentLibraryItemResponseCreatedBy,),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tokens': ([TemplateDetailsResponseTokens],),  # noqa: E501
-            'fields': ([TemplateDetailsResponseFields],),  # noqa: E501
+            'fields': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
             'pricing': (PricingTablesResponse,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
             'roles': ([TemplateDetailsResponseRoles],),  # noqa: E501
@@ -184,7 +182,7 @@ class TemplateDetailsResponse(ModelNormal):
             created_by (ContentLibraryItemResponseCreatedBy): [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tokens ([TemplateDetailsResponseTokens]): [optional]  # noqa: E501
-            fields ([TemplateDetailsResponseFields]): [optional]  # noqa: E501
+            fields ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             pricing (PricingTablesResponse): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             roles ([TemplateDetailsResponseRoles]): [optional]  # noqa: E501
@@ -279,7 +277,7 @@ class TemplateDetailsResponse(ModelNormal):
             created_by (ContentLibraryItemResponseCreatedBy): [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tokens ([TemplateDetailsResponseTokens]): [optional]  # noqa: E501
-            fields ([TemplateDetailsResponseFields]): [optional]  # noqa: E501
+            fields ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
             pricing (PricingTablesResponse): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             roles ([TemplateDetailsResponseRoles]): [optional]  # noqa: E501

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created_by** | [**ContentLibraryItemResponseCreatedBy**](ContentLibraryItemResponseCreatedBy.md) |  | [optional] 
 **metadata** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
 **tokens** | [**[TemplateDetailsResponseTokens]**](TemplateDetailsResponseTokens.md) |  | [optional] 
-**fields** | [**[TemplateDetailsResponseFields]**](TemplateDetailsResponseFields.md) |  | [optional] 
+**fields** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]** |  | [optional] 
 **pricing** | [**PricingTablesResponse**](PricingTablesResponse.md) |  | [optional] 
 **tags** | **[str]** |  | [optional] 
 **roles** | [**[TemplateDetailsResponseRoles]**](TemplateDetailsResponseRoles.md) |  | [optional] 
