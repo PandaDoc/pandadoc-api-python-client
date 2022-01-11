@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**DocumentStatusEnum**](DocumentStatusEnum.md) |  | 
+**status** | [**DocumentStatusRequestEnum**](DocumentStatusRequestEnum.md) |  | 
 **note** | **str** | Provide “private notes” regarding the manual status change. | [optional] 
 **notify_recipients** | **bool** | Send a notification email about the status change to all recipients. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

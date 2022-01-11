@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**DocumentStatusEnum**](DocumentStatusEnum.md) |  | [optional] 
 **date_created** | **str** |  | [optional] 
 **date_modified** | **str** |  | [optional] 
 **expiration_date** | **str, none_type** |  | [optional] 

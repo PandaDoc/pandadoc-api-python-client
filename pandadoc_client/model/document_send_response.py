@@ -88,6 +88,7 @@ class DocumentSendResponse(ModelNormal):
             'expiration_date': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'uuid': (str,),  # noqa: E501
+            'shared_link': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class DocumentSendResponse(ModelNormal):
         'expiration_date': 'expiration_date',  # noqa: E501
         'version': 'version',  # noqa: E501
         'uuid': 'uuid',  # noqa: E501
+        'shared_link': 'shared_link',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,6 +157,7 @@ class DocumentSendResponse(ModelNormal):
             expiration_date (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             uuid (str): [optional]  # noqa: E501
+            shared_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,6 +247,7 @@ class DocumentSendResponse(ModelNormal):
             expiration_date (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             uuid (str): [optional]  # noqa: E501
+            shared_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
