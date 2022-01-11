@@ -29,8 +29,8 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pandadoc_client.model.document_status_enum import DocumentStatusEnum
-    globals()['DocumentStatusEnum'] = DocumentStatusEnum
+    from pandadoc_client.model.document_status_request_enum import DocumentStatusRequestEnum
+    globals()['DocumentStatusRequestEnum'] = DocumentStatusRequestEnum
 
 
 class DocumentStatusChangeRequest(ModelNormal):
@@ -86,7 +86,7 @@ class DocumentStatusChangeRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (DocumentStatusEnum,),  # noqa: E501
+            'status': (DocumentStatusRequestEnum,),  # noqa: E501
             'note': (str,),  # noqa: E501
             'notify_recipients': (bool,),  # noqa: E501
         }
@@ -113,7 +113,7 @@ class DocumentStatusChangeRequest(ModelNormal):
         """DocumentStatusChangeRequest - a model defined in OpenAPI
 
         Args:
-            status (DocumentStatusEnum):
+            status (DocumentStatusRequestEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class DocumentStatusChangeRequest(ModelNormal):
         """DocumentStatusChangeRequest - a model defined in OpenAPI
 
         Args:
-            status (DocumentStatusEnum):
+            status (DocumentStatusRequestEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -89,6 +89,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             'first_name': (str,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'has_completed': (bool,),  # noqa: E501
+            'shared_link': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
         'first_name': 'first_name',  # noqa: E501
         'email': 'email',  # noqa: E501
         'has_completed': 'has_completed',  # noqa: E501
+        'shared_link': 'shared_link',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +160,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             first_name (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             has_completed (bool): [optional]  # noqa: E501
+            shared_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +251,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             first_name (str): [optional]  # noqa: E501
             email (str): [optional]  # noqa: E501
             has_completed (bool): [optional]  # noqa: E501
+            shared_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

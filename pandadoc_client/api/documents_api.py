@@ -30,7 +30,7 @@ from pandadoc_client.model.document_ordering_fields_enum import DocumentOrdering
 from pandadoc_client.model.document_send_request import DocumentSendRequest
 from pandadoc_client.model.document_send_response import DocumentSendResponse
 from pandadoc_client.model.document_status_change_request import DocumentStatusChangeRequest
-from pandadoc_client.model.document_status_enum import DocumentStatusEnum
+from pandadoc_client.model.document_status_request_enum import DocumentStatusRequestEnum
 from pandadoc_client.model.document_status_response import DocumentStatusResponse
 from pandadoc_client.model.document_transfer_all_ownership_request import DocumentTransferAllOwnershipRequest
 from pandadoc_client.model.document_transfer_ownership_request import DocumentTransferOwnershipRequest
@@ -665,9 +665,9 @@ class DocumentsApi(object):
                     'q':
                         (str,),
                     'status':
-                        (DocumentStatusEnum,),
+                        (DocumentStatusRequestEnum,),
                     'status__ne':
-                        (DocumentStatusEnum,),
+                        (DocumentStatusRequestEnum,),
                     'tag':
                         (str,),
                     'template_id':
@@ -1689,8 +1689,8 @@ class DocumentsApi(object):
             order_by (DocumentOrderingFieldsEnum): Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC.. [optional]
             page (int): Specify which page of the dataset to return.. [optional]
             q (str): Search query. Filter by document reference number (this token is stored on the template level) or name.. [optional]
-            status (DocumentStatusEnum): Specify the status of documents to return.   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
-            status__ne (DocumentStatusEnum): Specify the status of documents to return (exclude).   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
+            status (DocumentStatusRequestEnum): Specify the status of documents to return.   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
+            status__ne (DocumentStatusRequestEnum): Specify the status of documents to return (exclude).   * 0: document.draft   * 1: document.sent   * 2: document.completed   * 3: document.uploaded   * 4: document.error   * 5: document.viewed   * 6: document.waiting_approval   * 7: document.approved   * 8: document.rejected   * 9: document.waiting_pay   * 10: document.paid   * 11: document.voided   * 12: document.declined . [optional]
             tag (str): Search tag. Filter by document tag.. [optional]
             template_id (str): Specify the template used for documents creation. Parameter can't be used with form_id.. [optional]
             _return_http_data_only (bool): response data without head status
