@@ -82,6 +82,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
         return {
             'recipient_type': (str,),  # noqa: E501
             'role': (str,),  # noqa: E501
+            'roles': ([str],),  # noqa: E501
             'last_name': (str,),  # noqa: E501
             'signing_order': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
@@ -100,6 +101,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
     attribute_map = {
         'recipient_type': 'recipient_type',  # noqa: E501
         'role': 'role',  # noqa: E501
+        'roles': 'roles',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'signing_order': 'signing_order',  # noqa: E501
         'id': 'id',  # noqa: E501
@@ -153,6 +155,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recipient_type (str): [optional]  # noqa: E501
             role (str): [optional]  # noqa: E501
+            roles ([str]): [optional]  # noqa: E501
             last_name (str): [optional]  # noqa: E501
             signing_order (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
@@ -244,6 +247,7 @@ class DocumentDetailsResponseRecipients(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             recipient_type (str): [optional]  # noqa: E501
             role (str): [optional]  # noqa: E501
+            roles ([str]): [optional]  # noqa: E501
             last_name (str): [optional]  # noqa: E501
             signing_order (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501

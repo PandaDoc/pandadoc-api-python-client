@@ -64,6 +64,7 @@ class DocumentStatusEnum(ModelSimple):
             'PAID': "document.paid",
             'VOIDED': "document.voided",
             'DECLINED': "document.declined",
+            'EXTERNAL_REVIEW': "document.external_review",
         },
     }
 
@@ -115,10 +116,10 @@ class DocumentStatusEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", ]  # noqa: E501
+            args[0] (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", "document.external_review", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", ]  # noqa: E501
+            value (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", "document.external_review", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -205,10 +206,10 @@ class DocumentStatusEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", ]  # noqa: E501
+            args[0] (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", "document.external_review", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", ]  # noqa: E501
+            value (str):, must be one of ["document.draft", "document.sent", "document.completed", "document.uploaded", "document.error", "document.viewed", "document.waiting_approval", "document.approved", "document.rejected", "document.waiting_pay", "document.paid", "document.voided", "document.declined", "document.external_review", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
