@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recipient_type** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
+**roles** | **[str]** |  | [optional] 
 **last_name** | **str** |  | [optional] 
 **signing_order** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **id** | **str** |  | [optional] 
