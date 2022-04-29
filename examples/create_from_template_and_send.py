@@ -14,22 +14,6 @@ from pandadoc_client.model.document_send_request import DocumentSendRequest
 from pandadoc_client import ApiClient, Configuration
 from pandadoc_client.api import documents_api
 from pandadoc_client.model.pricing_table_request import PricingTableRequest
-from pandadoc_client.model.pricing_table_request_options import (
-    PricingTableRequestOptions,
-)
-from pandadoc_client.model.pricing_table_request_options_discount import (
-    PricingTableRequestOptionsDiscount,
-)
-from pandadoc_client.model.pricing_table_request_options_tax_first import (
-    PricingTableRequestOptionsTaxFirst,
-)
-from pandadoc_client.model.pricing_table_request_options_tax_second import (
-    PricingTableRequestOptionsTaxSecond,
-)
-from pandadoc_client.model.pricing_table_request_row_data import PricingTableRequestRowData
-from pandadoc_client.model.pricing_table_request_row_data_discount import PricingTableRequestRowDataDiscount
-from pandadoc_client.model.pricing_table_request_row_data_tax_first import PricingTableRequestRowDataTaxFirst
-from pandadoc_client.model.pricing_table_request_row_data_tax_second import PricingTableRequestRowDataTaxSecond
 from pandadoc_client.model.pricing_table_request_row_options import PricingTableRequestRowOptions
 from pandadoc_client.model.pricing_table_request_rows import PricingTableRequestRows
 from pandadoc_client.model.pricing_table_request_sections import (
@@ -55,24 +39,19 @@ def create_doc_from_sample_template(api_instance):
     pricing_tables = [
         PricingTableRequest(
             name='Pricing Table 1',
-            options=PricingTableRequestOptions(
-                currency='USD',
-                discount=PricingTableRequestOptionsDiscount(
-                    type='absolute',
-                    name='Global Discount',
-                    value=2.26,
-                ),
-                tax_first=PricingTableRequestOptionsTaxFirst(
-                    type='percent',
-                    name='Tax First',
-                    value=2.26,
-                ),
-                tax_second=PricingTableRequestOptionsTaxSecond(
-                    type='percent',
-                    name='Tax Second',
-                    value=2.26,
-                ),
-            ),
+            data_merge=True,
+            options={
+                "Discount": {
+                    "type": "absolute",
+                    "name": "Global Discount",
+                    "value": 10
+                },
+                "Tax": {
+                    "type": "percent",
+                    "name": "Tax First",
+                    "value": 15
+                }
+            },
             sections=[
                 PricingTableRequestSections(
                     title='Sample Section',
@@ -85,28 +64,22 @@ def create_doc_from_sample_template(api_instance):
                                 optional_selected=True,
                                 optional=True,
                             ),
-                            data=PricingTableRequestRowData(
-                                name='Toy Panda',
-                                description='Fluffy!',
-                                price=10.0,
-                                cost=8.5,
-                                qty=3,
-                                sku='toy_panda',
-                                discount=PricingTableRequestRowDataDiscount(
-                                    value=7.5,
-                                    type='percent',
-                                ),
-                                tax_first=PricingTableRequestRowDataTaxFirst(
-                                    name='tax first',
-                                    value=7.5,
-                                    type='percent',
-                                ),
-                                tax_second=PricingTableRequestRowDataTaxSecond(
-                                    name='tax second',
-                                    value=7.5,
-                                    type='percent',
-                                ),
-                            ),
+                            data={
+                                "Name": "Toy Panda",
+                                "Description": "Fluffy",
+                                "Price": 10,
+                                "Cost": 8.5,
+                                "QTY": 3,
+                                "SKU": "toy_panda",
+                                "Discount": {
+                                    "value": 10,
+                                    "type": "percent"
+                                },
+                                "Tax": {
+                                    "value": 10,
+                                    "type": "percent"
+                                }
+                            },
                             custom_fields={},
                         ),
                     ],

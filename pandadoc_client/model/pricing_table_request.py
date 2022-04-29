@@ -29,9 +29,7 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pandadoc_client.model.pricing_table_request_options import PricingTableRequestOptions
     from pandadoc_client.model.pricing_table_request_sections import PricingTableRequestSections
-    globals()['PricingTableRequestOptions'] = PricingTableRequestOptions
     globals()['PricingTableRequestSections'] = PricingTableRequestSections
 
 
@@ -90,7 +88,7 @@ class PricingTableRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'data_merge': (bool,),  # noqa: E501
-            'options': (PricingTableRequestOptions,),  # noqa: E501
+            'options': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'sections': ([PricingTableRequestSections],),  # noqa: E501
         }
 
@@ -151,7 +149,7 @@ class PricingTableRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data_merge (bool): When set to true all field names in data rows must be passed as external names defined in the template.. [optional]  # noqa: E501
-            options (PricingTableRequestOptions): [optional]  # noqa: E501
+            options ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             sections ([PricingTableRequestSections]): [optional]  # noqa: E501
         """
 
@@ -239,7 +237,7 @@ class PricingTableRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data_merge (bool): When set to true all field names in data rows must be passed as external names defined in the template.. [optional]  # noqa: E501
-            options (PricingTableRequestOptions): [optional]  # noqa: E501
+            options ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             sections ([PricingTableRequestSections]): [optional]  # noqa: E501
         """
 
