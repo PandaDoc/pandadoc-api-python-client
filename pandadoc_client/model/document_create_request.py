@@ -97,6 +97,7 @@ class DocumentCreateRequest(ModelNormal):
             'name': (str,),  # noqa: E501
             'template_uuid': (str,),  # noqa: E501
             'folder_uuid': (str,),  # noqa: E501
+            'owner': ({str: (str,)},),  # noqa: E501
             'recipients': ([DocumentCreateRequestRecipients],),  # noqa: E501
             'tokens': ([DocumentCreateByTemplateRequestTokens],),  # noqa: E501
             'fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
@@ -118,6 +119,7 @@ class DocumentCreateRequest(ModelNormal):
         'name': 'name',  # noqa: E501
         'template_uuid': 'template_uuid',  # noqa: E501
         'folder_uuid': 'folder_uuid',  # noqa: E501
+        'owner': 'owner',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
         'tokens': 'tokens',  # noqa: E501
         'fields': 'fields',  # noqa: E501
@@ -174,6 +176,7 @@ class DocumentCreateRequest(ModelNormal):
             name (str): Name the document you are creating.. [optional]  # noqa: E501
             template_uuid (str): ID of the template you want to use. You can copy it from an in-app template URL such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.. [optional]  # noqa: E501
             folder_uuid (str): ID of the folder where the created document should be stored.. [optional]  # noqa: E501
+            owner ({str: (str,)}): You can set an owner of a document as an `email` or `membership_id`. [optional]  # noqa: E501
             recipients ([DocumentCreateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the `email` parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter is passed, a person is assigned all fields matching their corresponding role. If a role was not passed, a person receives a read-only link to view the document. If the `first_name` and `last_name` are not passed, the system does this 1. Creates a new contact, if none exists with the given `email`; or 2. Gets the existing contact with the given `email` that already exists.. [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): You can pass a list of fields/values to pre-fill fields used in a template. Please note Signature field can't be pre-filled.. [optional]  # noqa: E501
@@ -268,6 +271,7 @@ class DocumentCreateRequest(ModelNormal):
             name (str): Name the document you are creating.. [optional]  # noqa: E501
             template_uuid (str): ID of the template you want to use. You can copy it from an in-app template URL such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.. [optional]  # noqa: E501
             folder_uuid (str): ID of the folder where the created document should be stored.. [optional]  # noqa: E501
+            owner ({str: (str,)}): You can set an owner of a document as an `email` or `membership_id`. [optional]  # noqa: E501
             recipients ([DocumentCreateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the `email` parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter is passed, a person is assigned all fields matching their corresponding role. If a role was not passed, a person receives a read-only link to view the document. If the `first_name` and `last_name` are not passed, the system does this 1. Creates a new contact, if none exists with the given `email`; or 2. Gets the existing contact with the given `email` that already exists.. [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): You can pass a list of fields/values to pre-fill fields used in a template. Please note Signature field can't be pre-filled.. [optional]  # noqa: E501

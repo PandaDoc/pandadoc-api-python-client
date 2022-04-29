@@ -157,6 +157,9 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         name="API Sample Document from PandaDoc Template",
         template_uuid="hryJY9mqYZHjQCYQuSjRQg",
         folder_uuid="QMDSzwabfFzTgjW4kUijqQ",
+        owner={
+            "key": "key_example",
+        },
         recipients=[
             DocumentCreateRequestRecipients(
                 email="josh@example.com",
@@ -185,24 +188,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
             PricingTableRequest(
                 name="Pricing Table 1",
                 data_merge=True,
-                options=PricingTableRequestOptions(
-                    currency="USD",
-                    discount=PricingTableRequestOptionsDiscount(
-                        type="absolute",
-                        name="Global Discount",
-                        value=2.26,
-                    ),
-                    tax_first=PricingTableRequestOptionsTaxFirst(
-                        type="percent",
-                        name="Tax First",
-                        value=2.26,
-                    ),
-                    tax_second=PricingTableRequestOptionsTaxSecond(
-                        type="percent",
-                        name="Tax Second",
-                        value=2.26,
-                    ),
-                ),
+                options={},
                 sections=[
                     PricingTableRequestSections(
                         title="Sample Section",
@@ -215,26 +201,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                                     optional_selected=True,
                                     optional=True,
                                 ),
-                                data=PricingTableRequestRowData(
-                                    name="Toy Panda",
-                                    description="Fluffy!",
-                                    price=10,
-                                    cost=8.5,
-                                    qty=3,
-                                    sku="toy_panda",
-                                    discount=PricingTableRequestRowDataDiscount(
-                                        value=7.5,
-                                        type="percent",
-                                    ),
-                                    tax_first=PricingTableRequestRowDataTaxFirst(
-                                        value=7.5,
-                                        type="percent",
-                                    ),
-                                    tax_second=PricingTableRequestRowDataTaxSecond(
-                                        value=7.5,
-                                        type="percent",
-                                    ),
-                                ),
+                                data={},
                                 custom_fields={},
                             ),
                         ],
@@ -252,24 +219,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                             PricingTableRequest(
                                 name="Pricing Table 1",
                                 data_merge=True,
-                                options=PricingTableRequestOptions(
-                                    currency="USD",
-                                    discount=PricingTableRequestOptionsDiscount(
-                                        type="absolute",
-                                        name="Global Discount",
-                                        value=2.26,
-                                    ),
-                                    tax_first=PricingTableRequestOptionsTaxFirst(
-                                        type="percent",
-                                        name="Tax First",
-                                        value=2.26,
-                                    ),
-                                    tax_second=PricingTableRequestOptionsTaxSecond(
-                                        type="percent",
-                                        name="Tax Second",
-                                        value=2.26,
-                                    ),
-                                ),
+                                options={},
                                 sections=[
                                     PricingTableRequestSections(
                                         title="Sample Section",
@@ -282,26 +232,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                                                     optional_selected=True,
                                                     optional=True,
                                                 ),
-                                                data=PricingTableRequestRowData(
-                                                    name="Toy Panda",
-                                                    description="Fluffy!",
-                                                    price=10,
-                                                    cost=8.5,
-                                                    qty=3,
-                                                    sku="toy_panda",
-                                                    discount=PricingTableRequestRowDataDiscount(
-                                                        value=7.5,
-                                                        type="percent",
-                                                    ),
-                                                    tax_first=PricingTableRequestRowDataTaxFirst(
-                                                        value=7.5,
-                                                        type="percent",
-                                                    ),
-                                                    tax_second=PricingTableRequestRowDataTaxSecond(
-                                                        value=7.5,
-                                                        type="percent",
-                                                    ),
-                                                ),
+                                                data={},
                                                 custom_fields={},
                                             ),
                                         ],
