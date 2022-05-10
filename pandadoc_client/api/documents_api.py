@@ -653,7 +653,7 @@ class DocumentsApi(object):
                     'membership_id':
                         (str,),
                     'metadata':
-                        (str,),
+                        ([str],),
                     'modified_from':
                         (str,),
                     'modified_to':
@@ -720,6 +720,7 @@ class DocumentsApi(object):
                     'template_id': 'query',
                 },
                 'collection_format_map': {
+                    'metadata': 'multi',
                 }
             },
             headers_map={
@@ -1746,7 +1747,7 @@ class DocumentsApi(object):
             folder_uuid (str): The UUID of the folder where the documents are stored.. [optional]
             form_id (str): Specify the form used for documents creation. This parameter can't be used with template_id.. [optional]
             membership_id (str): Returns results where 'membership_id' is present in document as owner (should be member uuid). [optional]
-            metadata (str): Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required.. [optional]
+            metadata ([str]): Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required.. [optional]
             modified_from (str): Return results where the `date_modified` field (iso-8601) is greater than or equal to this value.. [optional]
             modified_to (str): Return results where the `date_modified` field (iso-8601) is less than this value.. [optional]
             order_by (DocumentOrderingFieldsEnum): Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC.. [optional]

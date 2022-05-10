@@ -992,7 +992,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     folder_uuid = "BhVzRcxH9Z2LgfPPGXFUBa"  # str | The UUID of the folder where the documents are stored. (optional)
     form_id = "BhVzRcxH9Z2LgfPPGXFUBa"  # str | Specify the form used for documents creation. This parameter can't be used with template_id. (optional)
     membership_id = "BhVzRcxH9Z2LgfPPGXFUBa"  # str | Returns results where 'membership_id' is present in document as owner (should be member uuid) (optional)
-    metadata = "metadata_example"  # str | Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required. (optional)
+    metadata = ["metadata_opportunity_id=2181432","metadata_custom_key=custom_value"]  # [str] | Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required. (optional)
     modified_from = "2021-10-27T15:22:23.132757Z"  # str | Return results where the `date_modified` field (iso-8601) is greater than or equal to this value. (optional)
     modified_to = "2021-10-27T15:22:23.132757Z"  # str | Return results where the `date_modified` field (iso-8601) is less than this value. (optional)
     order_by = DocumentOrderingFieldsEnum("name")  # DocumentOrderingFieldsEnum | Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC. (optional)
@@ -1050,7 +1050,7 @@ Name | Type | Description  | Notes
  **folder_uuid** | **str**| The UUID of the folder where the documents are stored. | [optional]
  **form_id** | **str**| Specify the form used for documents creation. This parameter can&#39;t be used with template_id. | [optional]
  **membership_id** | **str**| Returns results where &#39;membership_id&#39; is present in document as owner (should be member uuid) | [optional]
- **metadata** | **str**| Specify metadata to filter by in the format of &#x60;metadata_{metadata-key}&#x3D;{metadata-value}&#x60; such as &#x60;metadata_opportunity_id&#x3D;2181432&#x60;. The &#x60;metadata_&#x60; prefix is always required. | [optional]
+ **metadata** | **[str]**| Specify metadata to filter by in the format of &#x60;metadata_{metadata-key}&#x3D;{metadata-value}&#x60; such as &#x60;metadata_opportunity_id&#x3D;2181432&#x60;. The &#x60;metadata_&#x60; prefix is always required. | [optional]
  **modified_from** | **str**| Return results where the &#x60;date_modified&#x60; field (iso-8601) is greater than or equal to this value. | [optional]
  **modified_to** | **str**| Return results where the &#x60;date_modified&#x60; field (iso-8601) is less than this value. | [optional]
  **order_by** | **DocumentOrderingFieldsEnum**| Specify the order of documents to return. Use &#x60;value&#x60; (for example, &#x60;date_created&#x60;) for ASC and &#x60;-value&#x60; (for example, &#x60;-date_created&#x60;) for DESC. | [optional]
