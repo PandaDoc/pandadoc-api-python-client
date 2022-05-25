@@ -83,6 +83,7 @@ class DocumentDetailsResponseLinkedObjects(ModelNormal):
             'provider': (str,),  # noqa: E501
             'entity_type': (str,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class DocumentDetailsResponseLinkedObjects(ModelNormal):
         'provider': 'provider',  # noqa: E501
         'entity_type': 'entity_type',  # noqa: E501
         'entity_id': 'entity_id',  # noqa: E501
+        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,6 +142,7 @@ class DocumentDetailsResponseLinkedObjects(ModelNormal):
             provider (str): [optional]  # noqa: E501
             entity_type (str): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,6 +227,7 @@ class DocumentDetailsResponseLinkedObjects(ModelNormal):
             provider (str): [optional]  # noqa: E501
             entity_type (str): [optional]  # noqa: E501
             entity_id (str): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
