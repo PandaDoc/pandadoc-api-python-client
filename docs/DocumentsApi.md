@@ -789,6 +789,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     watermark_font_size = 12  # int | Font size of the watermark. (optional)
     watermark_opacity = 0.5  # float | In range 0.0-1.0 (optional)
     watermark_text = "John Doe inc."  # str | Specify watermark text. (optional)
+    separate_files = True  # bool | Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -808,6 +809,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
             watermark_font_size=watermark_font_size,
             watermark_opacity=watermark_opacity,
             watermark_text=watermark_text,
+            separate_files=separate_files,
         )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
@@ -823,6 +825,7 @@ Name | Type | Description  | Notes
  **watermark_font_size** | **int**| Font size of the watermark. | [optional]
  **watermark_opacity** | **float**| In range 0.0-1.0 | [optional]
  **watermark_text** | **str**| Specify watermark text. | [optional]
+ **separate_files** | **bool**| Set as &#x60;true&#x60; if you want to receive a zip file with all documents in separate when document transaction contains more than 1. | [optional]
 
 ### Return type
 
@@ -895,11 +898,24 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
     id = "Mebvyy3NGsGBnY2rPLkH84"  # str | Specify document ID.
+    separate_files = True  # bool | Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Download document protected
         api_response = api_instance.download_protected_document(id)
+        pprint(api_response)
+    except pandadoc_client.ApiException as e:
+        print("Exception when calling DocumentsApi->download_protected_document: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Download document protected
+        api_response = api_instance.download_protected_document(
+            id,
+            separate_files=separate_files,
+        )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling DocumentsApi->download_protected_document: %s\n" % e)
@@ -910,6 +926,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Specify document ID. |
+ **separate_files** | **bool**| Set as &#x60;true&#x60; if you want to receive a zip file with all documents in separate when document transaction contains more than 1. | [optional]
 
 ### Return type
 

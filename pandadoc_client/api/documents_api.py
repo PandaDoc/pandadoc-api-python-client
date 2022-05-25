@@ -468,6 +468,7 @@ class DocumentsApi(object):
                     'watermark_font_size',
                     'watermark_opacity',
                     'watermark_text',
+                    'separate_files',
                 ],
                 'required': [
                     'id',
@@ -495,6 +496,8 @@ class DocumentsApi(object):
                         (float,),
                     'watermark_text':
                         (str,),
+                    'separate_files':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -502,6 +505,7 @@ class DocumentsApi(object):
                     'watermark_font_size': 'watermark_font_size',
                     'watermark_opacity': 'watermark_opacity',
                     'watermark_text': 'watermark_text',
+                    'separate_files': 'separate_files',
                 },
                 'location_map': {
                     'id': 'path',
@@ -509,6 +513,7 @@ class DocumentsApi(object):
                     'watermark_font_size': 'query',
                     'watermark_opacity': 'query',
                     'watermark_text': 'query',
+                    'separate_files': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -537,6 +542,7 @@ class DocumentsApi(object):
             params_map={
                 'all': [
                     'id',
+                    'separate_files',
                 ],
                 'required': [
                     'id',
@@ -556,12 +562,16 @@ class DocumentsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
+                    'separate_files':
+                        (bool,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'separate_files': 'separate_files',
                 },
                 'location_map': {
                     'id': 'path',
+                    'separate_files': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1584,6 +1594,7 @@ class DocumentsApi(object):
             watermark_font_size (int): Font size of the watermark.. [optional]
             watermark_opacity (float): In range 0.0-1.0. [optional]
             watermark_text (str): Specify watermark text.. [optional]
+            separate_files (bool): Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1662,6 +1673,7 @@ class DocumentsApi(object):
             id (str): Specify document ID.
 
         Keyword Args:
+            separate_files (bool): Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
