@@ -120,6 +120,14 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /public/v1/templates/{id} | Delete Template
 *TemplatesApi* | [**details_template**](docs/TemplatesApi.md#details_template) | **GET** /public/v1/templates/{id}/details | Details Template
 *TemplatesApi* | [**list_templates**](docs/TemplatesApi.md#list_templates) | **GET** /public/v1/templates | List Templates
+*WebhookEventsApi* | [**details_webhook_event**](docs/WebhookEventsApi.md#details_webhook_event) | **GET** /public/v1/webhook-events/{id} | Get webhook event by uuid
+*WebhookEventsApi* | [**list_webhook_event**](docs/WebhookEventsApi.md#list_webhook_event) | **GET** /public/v1/webhook-events | Get webhook event page
+*WebhookSubscriptionsApi* | [**create_webhook_subscription**](docs/WebhookSubscriptionsApi.md#create_webhook_subscription) | **POST** /public/v1/webhook-subscriptions | Create webhook subscription
+*WebhookSubscriptionsApi* | [**delete_webhook_subscription**](docs/WebhookSubscriptionsApi.md#delete_webhook_subscription) | **DELETE** /public/v1/webhook-subscriptions/{id} | Delete webhook subscription
+*WebhookSubscriptionsApi* | [**details_webhook_subscription**](docs/WebhookSubscriptionsApi.md#details_webhook_subscription) | **GET** /public/v1/webhook-subscriptions/{id} | Get webhook subscription by uuid
+*WebhookSubscriptionsApi* | [**list_webhook_subscriptions**](docs/WebhookSubscriptionsApi.md#list_webhook_subscriptions) | **GET** /public/v1/webhook-subscriptions | Get all webhook subscriptions
+*WebhookSubscriptionsApi* | [**update_webhook_subscription**](docs/WebhookSubscriptionsApi.md#update_webhook_subscription) | **PATCH** /public/v1/webhook-subscriptions/{id} | Update webhook subscription
+*WebhookSubscriptionsApi* | [**update_webhook_subscription_shared_key**](docs/WebhookSubscriptionsApi.md#update_webhook_subscription_shared_key) | **PATCH** /public/v1/webhook-subscriptions/{id}/shared-key | Regenerate webhook subscription shared key
 
 
 ## License
