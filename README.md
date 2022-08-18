@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**status_document**](docs/DocumentsApi.md#status_document) | **GET** /public/v1/documents/{id} | Document status
 *DocumentsApi* | [**transfer_all_documents_ownership**](docs/DocumentsApi.md#transfer_all_documents_ownership) | **PATCH** /public/v1/documents/ownership | Transfer all documents ownership
 *DocumentsApi* | [**transfer_document_ownership**](docs/DocumentsApi.md#transfer_document_ownership) | **PATCH** /public/v1/documents/{id}/ownership | Update document ownership
+*DocumentsApi* | [**update_document**](docs/DocumentsApi.md#update_document) | **PATCH** /public/v1/documents/{id} | Update Document only in the draft status
 *FoldersAPIApi* | [**create_document_folder**](docs/FoldersAPIApi.md#create_document_folder) | **POST** /public/v1/documents/folders | Create Documents Folder
 *FoldersAPIApi* | [**create_template_folder**](docs/FoldersAPIApi.md#create_template_folder) | **POST** /public/v1/templates/folders | Create Templates Folder
 *FoldersAPIApi* | [**list_document_folders**](docs/FoldersAPIApi.md#list_document_folders) | **GET** /public/v1/documents/folders | List Documents Folders

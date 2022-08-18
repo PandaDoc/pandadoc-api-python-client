@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**status_document**](DocumentsApi.md#status_document) | **GET** /public/v1/documents/{id} | Document status
 [**transfer_all_documents_ownership**](DocumentsApi.md#transfer_all_documents_ownership) | **PATCH** /public/v1/documents/ownership | Transfer all documents ownership
 [**transfer_document_ownership**](DocumentsApi.md#transfer_document_ownership) | **PATCH** /public/v1/documents/{id}/ownership | Update document ownership
+[**update_document**](DocumentsApi.md#update_document) | **PATCH** /public/v1/documents/{id} | Update Document only in the draft status
 
 
 # **change_document_status**
@@ -1236,6 +1237,9 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         message="Hello! This document was sent from the PandaDoc API",
         subject="Please check this test API document from PandaDoc",
         silent=True,
+        sender={
+            "key": "key_example",
+        },
     )  # DocumentSendRequest | 
 
     # example passing only required values which don't have defaults set
@@ -1535,6 +1539,134 @@ void (empty response body)
 **403** | Permission error |  -  |
 **404** | Not found |  -  |
 **409** | Conflict |  -  |
+**429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **update_document**
+> update_document(id, document_update_request)
+
+Update Document only in the draft status
+
+### Example
+
+* Api Key Authentication (apiKey):
+* OAuth Authentication (oauth2):
+
+```python
+import pandadoc_client
+from pandadoc_client.api import documents_api
+from pandadoc_client.model.document_update_request import DocumentUpdateRequest
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.pandadoc.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pandadoc_client.Configuration(
+    host="https://api.pandadoc.com",
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKey
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['apiKey'] = 'API-Key'
+
+# Configure OAuth2 access token for authorization: oauth2
+# configuration = pandadoc_client.Configuration(
+#    host="https://api.pandadoc.com",
+# )
+# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with pandadoc_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = documents_api.DocumentsApi(api_client)
+    id = "BhVzRcxH9Z2LgfPPGXFUBa"  # str | Document ID
+    document_update_request = DocumentUpdateRequest(
+        recipients=[
+            DocumentUpdateRequestRecipients(
+                id="id_example",
+                email="josh@example.com",
+                first_name="Josh",
+                last_name="Ron",
+            ),
+        ],
+        fields={},
+        tokens=[
+            DocumentCreateByTemplateRequestTokens(
+                name="Favorite.Pet",
+                value="Panda",
+            ),
+        ],
+        metadata={},
+        pricing_tables=[
+            PricingTableRequest(
+                name="Pricing Table 1",
+                data_merge=True,
+                options={},
+                sections=[
+                    PricingTableRequestSections(
+                        title="Sample Section",
+                        default=True,
+                        multichoice_enabled=False,
+                        rows=[
+                            PricingTableRequestRows(
+                                options=PricingTableRequestRowOptions(
+                                    qty_editable=True,
+                                    optional_selected=True,
+                                    optional=True,
+                                ),
+                                data={},
+                                custom_fields={},
+                            ),
+                        ],
+                    ),
+                ],
+            ),
+        ],
+    )  # DocumentUpdateRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update Document only in the draft status
+        api_instance.update_document(id, document_update_request)
+    except pandadoc_client.ApiException as e:
+        print("Exception when calling DocumentsApi->update_document: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Document ID |
+ **document_update_request** | [**DocumentUpdateRequest**](DocumentUpdateRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No content |  -  |
+**400** | Bad Request |  -  |
+**401** | Authentication error |  -  |
+**403** | Permission error |  -  |
+**404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
