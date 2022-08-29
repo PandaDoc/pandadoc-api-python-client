@@ -459,7 +459,7 @@ class DocumentsApi(object):
                 ],
                 'endpoint_path': '/public/v1/documents/{id}/move-to-folder/{folder_id}',
                 'operation_id': 'document_move_to_folder',
-                'http_method': 'DELETE',
+                'http_method': 'POST',
                 'servers': None,
             },
             params_map={

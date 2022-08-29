@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /public/v1/documents/{id} | Delete document by id
 [**delete_linked_object**](DocumentsApi.md#delete_linked_object) | **DELETE** /public/v1/documents/{id}/linked-objects/{linked_object_id} | Delete Linked Object
 [**details_document**](DocumentsApi.md#details_document) | **GET** /public/v1/documents/{id}/details | Document details
-[**document_move_to_folder**](DocumentsApi.md#document_move_to_folder) | **DELETE** /public/v1/documents/{id}/move-to-folder/{folder_id} | Document move to folder
+[**document_move_to_folder**](DocumentsApi.md#document_move_to_folder) | **POST** /public/v1/documents/{id}/move-to-folder/{folder_id} | Document move to folder
 [**download_document**](DocumentsApi.md#download_document) | **GET** /public/v1/documents/{id}/download | Document download
 [**download_protected_document**](DocumentsApi.md#download_protected_document) | **GET** /public/v1/documents/{id}/download-protected | Download document protected
 [**list_documents**](DocumentsApi.md#list_documents) | **GET** /public/v1/documents | List documents
