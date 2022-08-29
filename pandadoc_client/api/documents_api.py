@@ -450,6 +450,64 @@ class DocumentsApi(object):
             },
             api_client=api_client
         )
+        self.document_move_to_folder_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'apiKey',
+                    'oauth2'
+                ],
+                'endpoint_path': '/public/v1/documents/{id}/move-to-folder/{folder_id}',
+                'operation_id': 'document_move_to_folder',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'folder_id',
+                ],
+                'required': [
+                    'id',
+                    'folder_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'folder_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                    'folder_id': 'folder_id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'folder_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.download_document_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
@@ -1632,6 +1690,87 @@ class DocumentsApi(object):
         kwargs['id'] = \
             id
         return self.details_document_endpoint.call_with_http_info(**kwargs)
+
+    def document_move_to_folder(
+        self,
+        id,
+        folder_id,
+        **kwargs
+    ):
+        """Document move to folder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.document_move_to_folder(id, folder_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): Specify document ID.
+            folder_id (str): Specify folder ID.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['id'] = \
+            id
+        kwargs['folder_id'] = \
+            folder_id
+        return self.document_move_to_folder_endpoint.call_with_http_info(**kwargs)
 
     def download_document(
         self,
