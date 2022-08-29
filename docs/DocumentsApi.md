@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /public/v1/documents/{id} | Delete document by id
 [**delete_linked_object**](DocumentsApi.md#delete_linked_object) | **DELETE** /public/v1/documents/{id}/linked-objects/{linked_object_id} | Delete Linked Object
 [**details_document**](DocumentsApi.md#details_document) | **GET** /public/v1/documents/{id}/details | Document details
+[**document_move_to_folder**](DocumentsApi.md#document_move_to_folder) | **DELETE** /public/v1/documents/{id}/move-to-folder/{folder_id} | Document move to folder
 [**download_document**](DocumentsApi.md#download_document) | **GET** /public/v1/documents/{id}/download | Document download
 [**download_protected_document**](DocumentsApi.md#download_protected_document) | **GET** /public/v1/documents/{id}/download-protected | Download document protected
 [**list_documents**](DocumentsApi.md#list_documents) | **GET** /public/v1/documents | List documents
@@ -741,6 +742,90 @@ Name | Type | Description  | Notes
 **403** | Permission error |  -  |
 **404** | Not found |  -  |
 **409** | Conflict |  -  |
+**429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+# **document_move_to_folder**
+> document_move_to_folder(id, folder_id)
+
+Document move to folder
+
+### Example
+
+* Api Key Authentication (apiKey):
+* OAuth Authentication (oauth2):
+
+```python
+import pandadoc_client
+from pandadoc_client.api import documents_api
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.pandadoc.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pandadoc_client.Configuration(
+    host="https://api.pandadoc.com",
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: apiKey
+configuration.api_key['apiKey'] = 'YOUR_API_KEY'
+configuration.api_key_prefix['apiKey'] = 'API-Key'
+
+# Configure OAuth2 access token for authorization: oauth2
+# configuration = pandadoc_client.Configuration(
+#    host="https://api.pandadoc.com",
+# )
+# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Enter a context with an instance of the API client
+with pandadoc_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = documents_api.DocumentsApi(api_client)
+    id = "ZPeAfcpzr9aiVs5vqUf6jg"  # str | Specify document ID.
+    folder_id = "ZPeAfcpzr9aiVs5vqUf6jg"  # str | Specify folder ID.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Document move to folder
+        api_instance.document_move_to_folder(id, folder_id)
+    except pandadoc_client.ApiException as e:
+        print("Exception when calling DocumentsApi->document_move_to_folder: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Specify document ID. |
+ **folder_id** | **str**| Specify folder ID. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No content |  -  |
+**401** | Authentication error |  -  |
+**403** | Permission error |  -  |
+**404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
