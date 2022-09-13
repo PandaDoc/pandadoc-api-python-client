@@ -34,7 +34,7 @@ api_key = "YOUR_API_KEY"
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 cfg = pandadoc_client.Configuration(
-    host = "https://api.pandadoc.com",
+    host="https://api.pandadoc.com",
     api_key={"apiKey": f"API-Key {api_key}"},
 )
 
@@ -44,7 +44,7 @@ with pandadoc_client.ApiClient(cfg) as api_client:
     api_instance = templates_api.TemplatesApi(api_client)
 
     try:
-        resp = api_instance.list_templates(tag="doe-inc-proposals")
+        resp = api_instance.list_templates(tag=["doe-inc-proposals"])
         pprint(resp)
     except pandadoc_client.ApiException as e:
         pprint("Exception when calling TemplatesApi->list_templates: %s\n" % e)
