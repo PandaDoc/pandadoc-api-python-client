@@ -17,7 +17,7 @@ if from_index and to_index:
     description = full_description[0:from_index] + full_description[to_index::]
 
 NAME = "pandadoc-python-client"
-VERSION = "5.4.1"
+VERSION = "5.5.0"
 # To install the library, run the following
 #
 # python setup.py install
