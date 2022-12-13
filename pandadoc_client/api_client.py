@@ -75,7 +75,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'pandadoc_python_client/5.4.1'
+        self.user_agent = 'pandadoc_python_client/5.5.0'
 
     def __enter__(self):
         return self

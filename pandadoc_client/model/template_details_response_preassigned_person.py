@@ -82,6 +82,8 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
         return {
             'email': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'placeholder_name': (str,),  # noqa: E501
+            'placeholder_source': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +94,8 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
     attribute_map = {
         'email': 'email',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'placeholder_name': 'placeholder_name',  # noqa: E501
+        'placeholder_source': 'placeholder_source',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,6 +141,8 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             email (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
+            placeholder_name (str): [optional]  # noqa: E501
+            placeholder_source (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +226,8 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             email (str): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
+            placeholder_name (str): [optional]  # noqa: E501
+            placeholder_source (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
