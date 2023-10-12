@@ -18,6 +18,7 @@ from pandadoc_client.api.api_logs_api import APILogsApi
 from pandadoc_client.api.contacts_api import ContactsApi
 from pandadoc_client.api.content_library_items_api import ContentLibraryItemsApi
 from pandadoc_client.api.document_attachments_api import DocumentAttachmentsApi
+from pandadoc_client.api.document_recipients_api import DocumentRecipientsApi
 from pandadoc_client.api.documents_api import DocumentsApi
 from pandadoc_client.api.folders_api_api import FoldersAPIApi
 from pandadoc_client.api.forms_api import FormsApi
