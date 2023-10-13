@@ -1325,6 +1325,27 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         sender={
             "key": "key_example",
         },
+        forwarding_settings=DocumentSendRequestForwardingSettings(
+            forwarding_allowed=True,
+            forwarding_with_reassigning_allowed=True,
+        ),
+        selected_approvers=DocumentSendRequestSelectedApprovers(
+            steps=[
+                DocumentSendRequestSelectedApproversSteps(
+                    id="LzWmancTxrgfTMpsJP9Eqd",
+                    group=DocumentSendRequestSelectedApproversGroup(
+                        id="op9MA75HygJHiV4aeVHXCH",
+                        type="selectable",
+                        assignees=[
+                            DocumentSendRequestSelectedApproversGroupAssignees(
+                                user="tpBLrk3vJoLggypMSRt92i",
+                                is_selected=True,
+                            ),
+                        ],
+                    ),
+                ),
+            ],
+        ),
     )  # DocumentSendRequest | 
 
     # example passing only required values which don't have defaults set
