@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **add_document_recipient**
-> add_document_recipient(id, document_recipient_create_request)
+> InlineResponse200 add_document_recipient(id, document_recipient_create_request)
 
 Add Document Recipient
 
@@ -26,6 +26,7 @@ Adds recipient as CC to document
 import pandadoc_client
 from pandadoc_client.api import document_recipients_api
 from pandadoc_client.model.document_recipient_create_request import DocumentRecipientCreateRequest
+from pandadoc_client.model.inline_response200 import InlineResponse200
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
@@ -62,7 +63,8 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Add Document Recipient
-        api_instance.add_document_recipient(id, document_recipient_create_request)
+        api_response = api_instance.add_document_recipient(id, document_recipient_create_request)
+        pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling DocumentRecipientsApi->add_document_recipient: %s\n" % e)
 ```
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -92,7 +94,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No content |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Authentication error |  -  |
 **403** | Permission error |  -  |
@@ -289,7 +291,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 # **reassign_document_recipient**
-> reassign_document_recipient(id, recipient_id, document_recipient_create_request)
+> ERRORUNKNOWN reassign_document_recipient(id, recipient_id, document_recipient_create_request)
 
 Reassign Document Recipient
 
@@ -304,6 +306,7 @@ Replace document recipient with another contact
 import pandadoc_client
 from pandadoc_client.api import document_recipients_api
 from pandadoc_client.model.document_recipient_create_request import DocumentRecipientCreateRequest
+from pandadoc_client.model.errorunknown import ERRORUNKNOWN
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
@@ -341,7 +344,8 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Reassign Document Recipient
-        api_instance.reassign_document_recipient(id, recipient_id, document_recipient_create_request)
+        api_response = api_instance.reassign_document_recipient(id, recipient_id, document_recipient_create_request)
+        pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling DocumentRecipientsApi->reassign_document_recipient: %s\n" % e)
 ```
@@ -356,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
 
 ### Authorization
 
@@ -372,7 +376,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No content |  -  |
+**200** | OK |  -  |
 **400** | Bad Request |  -  |
 **401** | Authentication error |  -  |
 **403** | Permission error |  -  |
