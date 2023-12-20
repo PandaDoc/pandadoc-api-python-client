@@ -313,18 +313,25 @@ configuration.api_key_prefix['apiKey'] = 'API-Key'
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = contacts_api.ContactsApi(api_client)
+    email = "josh@example.com"  # str | Optional search parameter. Filter results by exact match. (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # List contacts
-        api_response = api_instance.list_contacts()
+        api_response = api_instance.list_contacts(
+            email=email,
+        )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling ContactsApi->list_contacts: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **str**| Optional search parameter. Filter results by exact match. | [optional]
 
 ### Return type
 

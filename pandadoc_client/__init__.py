@@ -9,7 +9,7 @@
 """
 
 
-__version__ = "5.7.1"
+__version__ = "6.0.0"
 
 # import ApiClient
 from pandadoc_client.api_client import ApiClient

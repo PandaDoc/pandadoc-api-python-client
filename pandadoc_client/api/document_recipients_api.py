@@ -22,8 +22,7 @@ from pandadoc_client.model_utils import (  # noqa: F401
 )
 from pandadoc_client.model.document_recipient_create_request import DocumentRecipientCreateRequest
 from pandadoc_client.model.document_recipient_edit_request import DocumentRecipientEditRequest
-from pandadoc_client.model.errorunknown import ERRORUNKNOWN
-from pandadoc_client.model.inline_response200 import InlineResponse200
+from pandadoc_client.model.document_recipient_response import DocumentRecipientResponse
 
 
 class DocumentRecipientsApi(object):
@@ -39,7 +38,7 @@ class DocumentRecipientsApi(object):
         self.api_client = api_client
         self.add_document_recipient_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': (DocumentRecipientResponse,),
                 'auth': [
                     'apiKey',
                     'oauth2'
@@ -221,7 +220,7 @@ class DocumentRecipientsApi(object):
         )
         self.reassign_document_recipient_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (DocumentRecipientResponse,),
                 'auth': [
                     'apiKey',
                     'oauth2'
@@ -333,7 +332,7 @@ class DocumentRecipientsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse200
+            DocumentRecipientResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -585,7 +584,7 @@ class DocumentRecipientsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            DocumentRecipientResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

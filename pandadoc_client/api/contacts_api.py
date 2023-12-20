@@ -208,6 +208,7 @@ class ContactsApi(object):
             },
             params_map={
                 'all': [
+                    'email',
                 ],
                 'required': [],
                 'nullable': [
@@ -223,10 +224,14 @@ class ContactsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'email':
+                        (str,),
                 },
                 'attribute_map': {
+                    'email': 'email',
                 },
                 'location_map': {
+                    'email': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -544,6 +549,7 @@ class ContactsApi(object):
 
 
         Keyword Args:
+            email (str): Optional search parameter. Filter results by exact match.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

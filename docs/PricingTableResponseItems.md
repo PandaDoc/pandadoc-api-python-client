@@ -1,4 +1,4 @@
-# PricingTablesResponseItems
+# PricingTableResponseItems
 
 
 ## Properties
@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **description** | **str, none_type** |  | [optional] 
 **custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **custom_columns** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
-**discount** | [**PricingTablesResponseDiscount**](PricingTablesResponseDiscount.md) |  | [optional] 
-**tax_first** | [**PricingTablesResponseDiscount**](PricingTablesResponseDiscount.md) |  | [optional] 
-**tax_second** | [**PricingTablesResponseDiscount**](PricingTablesResponseDiscount.md) |  | [optional] 
+**discount** | [**PricingTableResponseDiscount**](PricingTableResponseDiscount.md) |  | [optional] 
+**tax_first** | [**PricingTableResponseDiscount**](PricingTableResponseDiscount.md) |  | [optional] 
+**tax_second** | [**PricingTableResponseDiscount**](PricingTableResponseDiscount.md) |  | [optional] 
 **subtotal** | **str, none_type** |  | [optional] 
-**options** | [**PricingTablesResponseOptions**](PricingTablesResponseOptions.md) |  | [optional] 
+**options** | [**PricingTableResponseOptions**](PricingTableResponseOptions.md) |  | [optional] 
 **sale_price** | **str, none_type** |  | [optional] 
 **taxes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **discounts** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 

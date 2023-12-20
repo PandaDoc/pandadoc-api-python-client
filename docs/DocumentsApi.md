@@ -157,6 +157,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     api_instance = documents_api.DocumentsApi(api_client)
     document_create_request = DocumentCreateRequest(
         name="API Sample Document from PandaDoc Template",
+        detect_title_variables=True,
         template_uuid="hryJY9mqYZHjQCYQuSjRQg",
         folder_uuid="QMDSzwabfFzTgjW4kUijqQ",
         owner={
@@ -1692,6 +1693,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     api_instance = documents_api.DocumentsApi(api_client)
     id = "BhVzRcxH9Z2LgfPPGXFUBa"  # str | Document ID
     document_update_request = DocumentUpdateRequest(
+        name="Contract",
         recipients=[
             DocumentUpdateRequestRecipients(
                 id="id_example",

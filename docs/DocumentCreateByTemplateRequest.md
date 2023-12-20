@@ -4,9 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | Name the document you are creating. | 
 **template_uuid** | **str** | The ID of a template you want to use. You can copy it from an in app template url such as &#x60;https://app.pandadoc.com/a/#/templates/{ID}/content&#x60;. A template ID is also obtained by listing templates. | 
 **recipients** | [**[DocumentCreateByTemplateRequestRecipients]**](DocumentCreateByTemplateRequestRecipients.md) | The list of recipients you&#39;re sending the document to. Every object must contain the email parameter. The &#x60;role&#x60;, &#x60;first_name&#x60; and &#x60;last_name&#x60; parameters are optional. If the &#x60;role&#x60; parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the &#x60;first_name&#x60; and &#x60;last_name&#x60; not passed the system 1. creates a new contact, if none exists with the given &#x60;email&#x60;; or 2. gets the existing contact with the given &#x60;email&#x60; that already exists. | 
+**name** | **str** | Name the document you are creating. If name is not passed, the template name is used. | [optional] 
+**detect_title_variables** | **bool** | Set this parameter as true if you want to detect title variables in the document. | [optional] 
 **folder_uuid** | **str** |  | [optional] 
 **tokens** | [**[DocumentCreateByTemplateRequestTokens]**](DocumentCreateByTemplateRequestTokens.md) | You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with. | [optional] 
 **fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | You can pass a list of fields/values to pre-fill fields used in a template. Note that the Signature field can&#39;t be pre-filled. | [optional] 

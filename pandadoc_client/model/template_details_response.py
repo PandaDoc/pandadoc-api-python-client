@@ -30,13 +30,13 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from pandadoc_client.model.content_library_item_response_created_by import ContentLibraryItemResponseCreatedBy
-    from pandadoc_client.model.pricing_tables_response import PricingTablesResponse
+    from pandadoc_client.model.pricing_response import PricingResponse
     from pandadoc_client.model.template_details_response_content_placeholders import TemplateDetailsResponseContentPlaceholders
     from pandadoc_client.model.template_details_response_images import TemplateDetailsResponseImages
     from pandadoc_client.model.template_details_response_roles import TemplateDetailsResponseRoles
     from pandadoc_client.model.template_details_response_tokens import TemplateDetailsResponseTokens
     globals()['ContentLibraryItemResponseCreatedBy'] = ContentLibraryItemResponseCreatedBy
-    globals()['PricingTablesResponse'] = PricingTablesResponse
+    globals()['PricingResponse'] = PricingResponse
     globals()['TemplateDetailsResponseContentPlaceholders'] = TemplateDetailsResponseContentPlaceholders
     globals()['TemplateDetailsResponseImages'] = TemplateDetailsResponseImages
     globals()['TemplateDetailsResponseRoles'] = TemplateDetailsResponseRoles
@@ -100,11 +100,12 @@ class TemplateDetailsResponse(ModelNormal):
             'name': (str,),  # noqa: E501
             'date_created': (str,),  # noqa: E501
             'date_modified': (str,),  # noqa: E501
+            'content_date_modified': (str,),  # noqa: E501
             'created_by': (ContentLibraryItemResponseCreatedBy,),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tokens': ([TemplateDetailsResponseTokens],),  # noqa: E501
             'fields': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}],),  # noqa: E501
-            'pricing': (PricingTablesResponse,),  # noqa: E501
+            'pricing': (PricingResponse,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
             'roles': ([TemplateDetailsResponseRoles],),  # noqa: E501
             'version': (str,),  # noqa: E501
@@ -122,6 +123,7 @@ class TemplateDetailsResponse(ModelNormal):
         'name': 'name',  # noqa: E501
         'date_created': 'date_created',  # noqa: E501
         'date_modified': 'date_modified',  # noqa: E501
+        'content_date_modified': 'content_date_modified',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'tokens': 'tokens',  # noqa: E501
@@ -179,11 +181,12 @@ class TemplateDetailsResponse(ModelNormal):
             name (str): [optional]  # noqa: E501
             date_created (str): [optional]  # noqa: E501
             date_modified (str): [optional]  # noqa: E501
+            content_date_modified (str): [optional]  # noqa: E501
             created_by (ContentLibraryItemResponseCreatedBy): [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tokens ([TemplateDetailsResponseTokens]): [optional]  # noqa: E501
             fields ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            pricing (PricingTablesResponse): [optional]  # noqa: E501
+            pricing (PricingResponse): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             roles ([TemplateDetailsResponseRoles]): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
@@ -274,11 +277,12 @@ class TemplateDetailsResponse(ModelNormal):
             name (str): [optional]  # noqa: E501
             date_created (str): [optional]  # noqa: E501
             date_modified (str): [optional]  # noqa: E501
+            content_date_modified (str): [optional]  # noqa: E501
             created_by (ContentLibraryItemResponseCreatedBy): [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             tokens ([TemplateDetailsResponseTokens]): [optional]  # noqa: E501
             fields ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]): [optional]  # noqa: E501
-            pricing (PricingTablesResponse): [optional]  # noqa: E501
+            pricing (PricingResponse): [optional]  # noqa: E501
             tags ([str]): [optional]  # noqa: E501
             roles ([TemplateDetailsResponseRoles]): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
