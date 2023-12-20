@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name the document you are creating. | [optional] 
+**detect_title_variables** | **bool** | Set this parameter as true if you want to detect title variables in the document. | [optional] 
 **template_uuid** | **str** | ID of the template you want to use. You can copy it from an in-app template URL such as &#x60;https://app.pandadoc.com/a/#/templates/{ID}/content&#x60;. A template ID is also obtained by listing templates. | [optional] 
 **folder_uuid** | **str** | ID of the folder where the created document should be stored. | [optional] 
 **owner** | **{str: (str,)}** | You can set an owner of a document as an &#x60;email&#x60; or &#x60;membership_id&#x60; | [optional] 

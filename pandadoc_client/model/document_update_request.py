@@ -90,6 +90,7 @@ class DocumentUpdateRequest(ModelNormal):
         """
         lazy_import()
         return {
+            'name': (str,),  # noqa: E501
             'recipients': ([DocumentUpdateRequestRecipients],),  # noqa: E501
             'fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tokens': ([DocumentCreateByTemplateRequestTokens],),  # noqa: E501
@@ -103,6 +104,7 @@ class DocumentUpdateRequest(ModelNormal):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
         'fields': 'fields',  # noqa: E501
         'tokens': 'tokens',  # noqa: E501
@@ -151,6 +153,7 @@ class DocumentUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): The name of the document.. [optional]  # noqa: E501
             recipients ([DocumentUpdateRequestRecipients]): The list of recipients you're sending the document to. The ID or email are required. If the ID is passed, an existing recipient will be updated. If the email is passed, a new recipient will be added to CC.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): You may pass a list of fields/values which exist in a document. Please use `Merge Field` property of the fields like the key.. [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values. If a token name exists in a document then the value will be updated. Otherwise, a new token will be added to the document.. [optional]  # noqa: E501
@@ -237,6 +240,7 @@ class DocumentUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): The name of the document.. [optional]  # noqa: E501
             recipients ([DocumentUpdateRequestRecipients]): The list of recipients you're sending the document to. The ID or email are required. If the ID is passed, an existing recipient will be updated. If the email is passed, a new recipient will be added to CC.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): You may pass a list of fields/values which exist in a document. Please use `Merge Field` property of the fields like the key.. [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values. If a token name exists in a document then the value will be updated. Otherwise, a new token will be added to the document.. [optional]  # noqa: E501

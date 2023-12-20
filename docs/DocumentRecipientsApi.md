@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **add_document_recipient**
-> InlineResponse200 add_document_recipient(id, document_recipient_create_request)
+> DocumentRecipientResponse add_document_recipient(id, document_recipient_create_request)
 
 Add Document Recipient
 
@@ -26,7 +26,7 @@ Adds recipient as CC to document
 import pandadoc_client
 from pandadoc_client.api import document_recipients_api
 from pandadoc_client.model.document_recipient_create_request import DocumentRecipientCreateRequest
-from pandadoc_client.model.inline_response200 import InlineResponse200
+from pandadoc_client.model.document_recipient_response import DocumentRecipientResponse
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**DocumentRecipientResponse**](DocumentRecipientResponse.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 # **reassign_document_recipient**
-> ERRORUNKNOWN reassign_document_recipient(id, recipient_id, document_recipient_create_request)
+> DocumentRecipientResponse reassign_document_recipient(id, recipient_id, document_recipient_create_request)
 
 Reassign Document Recipient
 
@@ -306,7 +306,7 @@ Replace document recipient with another contact
 import pandadoc_client
 from pandadoc_client.api import document_recipients_api
 from pandadoc_client.model.document_recipient_create_request import DocumentRecipientCreateRequest
-from pandadoc_client.model.errorunknown import ERRORUNKNOWN
+from pandadoc_client.model.document_recipient_response import DocumentRecipientResponse
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**DocumentRecipientResponse**](DocumentRecipientResponse.md)
 
 ### Authorization
 

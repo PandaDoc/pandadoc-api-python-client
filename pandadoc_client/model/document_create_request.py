@@ -95,6 +95,7 @@ class DocumentCreateRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'detect_title_variables': (bool,),  # noqa: E501
             'template_uuid': (str,),  # noqa: E501
             'folder_uuid': (str,),  # noqa: E501
             'owner': ({str: (str,)},),  # noqa: E501
@@ -117,6 +118,7 @@ class DocumentCreateRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'detect_title_variables': 'detect_title_variables',  # noqa: E501
         'template_uuid': 'template_uuid',  # noqa: E501
         'folder_uuid': 'folder_uuid',  # noqa: E501
         'owner': 'owner',  # noqa: E501
@@ -174,6 +176,7 @@ class DocumentCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Name the document you are creating.. [optional]  # noqa: E501
+            detect_title_variables (bool): Set this parameter as true if you want to detect title variables in the document.. [optional]  # noqa: E501
             template_uuid (str): ID of the template you want to use. You can copy it from an in-app template URL such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.. [optional]  # noqa: E501
             folder_uuid (str): ID of the folder where the created document should be stored.. [optional]  # noqa: E501
             owner ({str: (str,)}): You can set an owner of a document as an `email` or `membership_id`. [optional]  # noqa: E501
@@ -269,6 +272,7 @@ class DocumentCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Name the document you are creating.. [optional]  # noqa: E501
+            detect_title_variables (bool): Set this parameter as true if you want to detect title variables in the document.. [optional]  # noqa: E501
             template_uuid (str): ID of the template you want to use. You can copy it from an in-app template URL such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.. [optional]  # noqa: E501
             folder_uuid (str): ID of the folder where the created document should be stored.. [optional]  # noqa: E501
             owner ({str: (str,)}): You can set an owner of a document as an `email` or `membership_id`. [optional]  # noqa: E501

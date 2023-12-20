@@ -94,9 +94,10 @@ class DocumentCreateByTemplateRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
             'template_uuid': (str,),  # noqa: E501
             'recipients': ([DocumentCreateByTemplateRequestRecipients],),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'detect_title_variables': (bool,),  # noqa: E501
             'folder_uuid': (str,),  # noqa: E501
             'tokens': ([DocumentCreateByTemplateRequestTokens],),  # noqa: E501
             'fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
@@ -113,9 +114,10 @@ class DocumentCreateByTemplateRequest(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'template_uuid': 'template_uuid',  # noqa: E501
         'recipients': 'recipients',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'detect_title_variables': 'detect_title_variables',  # noqa: E501
         'folder_uuid': 'folder_uuid',  # noqa: E501
         'tokens': 'tokens',  # noqa: E501
         'fields': 'fields',  # noqa: E501
@@ -133,11 +135,10 @@ class DocumentCreateByTemplateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, template_uuid, recipients, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, template_uuid, recipients, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequest - a model defined in OpenAPI
 
         Args:
-            name (str): Name the document you are creating.
             template_uuid (str): The ID of a template you want to use. You can copy it from an in app template url such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.
             recipients ([DocumentCreateByTemplateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.
 
@@ -172,6 +173,8 @@ class DocumentCreateByTemplateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): Name the document you are creating. If name is not passed, the template name is used.. [optional]  # noqa: E501
+            detect_title_variables (bool): Set this parameter as true if you want to detect title variables in the document.. [optional]  # noqa: E501
             folder_uuid (str): [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): You can pass a list of fields/values to pre-fill fields used in a template. Note that the Signature field can't be pre-filled.. [optional]  # noqa: E501
@@ -207,7 +210,6 @@ class DocumentCreateByTemplateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.template_uuid = template_uuid
         self.recipients = recipients
         for var_name, var_value in kwargs.items():
@@ -230,11 +232,10 @@ class DocumentCreateByTemplateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, template_uuid, recipients, *args, **kwargs):  # noqa: E501
+    def __init__(self, template_uuid, recipients, *args, **kwargs):  # noqa: E501
         """DocumentCreateByTemplateRequest - a model defined in OpenAPI
 
         Args:
-            name (str): Name the document you are creating.
             template_uuid (str): The ID of a template you want to use. You can copy it from an in app template url such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.
             recipients ([DocumentCreateByTemplateRequestRecipients]): The list of recipients you're sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.
 
@@ -269,6 +270,8 @@ class DocumentCreateByTemplateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): Name the document you are creating. If name is not passed, the template name is used.. [optional]  # noqa: E501
+            detect_title_variables (bool): Set this parameter as true if you want to detect title variables in the document.. [optional]  # noqa: E501
             folder_uuid (str): [optional]  # noqa: E501
             tokens ([DocumentCreateByTemplateRequestTokens]): You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.. [optional]  # noqa: E501
             fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): You can pass a list of fields/values to pre-fill fields used in a template. Note that the Signature field can't be pre-filled.. [optional]  # noqa: E501
@@ -302,7 +305,6 @@ class DocumentCreateByTemplateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.template_uuid = template_uuid
         self.recipients = recipients
         for var_name, var_value in kwargs.items():
