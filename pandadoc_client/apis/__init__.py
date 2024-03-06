@@ -24,6 +24,8 @@ from pandadoc_client.api.folders_api_api import FoldersAPIApi
 from pandadoc_client.api.forms_api import FormsApi
 from pandadoc_client.api.members_api import MembersApi
 from pandadoc_client.api.o_auth_2_0_authentication_api import OAuth20AuthenticationApi
+from pandadoc_client.api.quotes_api import QuotesApi
+from pandadoc_client.api.sections_api import SectionsApi
 from pandadoc_client.api.templates_api import TemplatesApi
 from pandadoc_client.api.webhook_events_api import WebhookEventsApi
 from pandadoc_client.api.webhook_subscriptions_api import WebhookSubscriptionsApi

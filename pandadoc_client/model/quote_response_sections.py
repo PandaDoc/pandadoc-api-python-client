@@ -29,10 +29,14 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pandadoc_client.model.quote_response_section_column import QuoteResponseSectionColumn
     from pandadoc_client.model.quote_response_section_item import QuoteResponseSectionItem
     from pandadoc_client.model.quote_response_section_summary import QuoteResponseSectionSummary
+    from pandadoc_client.model.quote_section_settings import QuoteSectionSettings
+    globals()['QuoteResponseSectionColumn'] = QuoteResponseSectionColumn
     globals()['QuoteResponseSectionItem'] = QuoteResponseSectionItem
     globals()['QuoteResponseSectionSummary'] = QuoteResponseSectionSummary
+    globals()['QuoteSectionSettings'] = QuoteSectionSettings
 
 
 class QuoteResponseSections(ModelNormal):
@@ -91,8 +95,10 @@ class QuoteResponseSections(ModelNormal):
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'summary': (QuoteResponseSectionSummary,),  # noqa: E501
+            'columns': ([QuoteResponseSectionColumn],),  # noqa: E501
             'items': ([QuoteResponseSectionItem], none_type,),  # noqa: E501
             'total': (str,),  # noqa: E501
+            'settings': (QuoteSectionSettings,),  # noqa: E501
         }
 
     @cached_property
@@ -104,8 +110,10 @@ class QuoteResponseSections(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'summary': 'summary',  # noqa: E501
+        'columns': 'columns',  # noqa: E501
         'items': 'items',  # noqa: E501
         'total': 'total',  # noqa: E501
+        'settings': 'settings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,8 +160,10 @@ class QuoteResponseSections(ModelNormal):
             id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             summary (QuoteResponseSectionSummary): [optional]  # noqa: E501
+            columns ([QuoteResponseSectionColumn]): [optional]  # noqa: E501
             items ([QuoteResponseSectionItem], none_type): [optional]  # noqa: E501
             total (str): [optional]  # noqa: E501
+            settings (QuoteSectionSettings): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,8 +248,10 @@ class QuoteResponseSections(ModelNormal):
             id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             summary (QuoteResponseSectionSummary): [optional]  # noqa: E501
+            columns ([QuoteResponseSectionColumn]): [optional]  # noqa: E501
             items ([QuoteResponseSectionItem], none_type): [optional]  # noqa: E501
             total (str): [optional]  # noqa: E501
+            settings (QuoteSectionSettings): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

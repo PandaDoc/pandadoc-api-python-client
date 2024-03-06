@@ -161,6 +161,7 @@ class TemplatesApi(object):
                     'id',
                     'folder_uuid',
                     'tag',
+                    'fields',
                 ],
                 'required': [],
                 'nullable': [
@@ -202,6 +203,8 @@ class TemplatesApi(object):
                         (str,),
                     'tag':
                         ([str],),
+                    'fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'q': 'q',
@@ -212,6 +215,7 @@ class TemplatesApi(object):
                     'id': 'id',
                     'folder_uuid': 'folder_uuid',
                     'tag': 'tag',
+                    'fields': 'fields',
                 },
                 'location_map': {
                     'q': 'query',
@@ -222,6 +226,7 @@ class TemplatesApi(object):
                     'id': 'query',
                     'folder_uuid': 'query',
                     'tag': 'query',
+                    'fields': 'query',
                 },
                 'collection_format_map': {
                     'tag': 'multi',
@@ -415,6 +420,7 @@ class TemplatesApi(object):
             id (str): Optionally, specify template ID.. [optional]
             folder_uuid (str): UUID of the folder where the templates are stored.. [optional]
             tag ([str]): Optional search tag. Filter by template tag.. [optional]
+            fields (str): A comma-separated list of additional fields to include in the response.  Each field must be a valid template property.  Currently, only one additional field, `content_date_modified`, is supported.  For example, `GET /templates?fields=content_date_modified`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
