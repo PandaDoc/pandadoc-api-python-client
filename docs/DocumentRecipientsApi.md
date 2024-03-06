@@ -245,6 +245,15 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         street_address="1313 Mockingbird Lane",
         city="Austin",
         postal_code="75001",
+        verification_settings=RecipientVerificationSettings(
+            verification_place="before_open",
+            passcode_verification=RecipientVerificationSettingsPasscodeVerification(
+                passcode="SimpleCode1",
+            ),
+            phone_verification=RecipientVerificationSettingsPhoneVerification(
+                phone_number="+1234567890",
+            ),
+        ),
     )  # DocumentRecipientEditRequest | 
 
     # example passing only required values which don't have defaults set

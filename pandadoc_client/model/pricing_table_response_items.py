@@ -195,7 +195,7 @@ class PricingTableResponseItems(ModelNormal):
             taxes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             discounts ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             fees ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            merged_data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Will contain all the fields in flat structure with external field names defined in the template.. [optional]  # noqa: E501
+            merged_data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Contains all fields in a flat structure with external field names defined in the template.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,7 +295,7 @@ class PricingTableResponseItems(ModelNormal):
             taxes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             discounts ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             fees ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
-            merged_data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Will contain all the fields in flat structure with external field names defined in the template.. [optional]  # noqa: E501
+            merged_data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Contains all fields in a flat structure with external field names defined in the template.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

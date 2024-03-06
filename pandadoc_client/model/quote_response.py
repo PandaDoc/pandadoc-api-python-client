@@ -31,9 +31,11 @@ from pandadoc_client.exceptions import ApiAttributeError
 def lazy_import():
     from pandadoc_client.model.quote_response_merge_rules import QuoteResponseMergeRules
     from pandadoc_client.model.quote_response_sections import QuoteResponseSections
+    from pandadoc_client.model.quote_response_settings import QuoteResponseSettings
     from pandadoc_client.model.quote_response_summary import QuoteResponseSummary
     globals()['QuoteResponseMergeRules'] = QuoteResponseMergeRules
     globals()['QuoteResponseSections'] = QuoteResponseSections
+    globals()['QuoteResponseSettings'] = QuoteResponseSettings
     globals()['QuoteResponseSummary'] = QuoteResponseSummary
 
 
@@ -96,6 +98,7 @@ class QuoteResponse(ModelNormal):
             'summary': (QuoteResponseSummary,),  # noqa: E501
             'sections': ([QuoteResponseSections],),  # noqa: E501
             'merge_rules': ([QuoteResponseMergeRules],),  # noqa: E501
+            'settings': (QuoteResponseSettings,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +113,7 @@ class QuoteResponse(ModelNormal):
         'summary': 'summary',  # noqa: E501
         'sections': 'sections',  # noqa: E501
         'merge_rules': 'merge_rules',  # noqa: E501
+        'settings': 'settings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +163,7 @@ class QuoteResponse(ModelNormal):
             summary (QuoteResponseSummary): [optional]  # noqa: E501
             sections ([QuoteResponseSections]): [optional]  # noqa: E501
             merge_rules ([QuoteResponseMergeRules]): [optional]  # noqa: E501
+            settings (QuoteResponseSettings): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +251,7 @@ class QuoteResponse(ModelNormal):
             summary (QuoteResponseSummary): [optional]  # noqa: E501
             sections ([QuoteResponseSections]): [optional]  # noqa: E501
             merge_rules ([QuoteResponseMergeRules]): [optional]  # noqa: E501
+            settings (QuoteResponseSettings): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

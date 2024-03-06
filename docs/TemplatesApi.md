@@ -233,6 +233,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     tag = [
         "tag_example",
     ]  # [str] | Optional search tag. Filter by template tag. (optional)
+    fields = "fields_example"  # str | A comma-separated list of additional fields to include in the response.  Each field must be a valid template property.  Currently, only one additional field, `content_date_modified`, is supported.  For example, `GET /templates?fields=content_date_modified`. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -247,6 +248,7 @@ with pandadoc_client.ApiClient(configuration) as api_client:
             id=id,
             folder_uuid=folder_uuid,
             tag=tag,
+            fields=fields,
         )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
@@ -265,6 +267,7 @@ Name | Type | Description  | Notes
  **id** | **str**| Optionally, specify template ID. | [optional]
  **folder_uuid** | **str**| UUID of the folder where the templates are stored. | [optional]
  **tag** | **[str]**| Optional search tag. Filter by template tag. | [optional]
+ **fields** | **str**| A comma-separated list of additional fields to include in the response.  Each field must be a valid template property.  Currently, only one additional field, &#x60;content_date_modified&#x60;, is supported.  For example, &#x60;GET /templates?fields&#x3D;content_date_modified&#x60;. | [optional]
 
 ### Return type
 

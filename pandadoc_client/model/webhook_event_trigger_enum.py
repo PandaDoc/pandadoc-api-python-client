@@ -57,6 +57,8 @@ class WebhookEventTriggerEnum(ModelSimple):
             'DOCUMENT_STATE_CHANGED': "document_state_changed",
             'DOCUMENT_CREATION_FAILED': "document_creation_failed",
             'QUOTE_UPDATED': "quote_updated",
+            'TEMPLATE_CREATED': "template_created",
+            'TEMPLATE_MODIFIED': "template_modified",
         },
     }
 
@@ -108,10 +110,10 @@ class WebhookEventTriggerEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", ]  # noqa: E501
+            args[0] (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", "template_created", "template_modified", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", ]  # noqa: E501
+            value (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", "template_created", "template_modified", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -198,10 +200,10 @@ class WebhookEventTriggerEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", ]  # noqa: E501
+            args[0] (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", "template_created", "template_modified", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", ]  # noqa: E501
+            value (str):, must be one of ["recipient_completed", "document_updated", "document_deleted", "document_state_changed", "document_creation_failed", "quote_updated", "template_created", "template_modified", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

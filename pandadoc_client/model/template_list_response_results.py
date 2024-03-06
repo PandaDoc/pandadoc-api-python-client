@@ -85,6 +85,7 @@ class TemplateListResponseResults(ModelNormal):
             'date_created': (str,),  # noqa: E501
             'date_modified': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
+            'content_date_modified': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class TemplateListResponseResults(ModelNormal):
         'date_created': 'date_created',  # noqa: E501
         'date_modified': 'date_modified',  # noqa: E501
         'version': 'version',  # noqa: E501
+        'content_date_modified': 'content_date_modified',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,6 +148,7 @@ class TemplateListResponseResults(ModelNormal):
             date_created (str): [optional]  # noqa: E501
             date_modified (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
+            content_date_modified (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +235,7 @@ class TemplateListResponseResults(ModelNormal):
             date_created (str): [optional]  # noqa: E501
             date_modified (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
+            content_date_modified (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
