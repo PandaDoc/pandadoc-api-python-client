@@ -29,8 +29,12 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pandadoc_client.model.recipient_redirect import RecipientRedirect
     from pandadoc_client.model.recipient_verification_settings import RecipientVerificationSettings
+    from pandadoc_client.model.ricipient_delivery_methods import RicipientDeliveryMethods
+    globals()['RecipientRedirect'] = RecipientRedirect
     globals()['RecipientVerificationSettings'] = RecipientVerificationSettings
+    globals()['RicipientDeliveryMethods'] = RicipientDeliveryMethods
 
 
 class DocumentRecipientEditRequest(ModelNormal):
@@ -86,17 +90,19 @@ class DocumentRecipientEditRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'email': (str,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
+            'phone': (str, none_type,),  # noqa: E501
+            'delivery_methods': (RicipientDeliveryMethods,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'company': (str, none_type,),  # noqa: E501
             'job_title': (str, none_type,),  # noqa: E501
-            'phone': (str, none_type,),  # noqa: E501
             'state': (str, none_type,),  # noqa: E501
             'street_address': (str, none_type,),  # noqa: E501
             'city': (str, none_type,),  # noqa: E501
             'postal_code': (str, none_type,),  # noqa: E501
             'verification_settings': (RecipientVerificationSettings,),  # noqa: E501
+            'redirect': (RecipientRedirect,),  # noqa: E501
         }
 
     @cached_property
@@ -106,16 +112,18 @@ class DocumentRecipientEditRequest(ModelNormal):
 
     attribute_map = {
         'email': 'email',  # noqa: E501
+        'phone': 'phone',  # noqa: E501
+        'delivery_methods': 'delivery_methods',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'company': 'company',  # noqa: E501
         'job_title': 'job_title',  # noqa: E501
-        'phone': 'phone',  # noqa: E501
         'state': 'state',  # noqa: E501
         'street_address': 'street_address',  # noqa: E501
         'city': 'city',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
         'verification_settings': 'verification_settings',  # noqa: E501
+        'redirect': 'redirect',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,17 +167,19 @@ class DocumentRecipientEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
+            phone (str, none_type): [optional]  # noqa: E501
+            delivery_methods (RicipientDeliveryMethods): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501
             job_title (str, none_type): [optional]  # noqa: E501
-            phone (str, none_type): [optional]  # noqa: E501
             state (str, none_type): [optional]  # noqa: E501
             street_address (str, none_type): [optional]  # noqa: E501
             city (str, none_type): [optional]  # noqa: E501
             postal_code (str, none_type): [optional]  # noqa: E501
             verification_settings (RecipientVerificationSettings): [optional]  # noqa: E501
+            redirect (RecipientRedirect): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,17 +261,19 @@ class DocumentRecipientEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
+            phone (str, none_type): [optional]  # noqa: E501
+            delivery_methods (RicipientDeliveryMethods): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501
             job_title (str, none_type): [optional]  # noqa: E501
-            phone (str, none_type): [optional]  # noqa: E501
             state (str, none_type): [optional]  # noqa: E501
             street_address (str, none_type): [optional]  # noqa: E501
             city (str, none_type): [optional]  # noqa: E501
             postal_code (str, none_type): [optional]  # noqa: E501
             verification_settings (RecipientVerificationSettings): [optional]  # noqa: E501
+            redirect (RecipientRedirect): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

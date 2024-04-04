@@ -93,7 +93,7 @@ Class | Method | HTTP request | Description
 *DocumentAttachmentsApi* | [**list_document_attachments**](docs/DocumentAttachmentsApi.md#list_document_attachments) | **GET** /public/v1/documents/{id}/attachments | Document Attachment List
 *DocumentRecipientsApi* | [**add_document_recipient**](docs/DocumentRecipientsApi.md#add_document_recipient) | **POST** /public/v1/documents/{id}/recipients | Add Document Recipient
 *DocumentRecipientsApi* | [**delete_document_recipient**](docs/DocumentRecipientsApi.md#delete_document_recipient) | **DELETE** /public/v1/documents/{id}/recipients/{recipient_id} | Delete Document Recipient
-*DocumentRecipientsApi* | [**edit_document_recipient**](docs/DocumentRecipientsApi.md#edit_document_recipient) | **PATCH** /public/v1/documents/{id}/recipients/{recipient_id} | Edit Document Recipient
+*DocumentRecipientsApi* | [**edit_document_recipient**](docs/DocumentRecipientsApi.md#edit_document_recipient) | **PATCH** /public/v1/documents/{id}/recipients/recipient/{recipient_id} | Edit Document Recipient
 *DocumentRecipientsApi* | [**reassign_document_recipient**](docs/DocumentRecipientsApi.md#reassign_document_recipient) | **POST** /public/v1/documents/{id}/recipients/{recipient_id}/reassign | Reassign Document Recipient
 *DocumentsApi* | [**change_document_status**](docs/DocumentsApi.md#change_document_status) | **PATCH** /public/v1/documents/{id}/status | Document status change
 *DocumentsApi* | [**create_document**](docs/DocumentsApi.md#create_document) | **POST** /public/v1/documents | Create document
@@ -131,6 +131,9 @@ Class | Method | HTTP request | Description
 *TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /public/v1/templates/{id} | Delete Template
 *TemplatesApi* | [**details_template**](docs/TemplatesApi.md#details_template) | **GET** /public/v1/templates/{id}/details | Details Template
 *TemplatesApi* | [**list_templates**](docs/TemplatesApi.md#list_templates) | **GET** /public/v1/templates | List Templates
+*UserAndWorkspaceManagementApi* | [**add_member**](docs/UserAndWorkspaceManagementApi.md#add_member) | **POST** /public/v1/workspaces/{workspace_id}/members | Add member
+*UserAndWorkspaceManagementApi* | [**create_user**](docs/UserAndWorkspaceManagementApi.md#create_user) | **POST** /public/v1/users | Create User
+*UserAndWorkspaceManagementApi* | [**create_workspace**](docs/UserAndWorkspaceManagementApi.md#create_workspace) | **POST** /public/v1/workspaces | Create Workspace
 *WebhookEventsApi* | [**details_webhook_event**](docs/WebhookEventsApi.md#details_webhook_event) | **GET** /public/v1/webhook-events/{id} | Get webhook event by uuid
 *WebhookEventsApi* | [**list_webhook_event**](docs/WebhookEventsApi.md#list_webhook_event) | **GET** /public/v1/webhook-events | Get webhook event page
 *WebhookSubscriptionsApi* | [**create_webhook_subscription**](docs/WebhookSubscriptionsApi.md#create_webhook_subscription) | **POST** /public/v1/webhook-subscriptions | Create webhook subscription

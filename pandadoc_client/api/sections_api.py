@@ -222,6 +222,7 @@ class SectionsApi(object):
                 'all': [
                     'document_id',
                     'upload_section_request',
+                    'merge_field_scope',
                 ],
                 'required': [
                     'document_id',
@@ -230,6 +231,7 @@ class SectionsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'merge_field_scope',
                 ],
                 'validation': [
                 ]
@@ -238,19 +240,28 @@ class SectionsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('merge_field_scope',): {
+
+                        "DOCUMENT": "document",
+                        "UPLOAD": "upload"
+                    },
                 },
                 'openapi_types': {
                     'document_id':
                         (str,),
                     'upload_section_request':
                         (UploadSectionRequest,),
+                    'merge_field_scope':
+                        (str,),
                 },
                 'attribute_map': {
                     'document_id': 'document_id',
+                    'merge_field_scope': 'merge_field_scope',
                 },
                 'location_map': {
                     'document_id': 'path',
                     'upload_section_request': 'body',
+                    'merge_field_scope': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -525,6 +536,7 @@ class SectionsApi(object):
             upload_section_request (UploadSectionRequest): Use a PandaDoc template or an existing PDF to upload a section. See the creation request examples [by template](/schemas/UploadSectionByTemplateRequest) and [by pdf](/schemas/UploadSectionByPdfRequest) 
 
         Keyword Args:
+            merge_field_scope (str): Determines how the fields are mapped when creating a section.   * document: Default value. The fields of the entire document are updated.   * upload: Only the fields from the created section are updated. The merge field is appended with the upload ID. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
