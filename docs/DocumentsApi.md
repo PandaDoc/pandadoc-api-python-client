@@ -166,10 +166,19 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         recipients=[
             DocumentCreateRequestRecipients(
                 email="josh@example.com",
+                phone="+14842634627",
+                delivery_methods=RicipientDeliveryMethods(
+                    email=True,
+                    sms=False,
+                ),
                 first_name="Josh",
                 last_name="Ron",
                 role="user",
                 signing_order=1,
+                redirect=RecipientRedirect(
+                    is_enabled=True,
+                    url="https://example.com",
+                ),
             ),
         ],
         tokens=[
@@ -247,10 +256,19 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                         recipients=[
                             DocumentCreateByTemplateRequestRecipients(
                                 email="josh@example.com",
+                                phone="+14842634627",
+                                delivery_methods=RicipientDeliveryMethods(
+                                    email=True,
+                                    sms=False,
+                                ),
                                 first_name="Josh",
                                 last_name="Ron",
                                 role="user",
                                 signing_order=1,
+                                redirect=RecipientRedirect(
+                                    is_enabled=True,
+                                    url="https://example.com",
+                                ),
                             ),
                         ],
                     ),
@@ -1698,8 +1716,17 @@ with pandadoc_client.ApiClient(configuration) as api_client:
             DocumentUpdateRequestRecipients(
                 id="id_example",
                 email="josh@example.com",
+                phone="+14842634627",
                 first_name="Josh",
                 last_name="Ron",
+                delivery_methods=RicipientDeliveryMethods(
+                    email=True,
+                    sms=False,
+                ),
+                redirect=RecipientRedirect(
+                    is_enabled=True,
+                    url="https://example.com",
+                ),
             ),
         ],
         fields={},

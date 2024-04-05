@@ -81,7 +81,7 @@ class ContactDetailsResponse(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'company': (str, none_type,),  # noqa: E501
@@ -154,7 +154,7 @@ class ContactDetailsResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501
@@ -246,7 +246,7 @@ class ContactDetailsResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501

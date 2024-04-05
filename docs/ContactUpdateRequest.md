@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** |  | [optional] 
+**email** | **str, none_type** |  | [optional] 
 **first_name** | **str, none_type** |  | [optional] 
 **last_name** | **str, none_type** |  | [optional] 
 **company** | **str, none_type** |  | [optional] 

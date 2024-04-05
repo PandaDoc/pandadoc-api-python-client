@@ -27,5 +27,6 @@ from pandadoc_client.api.o_auth_2_0_authentication_api import OAuth20Authenticat
 from pandadoc_client.api.quotes_api import QuotesApi
 from pandadoc_client.api.sections_api import SectionsApi
 from pandadoc_client.api.templates_api import TemplatesApi
+from pandadoc_client.api.user_and_workspace_management_api import UserAndWorkspaceManagementApi
 from pandadoc_client.api.webhook_events_api import WebhookEventsApi
 from pandadoc_client.api.webhook_subscriptions_api import WebhookSubscriptionsApi

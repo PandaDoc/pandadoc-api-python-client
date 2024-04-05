@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_document_recipient**](DocumentRecipientsApi.md#add_document_recipient) | **POST** /public/v1/documents/{id}/recipients | Add Document Recipient
 [**delete_document_recipient**](DocumentRecipientsApi.md#delete_document_recipient) | **DELETE** /public/v1/documents/{id}/recipients/{recipient_id} | Delete Document Recipient
-[**edit_document_recipient**](DocumentRecipientsApi.md#edit_document_recipient) | **PATCH** /public/v1/documents/{id}/recipients/{recipient_id} | Edit Document Recipient
+[**edit_document_recipient**](DocumentRecipientsApi.md#edit_document_recipient) | **PATCH** /public/v1/documents/{id}/recipients/recipient/{recipient_id} | Edit Document Recipient
 [**reassign_document_recipient**](DocumentRecipientsApi.md#reassign_document_recipient) | **POST** /public/v1/documents/{id}/recipients/{recipient_id}/reassign | Reassign Document Recipient
 
 
@@ -236,11 +236,15 @@ with pandadoc_client.ApiClient(configuration) as api_client:
     recipient_id = "tf5dGS3Tmu3cj228ao6fnc"  # str | Recipient UUID
     document_recipient_edit_request = DocumentRecipientEditRequest(
         email="user01@pandadoc.com",
+        phone="+14842634627",
+        delivery_methods=RicipientDeliveryMethods(
+            email=True,
+            sms=False,
+        ),
         first_name="John",
         last_name="Doe",
         company="John Doe Inc.",
         job_title="CTO",
-        phone="+14842634627",
         state="Texas",
         street_address="1313 Mockingbird Lane",
         city="Austin",
@@ -253,6 +257,10 @@ with pandadoc_client.ApiClient(configuration) as api_client:
             phone_verification=RecipientVerificationSettingsPhoneVerification(
                 phone_number="+1234567890",
             ),
+        ),
+        redirect=RecipientRedirect(
+            is_enabled=True,
+            url="https://example.com",
         ),
     )  # DocumentRecipientEditRequest | 
 

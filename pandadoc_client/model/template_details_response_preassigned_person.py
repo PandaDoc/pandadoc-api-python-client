@@ -80,7 +80,7 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'email': (str,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'placeholder_name': (str,),  # noqa: E501
             'placeholder_source': (str,),  # noqa: E501
@@ -139,7 +139,7 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             placeholder_name (str): [optional]  # noqa: E501
             placeholder_source (str): [optional]  # noqa: E501
@@ -224,7 +224,7 @@ class TemplateDetailsResponsePreassignedPerson(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             type (str): [optional]  # noqa: E501
             placeholder_name (str): [optional]  # noqa: E501
             placeholder_source (str): [optional]  # noqa: E501

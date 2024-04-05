@@ -80,7 +80,7 @@ class ContactUpdateRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'email': (str,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'company': (str, none_type,),  # noqa: E501
@@ -151,7 +151,7 @@ class ContactUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501
@@ -242,7 +242,7 @@ class ContactUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             company (str, none_type): [optional]  # noqa: E501

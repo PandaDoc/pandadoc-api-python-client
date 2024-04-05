@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**email** | **str** |  | [optional] 
+**email** | **str, none_type** |  | [optional] 
 **first_name** | **str, none_type** |  | [optional] 
 **last_name** | **str, none_type** |  | [optional] 
 **company** | **str, none_type** |  | [optional] 

@@ -160,7 +160,7 @@ class DocumentRecipientsApi(object):
                     'apiKey',
                     'oauth2'
                 ],
-                'endpoint_path': '/public/v1/documents/{id}/recipients/{recipient_id}',
+                'endpoint_path': '/public/v1/documents/{id}/recipients/recipient/{recipient_id}',
                 'operation_id': 'edit_document_recipient',
                 'http_method': 'PATCH',
                 'servers': None,

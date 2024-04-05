@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** |  | [optional] 
+**email** | **str, none_type** |  | [optional] 
 **type** | **str** |  | [optional] 
 **placeholder_name** | **str** |  | [optional] 
 **placeholder_source** | **str** |  | [optional] 

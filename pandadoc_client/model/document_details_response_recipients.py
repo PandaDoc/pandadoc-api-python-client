@@ -29,8 +29,12 @@ from pandadoc_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pandadoc_client.model.recipient_redirect import RecipientRedirect
     from pandadoc_client.model.recipient_verification_settings import RecipientVerificationSettings
+    from pandadoc_client.model.ricipient_delivery_methods import RicipientDeliveryMethods
+    globals()['RecipientRedirect'] = RecipientRedirect
     globals()['RecipientVerificationSettings'] = RecipientVerificationSettings
+    globals()['RicipientDeliveryMethods'] = RicipientDeliveryMethods
 
 
 class DocumentDetailsResponseRecipients(ModelNormal):
@@ -94,11 +98,14 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             'id': (str,),  # noqa: E501
             'contact_id': (str,),  # noqa: E501
             'first_name': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
+            'phone': (str, none_type,),  # noqa: E501
+            'delivery_methods': (RicipientDeliveryMethods,),  # noqa: E501
             'has_completed': (bool,),  # noqa: E501
             'shared_link': (str,),  # noqa: E501
             'signature_date': (str, none_type,),  # noqa: E501
             'verification_settings': (RecipientVerificationSettings,),  # noqa: E501
+            'redirect': (RecipientRedirect,),  # noqa: E501
         }
 
     @cached_property
@@ -116,10 +123,13 @@ class DocumentDetailsResponseRecipients(ModelNormal):
         'contact_id': 'contact_id',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'email': 'email',  # noqa: E501
+        'phone': 'phone',  # noqa: E501
+        'delivery_methods': 'delivery_methods',  # noqa: E501
         'has_completed': 'has_completed',  # noqa: E501
         'shared_link': 'shared_link',  # noqa: E501
         'signature_date': 'signature_date',  # noqa: E501
         'verification_settings': 'verification_settings',  # noqa: E501
+        'redirect': 'redirect',  # noqa: E501
     }
 
     read_only_vars = {
@@ -171,11 +181,14 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             id (str): [optional]  # noqa: E501
             contact_id (str): [optional]  # noqa: E501
             first_name (str): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
+            phone (str, none_type): [optional]  # noqa: E501
+            delivery_methods (RicipientDeliveryMethods): [optional]  # noqa: E501
             has_completed (bool): [optional]  # noqa: E501
             shared_link (str): [optional]  # noqa: E501
             signature_date (str, none_type): [optional]  # noqa: E501
             verification_settings (RecipientVerificationSettings): [optional]  # noqa: E501
+            redirect (RecipientRedirect): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,11 +278,14 @@ class DocumentDetailsResponseRecipients(ModelNormal):
             id (str): [optional]  # noqa: E501
             contact_id (str): [optional]  # noqa: E501
             first_name (str): [optional]  # noqa: E501
-            email (str): [optional]  # noqa: E501
+            email (str, none_type): [optional]  # noqa: E501
+            phone (str, none_type): [optional]  # noqa: E501
+            delivery_methods (RicipientDeliveryMethods): [optional]  # noqa: E501
             has_completed (bool): [optional]  # noqa: E501
             shared_link (str): [optional]  # noqa: E501
             signature_date (str, none_type): [optional]  # noqa: E501
             verification_settings (RecipientVerificationSettings): [optional]  # noqa: E501
+            redirect (RecipientRedirect): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

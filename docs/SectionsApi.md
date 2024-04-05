@@ -317,10 +317,19 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         recipients=[
             DocumentCreateRequestRecipients(
                 email="josh@example.com",
+                phone="+14842634627",
+                delivery_methods=RicipientDeliveryMethods(
+                    email=True,
+                    sms=False,
+                ),
                 first_name="Josh",
                 last_name="Ron",
                 role="user",
                 signing_order=1,
+                redirect=RecipientRedirect(
+                    is_enabled=True,
+                    url="https://example.com",
+                ),
             ),
         ],
         tokens=[
@@ -391,10 +400,19 @@ with pandadoc_client.ApiClient(configuration) as api_client:
                         recipients=[
                             DocumentCreateByTemplateRequestRecipients(
                                 email="josh@example.com",
+                                phone="+14842634627",
+                                delivery_methods=RicipientDeliveryMethods(
+                                    email=True,
+                                    sms=False,
+                                ),
                                 first_name="Josh",
                                 last_name="Ron",
                                 role="user",
                                 signing_order=1,
+                                redirect=RecipientRedirect(
+                                    is_enabled=True,
+                                    url="https://example.com",
+                                ),
                             ),
                         ],
                     ),
@@ -404,11 +422,25 @@ with pandadoc_client.ApiClient(configuration) as api_client:
         url="https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png",
         parse_form_fields=True,
     )  # UploadSectionRequest | Use a PandaDoc template or an existing PDF to upload a section. See the creation request examples [by template](/schemas/UploadSectionByTemplateRequest) and [by pdf](/schemas/UploadSectionByPdfRequest) 
+    merge_field_scope = "document"  # str | Determines how the fields are mapped when creating a section.   * document: Default value. The fields of the entire document are updated.   * upload: Only the fields from the created section are updated. The merge field is appended with the upload ID.  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Upload section
         api_response = api_instance.upload_section(document_id, upload_section_request)
+        pprint(api_response)
+    except pandadoc_client.ApiException as e:
+        print("Exception when calling SectionsApi->upload_section: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Upload section
+        api_response = api_instance.upload_section(
+            document_id,
+            upload_section_request,
+            merge_field_scope=merge_field_scope,
+        )
         pprint(api_response)
     except pandadoc_client.ApiException as e:
         print("Exception when calling SectionsApi->upload_section: %s\n" % e)
@@ -420,6 +452,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **document_id** | **str**| Document ID |
  **upload_section_request** | [**UploadSectionRequest**](UploadSectionRequest.md)| Use a PandaDoc template or an existing PDF to upload a section. See the creation request examples [by template](/schemas/UploadSectionByTemplateRequest) and [by pdf](/schemas/UploadSectionByPdfRequest)  |
+ **merge_field_scope** | **str**| Determines how the fields are mapped when creating a section.   * document: Default value. The fields of the entire document are updated.   * upload: Only the fields from the created section are updated. The merge field is appended with the upload ID.  | [optional]
 
 ### Return type
 
