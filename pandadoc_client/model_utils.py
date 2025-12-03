@@ -1397,9 +1397,15 @@ def deserialize_file(response_data, configuration, content_disposition=None):
     os.remove(path)
 
     if content_disposition:
-        filename = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?',
-                             content_disposition).group(1)
-        path = os.path.join(os.path.dirname(path), filename)
+        # Try to extract filename from Content-Disposition header
+        # Handle both standard format (filename=) and RFC 5987 format (filename*=)
+        match = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?', content_disposition)
+        if not match:
+            # Try RFC 5987 encoded filename (e.g., filename*=UTF-8''encoded%20name)
+            match = re.search(r"filename\*=(?:[^']*'')?([^;\s]+)", content_disposition, re.IGNORECASE)
+        if match:
+            filename = match.group(1)
+            path = os.path.join(os.path.dirname(path), filename)
 
     with open(path, "wb") as f:
         if isinstance(response_data, str):
