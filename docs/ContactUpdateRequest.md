@@ -2,20 +2,36 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str, none_type** |  | [optional] 
-**first_name** | **str, none_type** |  | [optional] 
-**last_name** | **str, none_type** |  | [optional] 
-**company** | **str, none_type** |  | [optional] 
-**job_title** | **str, none_type** |  | [optional] 
-**phone** | **str, none_type** |  | [optional] 
-**state** | **str, none_type** |  | [optional] 
-**street_address** | **str, none_type** |  | [optional] 
-**city** | **str, none_type** |  | [optional] 
-**postal_code** | **str, none_type** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**first_name** | **str** |  | [optional] 
+**last_name** | **str** |  | [optional] 
+**company** | **str** |  | [optional] 
+**job_title** | **str** |  | [optional] 
+**phone** | **str** |  | [optional] 
+**state** | **str** |  | [optional] 
+**street_address** | **str** |  | [optional] 
+**city** | **str** |  | [optional] 
+**postal_code** | **str** |  | [optional] 
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+## Example
+
+```python
+from pandadoc_client.models.contact_update_request import ContactUpdateRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ContactUpdateRequest from a JSON string
+contact_update_request_instance = ContactUpdateRequest.from_json(json)
+# print the JSON string representation of the object
+print(ContactUpdateRequest.to_json())
+
+# convert the object into a dict
+contact_update_request_dict = contact_update_request_instance.to_dict()
+# create an instance of ContactUpdateRequest from a dict
+contact_update_request_from_dict = ContactUpdateRequest.from_dict(contact_update_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -1,3 +1,29 @@
-# do not import all apis into this module because that uses a lot of memory and stack frames
-# if you need the ability to import all apis from one package, import them with
-# from pandadoc_client.apis import APILogsApi
+# flake8: noqa
+
+# import apis into api package
+from pandadoc_client.api.api_logs_api import APILogsApi
+from pandadoc_client.api.communication_preferences_api import CommunicationPreferencesApi
+from pandadoc_client.api.contacts_api import ContactsApi
+from pandadoc_client.api.content_library_items_api import ContentLibraryItemsApi
+from pandadoc_client.api.document_attachments_api import DocumentAttachmentsApi
+from pandadoc_client.api.document_audit_trail_api import DocumentAuditTrailApi
+from pandadoc_client.api.document_fields_api import DocumentFieldsApi
+from pandadoc_client.api.document_link_to_crm_api import DocumentLinkToCRMApi
+from pandadoc_client.api.document_recipients_api import DocumentRecipientsApi
+from pandadoc_client.api.document_reminders_api import DocumentRemindersApi
+from pandadoc_client.api.document_sections_bundles_api import DocumentSectionsBundlesApi
+from pandadoc_client.api.document_settings_api import DocumentSettingsApi
+from pandadoc_client.api.documents_api import DocumentsApi
+from pandadoc_client.api.folders_api import FoldersApi
+from pandadoc_client.api.forms_api import FormsApi
+from pandadoc_client.api.members_api import MembersApi
+from pandadoc_client.api.notary_api import NotaryApi
+from pandadoc_client.api.o_auth20_authentication_api import OAuth20AuthenticationApi
+from pandadoc_client.api.product_catalog_api import ProductCatalogApi
+from pandadoc_client.api.quotes_api import QuotesApi
+from pandadoc_client.api.template_settings_api import TemplateSettingsApi
+from pandadoc_client.api.templates_api import TemplatesApi
+from pandadoc_client.api.user_and_workspace_management_api import UserAndWorkspaceManagementApi
+from pandadoc_client.api.webhook_events_api import WebhookEventsApi
+from pandadoc_client.api.webhook_subscriptions_api import WebhookSubscriptionsApi
+

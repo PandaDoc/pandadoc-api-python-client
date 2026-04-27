@@ -2,12 +2,29 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**[FormListResponseResults]**](FormListResponseResults.md) |  | [optional] 
+**results** | [**List[FormListResponseResultsInner]**](FormListResponseResultsInner.md) |  | [optional] 
 **has_next_page** | **bool** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+## Example
+
+```python
+from pandadoc_client.models.form_list_response import FormListResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of FormListResponse from a JSON string
+form_list_response_instance = FormListResponse.from_json(json)
+# print the JSON string representation of the object
+print(FormListResponse.to_json())
+
+# convert the object into a dict
+form_list_response_dict = form_list_response_instance.to_dict()
+# create an instance of FormListResponse from a dict
+form_list_response_from_dict = FormListResponse.from_dict(form_list_response_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
