@@ -62,11 +62,8 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints
-© 2021 GitHub, Inc.
-Terms
-Privacy
 
 .idea
 .vscode

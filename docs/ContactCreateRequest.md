@@ -2,20 +2,38 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str, none_type** |  | [optional] 
-**first_name** | **str, none_type** |  | [optional] 
-**last_name** | **str, none_type** |  | [optional] 
-**company** | **str, none_type** |  | [optional] 
-**job_title** | **str, none_type** |  | [optional] 
-**phone** | **str, none_type** |  | [optional] 
-**state** | **str, none_type** |  | [optional] 
-**street_address** | **str, none_type** |  | [optional] 
-**city** | **str, none_type** |  | [optional] 
-**postal_code** | **str, none_type** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**email** | **str** | An email address of the contact | [optional] 
+**first_name** | **str** | Contact&#39;s first name | [optional] 
+**last_name** | **str** | Contact&#39;s last name | [optional] 
+**company** | **str** | Contact&#39;s company name | [optional] 
+**job_title** | **str** | Contact&#39;s job title | [optional] 
+**phone** | **str** | A phone number | [optional] 
+**country** | **str** | A country name | [optional] 
+**state** | **str** | A state name | [optional] 
+**street_address** | **str** | A street address | [optional] 
+**city** | **str** | A city name | [optional] 
+**postal_code** | **str** | A postal code | [optional] 
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+## Example
+
+```python
+from pandadoc_client.models.contact_create_request import ContactCreateRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ContactCreateRequest from a JSON string
+contact_create_request_instance = ContactCreateRequest.from_json(json)
+# print the JSON string representation of the object
+print(ContactCreateRequest.to_json())
+
+# convert the object into a dict
+contact_create_request_dict = contact_create_request_instance.to_dict()
+# create an instance of ContactCreateRequest from a dict
+contact_create_request_from_dict = ContactCreateRequest.from_dict(contact_create_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

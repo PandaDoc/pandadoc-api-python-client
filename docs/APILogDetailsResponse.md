@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
@@ -10,18 +11,34 @@ Name | Type | Description | Notes
 **status** | **int** |  | [optional] 
 **request_time** | **str** |  | [optional] 
 **response_time** | **str** |  | [optional] 
-**response_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
+**response_body** | **object** |  | [optional] 
 **query_params_string** | **str** |  | [optional] 
-**query_params_object** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
-**request_body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** |  | [optional] 
+**query_params_object** | **object** |  | [optional] 
+**request_body** | **object** |  | [optional] 
 **token_type** | **str** |  | [optional] 
-**application** | **str, none_type** |  | [optional] 
+**application** | **str** |  | [optional] 
 **key** | **str** |  | [optional] 
 **request_id** | **str** |  | [optional] 
 **user_email** | **str** |  | [optional] 
 **user_id** | **str** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+## Example
+
+```python
+from pandadoc_client.models.api_log_details_response import APILogDetailsResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of APILogDetailsResponse from a JSON string
+api_log_details_response_instance = APILogDetailsResponse.from_json(json)
+# print the JSON string representation of the object
+print(APILogDetailsResponse.to_json())
+
+# convert the object into a dict
+api_log_details_response_dict = api_log_details_response_instance.to_dict()
+# create an instance of APILogDetailsResponse from a dict
+api_log_details_response_from_dict = APILogDetailsResponse.from_dict(api_log_details_response_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

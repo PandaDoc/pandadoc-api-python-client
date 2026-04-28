@@ -1,11 +1,18 @@
 # WebhookSubscriptionPayloadEnum
 
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**value** | **str** |  |  must be one of ["metadata", "fields", "products", "tokens", "pricing", ]
+## Enum
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+* `METADATA` (value: `'metadata'`)
+
+* `FIELDS` (value: `'fields'`)
+
+* `PRODUCTS` (value: `'products'`)
+
+* `TOKENS` (value: `'tokens'`)
+
+* `PRICING` (value: `'pricing'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

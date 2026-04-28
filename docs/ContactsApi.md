@@ -5,16 +5,18 @@ All URIs are relative to *https://api.pandadoc.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_contact**](ContactsApi.md#create_contact) | **POST** /public/v1/contacts | Create contact
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /public/v1/contacts/{id} | Delete contact by id
-[**details_contact**](ContactsApi.md#details_contact) | **GET** /public/v1/contacts/{id} | Get contact details by id
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /public/v1/contacts/{id} | Delete Contact
+[**details_contact**](ContactsApi.md#details_contact) | **GET** /public/v1/contacts/{id} | Contact Details
 [**list_contacts**](ContactsApi.md#list_contacts) | **GET** /public/v1/contacts | List contacts
-[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /public/v1/contacts/{id} | Update contact by id
+[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /public/v1/contacts/{id} | Update Contact
 
 
 # **create_contact**
 > ContactDetailsResponse create_contact(contact_create_request)
 
 Create contact
+
+This method adds a contact into a contacts list.
 
 ### Example
 
@@ -23,15 +25,15 @@ Create contact
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import contacts_api
-from pandadoc_client.model.contact_create_request import ContactCreateRequest
-from pandadoc_client.model.contact_details_response import ContactDetailsResponse
+from pandadoc_client.models.contact_create_request import ContactCreateRequest
+from pandadoc_client.models.contact_details_response import ContactDetailsResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,46 +42,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = contacts_api.ContactsApi(api_client)
-    contact_create_request = ContactCreateRequest(
-        email="user01@pandadoc.com",
-        first_name="John",
-        last_name="Doe",
-        company="John Doe Inc.",
-        job_title="CTO",
-        phone="+14842634627",
-        state="Texas",
-        street_address="1313 Mockingbird Lane",
-        city="Austin",
-        postal_code="75001",
-    )  # ContactCreateRequest | 
+    api_instance = pandadoc_client.ContactsApi(api_client)
+    contact_create_request = {"email":"user01@pandadoc.com","first_name":"John","last_name":"Doe","company":"John Doe Inc.","job_title":"CTO","phone":"+14842634627","country":"USA","state":"Texas","street_address":"1313 Mockingbird Lane","city":"Austin","postal_code":"75001"} # ContactCreateRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create contact
         api_response = api_instance.create_contact(contact_create_request)
+        print("The response of ContactsApi->create_contact:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContactsApi->create_contact: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contact_create_request** | [**ContactCreateRequest**](ContactCreateRequest.md)|  |
+ **contact_create_request** | [**ContactCreateRequest**](ContactCreateRequest.md)|  | 
 
 ### Return type
 
@@ -94,7 +86,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -104,12 +95,14 @@ Name | Type | Description  | Notes
 **401** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_contact**
 > delete_contact(id)
 
-Delete contact by id
+Delete Contact
+
+This method deletes a contact.
 
 ### Example
 
@@ -118,13 +111,13 @@ Delete contact by id
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import contacts_api
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -133,34 +126,34 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = contacts_api.ContactsApi(api_client)
-    id = "SyoufNkJiHRn24LpuJ7RXb"  # str | Contact id.
+    api_instance = pandadoc_client.ContactsApi(api_client)
+    id = 'SyoufNkJiHRn24LpuJ7RXb' # str | Contact id.
 
-    # example passing only required values which don't have defaults set
     try:
-        # Delete contact by id
+        # Delete Contact
         api_instance.delete_contact(id)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContactsApi->delete_contact: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Contact id. |
+ **id** | **str**| Contact id. | 
 
 ### Return type
 
@@ -175,7 +168,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -186,12 +178,14 @@ void (empty response body)
 **403** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **details_contact**
 > ContactDetailsResponse details_contact(id)
 
-Get contact details by id
+Contact Details
+
+Returns contact details by its ID.
 
 ### Example
 
@@ -200,14 +194,14 @@ Get contact details by id
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import contacts_api
-from pandadoc_client.model.contact_details_response import ContactDetailsResponse
+from pandadoc_client.models.contact_details_response import ContactDetailsResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -216,35 +210,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = contacts_api.ContactsApi(api_client)
-    id = "SyoufNkJiHRn24LpuJ7RXb"  # str | Contact id.
+    api_instance = pandadoc_client.ContactsApi(api_client)
+    id = 'SyoufNkJiHRn24LpuJ7RXb' # str | Contact id.
 
-    # example passing only required values which don't have defaults set
     try:
-        # Get contact details by id
+        # Contact Details
         api_response = api_instance.details_contact(id)
+        print("The response of ContactsApi->details_contact:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContactsApi->details_contact: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Contact id. |
+ **id** | **str**| Contact id. | 
 
 ### Return type
 
@@ -259,7 +254,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -270,12 +264,14 @@ Name | Type | Description  | Notes
 **403** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_contacts**
-> ContactListResponse list_contacts()
+> ContactListResponse list_contacts(email=email)
 
 List contacts
+
+This method returns a list of contacts associated with a workspace.
 
 ### Example
 
@@ -284,14 +280,14 @@ List contacts
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import contacts_api
-from pandadoc_client.model.contact_list_response import ContactListResponse
+from pandadoc_client.models.contact_list_response import ContactListResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -300,38 +296,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = contacts_api.ContactsApi(api_client)
-    email = "josh@example.com"  # str | Optional search parameter. Filter results by exact match. (optional)
+    api_instance = pandadoc_client.ContactsApi(api_client)
+    email = '' # str | Optional search parameter. Filter results by exact match. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List contacts
-        api_response = api_instance.list_contacts(
-            email=email,
-        )
+        api_response = api_instance.list_contacts(email=email)
+        print("The response of ContactsApi->list_contacts:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContactsApi->list_contacts: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **str**| Optional search parameter. Filter results by exact match. | [optional]
+ **email** | **str**| Optional search parameter. Filter results by exact match. | [optional] 
 
 ### Return type
 
@@ -346,7 +340,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -357,12 +350,14 @@ Name | Type | Description  | Notes
 **403** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_contact**
 > ContactDetailsResponse update_contact(id, contact_update_request)
 
-Update contact by id
+Update Contact
+
+This method updates a contact details.
 
 ### Example
 
@@ -371,15 +366,15 @@ Update contact by id
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import contacts_api
-from pandadoc_client.model.contact_details_response import ContactDetailsResponse
-from pandadoc_client.model.contact_update_request import ContactUpdateRequest
+from pandadoc_client.models.contact_details_response import ContactDetailsResponse
+from pandadoc_client.models.contact_update_request import ContactUpdateRequest
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -388,48 +383,38 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = contacts_api.ContactsApi(api_client)
-    id = "SyoufNkJiHRn24LpuJ7RXb"  # str | Contact id.
-    contact_update_request = ContactUpdateRequest(
-        email="user01@pandadoc.com",
-        first_name="John",
-        last_name="Doe",
-        company="John Doe Inc.",
-        job_title="CTO",
-        phone="+14842634627",
-        state="Texas",
-        street_address="1313 Mockingbird Lane",
-        city="Austin",
-        postal_code="75001",
-    )  # ContactUpdateRequest | 
+    api_instance = pandadoc_client.ContactsApi(api_client)
+    id = 'SyoufNkJiHRn24LpuJ7RXb' # str | Contact id.
+    contact_update_request = {"first_name":"new first_name","last_name":"new last_name","company":"new company","job_title":"new job_title","phone":"new phone","country":"new country","state":"new state","street_address":"new street_address","city":"new city","postal_code":"new postal_code"} # ContactUpdateRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Update contact by id
+        # Update Contact
         api_response = api_instance.update_contact(id, contact_update_request)
+        print("The response of ContactsApi->update_contact:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContactsApi->update_contact: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Contact id. |
- **contact_update_request** | [**ContactUpdateRequest**](ContactUpdateRequest.md)|  |
+ **id** | **str**| Contact id. | 
+ **contact_update_request** | [**ContactUpdateRequest**](ContactUpdateRequest.md)|  | 
 
 ### Return type
 
@@ -444,7 +429,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -454,5 +438,5 @@ Name | Type | Description  | Notes
 **401** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

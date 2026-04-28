@@ -2,30 +2,48 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str, none_type** |  | [optional] 
-**sku** | **str, none_type** |  | [optional] 
-**name** | **str, none_type** |  | [optional] 
-**description** | **str, none_type** |  | [optional] 
-**qty** | **str, none_type** |  | [optional] 
-**price** | **str, none_type** |  | [optional] 
-**cost** | **str, none_type** |  | [optional] 
-**billing_frequency** | **str, none_type** |  | [optional] 
-**contract_term** | **str, none_type** |  | [optional] 
-**pricing_method** | **str, none_type** |  | [optional] 
-**type** | **str, none_type** |  | [optional] 
-**reference_type** | **str, none_type** |  | [optional] 
-**options** | [**QuoteResponseOptions**](QuoteResponseOptions.md) |  | [optional] 
-**custom_columns** | **{str: (str,)}, none_type** |  | [optional] 
-**discounts** | [**{str: (QuoteResponseSummaryDiscounts,)}, none_type**](QuoteResponseSummaryDiscounts.md) |  | [optional] 
-**taxes** | [**{str: (QuoteResponseSummaryDiscounts,)}, none_type**](QuoteResponseSummaryDiscounts.md) |  | [optional] 
-**fees** | [**{str: (QuoteResponseSummaryDiscounts,)}, none_type**](QuoteResponseSummaryDiscounts.md) |  | [optional] 
-**multipliers** | **{str: (str,)}, none_type** |  | [optional] 
-**total** | **str, none_type** |  | [optional] 
-**overall_total** | **str, none_type** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**id** | **str** |  | [optional] 
+**sku** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**qty** | **str** |  | [optional] 
+**price** | **str** |  | [optional] 
+**cost** | **str** |  | [optional] 
+**billing_frequency** | **str** |  | [optional] 
+**contract_term** | **str** |  | [optional] 
+**pricing_method** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**reference_type** | **str** |  | [optional] 
+**options** | [**QuoteResponseSectionItemOptions**](QuoteResponseSectionItemOptions.md) |  | [optional] 
+**custom_columns** | **Dict[str, str]** |  | [optional] 
+**external_columns** | **Dict[str, str]** |  | [optional] 
+**discounts** | [**Dict[str, QuoteResponseSummaryDiscountsValue]**](QuoteResponseSummaryDiscountsValue.md) |  | [optional] 
+**taxes** | [**Dict[str, QuoteResponseSummaryDiscountsValue]**](QuoteResponseSummaryDiscountsValue.md) |  | [optional] 
+**fees** | [**Dict[str, QuoteResponseSummaryDiscountsValue]**](QuoteResponseSummaryDiscountsValue.md) |  | [optional] 
+**multipliers** | **Dict[str, str]** |  | [optional] 
+**total** | **str** |  | [optional] 
+**overall_total** | **str** |  | [optional] 
 
-[[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+## Example
+
+```python
+from pandadoc_client.models.quote_response_section_item import QuoteResponseSectionItem
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of QuoteResponseSectionItem from a JSON string
+quote_response_section_item_instance = QuoteResponseSectionItem.from_json(json)
+# print the JSON string representation of the object
+print(QuoteResponseSectionItem.to_json())
+
+# convert the object into a dict
+quote_response_section_item_dict = quote_response_section_item_instance.to_dict()
+# create an instance of QuoteResponseSectionItem from a dict
+quote_response_section_item_from_dict = QuoteResponseSectionItem.from_dict(quote_response_section_item_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

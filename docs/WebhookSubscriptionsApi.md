@@ -4,18 +4,20 @@ All URIs are relative to *https://api.pandadoc.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_webhook_subscription**](WebhookSubscriptionsApi.md#create_webhook_subscription) | **POST** /public/v1/webhook-subscriptions | Create webhook subscription
-[**delete_webhook_subscription**](WebhookSubscriptionsApi.md#delete_webhook_subscription) | **DELETE** /public/v1/webhook-subscriptions/{id} | Delete webhook subscription
-[**details_webhook_subscription**](WebhookSubscriptionsApi.md#details_webhook_subscription) | **GET** /public/v1/webhook-subscriptions/{id} | Get webhook subscription by uuid
-[**list_webhook_subscriptions**](WebhookSubscriptionsApi.md#list_webhook_subscriptions) | **GET** /public/v1/webhook-subscriptions | Get all webhook subscriptions
-[**update_webhook_subscription**](WebhookSubscriptionsApi.md#update_webhook_subscription) | **PATCH** /public/v1/webhook-subscriptions/{id} | Update webhook subscription
-[**update_webhook_subscription_shared_key**](WebhookSubscriptionsApi.md#update_webhook_subscription_shared_key) | **PATCH** /public/v1/webhook-subscriptions/{id}/shared-key | Regenerate webhook subscription shared key
+[**create_webhook_subscription**](WebhookSubscriptionsApi.md#create_webhook_subscription) | **POST** /public/v1/webhook-subscriptions | Create Webhook Subscription
+[**delete_webhook_subscription**](WebhookSubscriptionsApi.md#delete_webhook_subscription) | **DELETE** /public/v1/webhook-subscriptions/{id} | Delete Webhook Subscription
+[**details_webhook_subscription**](WebhookSubscriptionsApi.md#details_webhook_subscription) | **GET** /public/v1/webhook-subscriptions/{id} | Webhook Subscription Details
+[**list_webhook_subscriptions**](WebhookSubscriptionsApi.md#list_webhook_subscriptions) | **GET** /public/v1/webhook-subscriptions | List Webhook Subscriptions
+[**update_webhook_subscription**](WebhookSubscriptionsApi.md#update_webhook_subscription) | **PATCH** /public/v1/webhook-subscriptions/{id} | Update Webhook Subscription
+[**update_webhook_subscription_shared_key**](WebhookSubscriptionsApi.md#update_webhook_subscription_shared_key) | **PATCH** /public/v1/webhook-subscriptions/{id}/shared-key | Update Webhook Subscription Shared Key
 
 
 # **create_webhook_subscription**
 > WebhookSubscriptionItemResponse create_webhook_subscription(webhook_subscription_create_request)
 
-Create webhook subscription
+Create Webhook Subscription
+
+This operation creates a new webhook subscription by specifying its details.
 
 ### Example
 
@@ -24,15 +26,15 @@ Create webhook subscription
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
-from pandadoc_client.model.webhook_subscription_create_request import WebhookSubscriptionCreateRequest
-from pandadoc_client.model.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.models.webhook_subscription_create_request import WebhookSubscriptionCreateRequest
+from pandadoc_client.models.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -41,44 +43,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
-    webhook_subscription_create_request = WebhookSubscriptionCreateRequest(
-        name="My Subscription",
-        url="https://example.com",
-        payload=[
-            WebhookSubscriptionPayloadEnum("pricing"),
-        ],
-        triggers=[
-            WebhookSubscriptionTriggerEnum("document_state_changed"),
-        ],
-    )  # WebhookSubscriptionCreateRequest | 
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
+    webhook_subscription_create_request = {"name":"PandaDoc","url":"webhooks_subscription_url","active":true,"payload":["fields","products","metadata","tokens","pricing"],"triggers":["document_deleted","recipient_completed","document_updated","document_state_changed","document_creation_failed"]} # WebhookSubscriptionCreateRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Create webhook subscription
+        # Create Webhook Subscription
         api_response = api_instance.create_webhook_subscription(webhook_subscription_create_request)
+        print("The response of WebhookSubscriptionsApi->create_webhook_subscription:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->create_webhook_subscription: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_subscription_create_request** | [**WebhookSubscriptionCreateRequest**](WebhookSubscriptionCreateRequest.md)|  |
+ **webhook_subscription_create_request** | [**WebhookSubscriptionCreateRequest**](WebhookSubscriptionCreateRequest.md)|  | 
 
 ### Return type
 
@@ -93,7 +87,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -104,12 +97,14 @@ Name | Type | Description  | Notes
 **403** | Permission error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_webhook_subscription**
 > delete_webhook_subscription(id)
 
-Delete webhook subscription
+Delete Webhook Subscription
+
+This operation deletes a specific webhook subscription identified by its UUID.
 
 ### Example
 
@@ -118,13 +113,13 @@ Delete webhook subscription
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -133,34 +128,34 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
-    id = "id_example"  # str | Webhook subscription uuid
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
+    id = 'd173751d-0057-4d5c-ab75-49a670a4ca68' # str | Webhook subscription uuid.
 
-    # example passing only required values which don't have defaults set
     try:
-        # Delete webhook subscription
+        # Delete Webhook Subscription
         api_instance.delete_webhook_subscription(id)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->delete_webhook_subscription: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook subscription uuid |
+ **id** | **str**| Webhook subscription uuid. | 
 
 ### Return type
 
@@ -175,7 +170,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -186,12 +180,15 @@ void (empty response body)
 **404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **details_webhook_subscription**
 > WebhookSubscriptionItemResponse details_webhook_subscription(id)
 
+Webhook Subscription Details
+
 Get webhook subscription by uuid
+
 
 ### Example
 
@@ -200,14 +197,14 @@ Get webhook subscription by uuid
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
-from pandadoc_client.model.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.models.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -216,35 +213,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
-    id = "id_example"  # str | Webhook subscription uuid
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
+    id = '4fb6506c-02a0-427e-b445-b9e9ff0c822f' # str | Webhook subscription uuid
 
-    # example passing only required values which don't have defaults set
     try:
-        # Get webhook subscription by uuid
+        # Webhook Subscription Details
         api_response = api_instance.details_webhook_subscription(id)
+        print("The response of WebhookSubscriptionsApi->details_webhook_subscription:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->details_webhook_subscription: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook subscription uuid |
+ **id** | **str**| Webhook subscription uuid | 
 
 ### Return type
 
@@ -259,7 +257,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -270,12 +267,14 @@ Name | Type | Description  | Notes
 **404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_webhook_subscriptions**
 > WebhookSubscriptionListResponse list_webhook_subscriptions()
 
-Get all webhook subscriptions
+List Webhook Subscriptions
+
+This operation fetches a paginated list of webhook subscriptions.
 
 ### Example
 
@@ -284,14 +283,14 @@ Get all webhook subscriptions
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
-from pandadoc_client.model.webhook_subscription_list_response import WebhookSubscriptionListResponse
+from pandadoc_client.models.webhook_subscription_list_response import WebhookSubscriptionListResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -300,30 +299,31 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
-        # Get all webhook subscriptions
+        # List Webhook Subscriptions
         api_response = api_instance.list_webhook_subscriptions()
+        print("The response of WebhookSubscriptionsApi->list_webhook_subscriptions:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->list_webhook_subscriptions: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -339,7 +339,6 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -348,12 +347,14 @@ This endpoint does not need any parameter.
 **401** | Authentication error |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_webhook_subscription**
 > WebhookSubscriptionItemResponse update_webhook_subscription(id, webhook_subscription_patch_request)
 
-Update webhook subscription
+Update Webhook Subscription
+
+This operation updates the details of a webhook subscription.
 
 ### Example
 
@@ -362,15 +363,15 @@ Update webhook subscription
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
-from pandadoc_client.model.webhook_subscription_patch_request import WebhookSubscriptionPatchRequest
-from pandadoc_client.model.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.models.webhook_subscription_item_response import WebhookSubscriptionItemResponse
+from pandadoc_client.models.webhook_subscription_patch_request import WebhookSubscriptionPatchRequest
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -379,47 +380,38 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
-    id = "id_example"  # str | Webhook subscription uuid
-    webhook_subscription_patch_request = WebhookSubscriptionPatchRequest(
-        name="My Subscription",
-        url="https://example.com",
-        active=True,
-        payload=[
-            WebhookSubscriptionPayloadEnum("pricing"),
-        ],
-        triggers=[
-            WebhookSubscriptionTriggerEnum("document_state_changed"),
-        ],
-    )  # WebhookSubscriptionPatchRequest | 
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
+    id = 'd173751d-0057-4d5c-ab75-49a670a4ca68' # str | Webhook subscription uuid
+    webhook_subscription_patch_request = {"name":"PandaDoc","url":"https://pandadoc.com/webhooks","active":true,"payload":["fields","products","metadata","tokens","pricing"],"triggers":["document_deleted","recipient_completed","document_updated","document_state_changed","document_creation_failed"]} # WebhookSubscriptionPatchRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Update webhook subscription
+        # Update Webhook Subscription
         api_response = api_instance.update_webhook_subscription(id, webhook_subscription_patch_request)
+        print("The response of WebhookSubscriptionsApi->update_webhook_subscription:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->update_webhook_subscription: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook subscription uuid |
- **webhook_subscription_patch_request** | [**WebhookSubscriptionPatchRequest**](WebhookSubscriptionPatchRequest.md)|  |
+ **id** | **str**| Webhook subscription uuid | 
+ **webhook_subscription_patch_request** | [**WebhookSubscriptionPatchRequest**](WebhookSubscriptionPatchRequest.md)|  | 
 
 ### Return type
 
@@ -434,7 +426,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -446,12 +437,14 @@ Name | Type | Description  | Notes
 **404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_webhook_subscription_shared_key**
 > WebhookSubscriptionSharedKeyResponse update_webhook_subscription_shared_key(id)
 
-Regenerate webhook subscription shared key
+Update Webhook Subscription Shared Key
+
+This operation regenerates the shared key for a specific webhook subscription identified by its UUID.
 
 ### Example
 
@@ -460,14 +453,14 @@ Regenerate webhook subscription shared key
 
 ```python
 import pandadoc_client
-from pandadoc_client.api import webhook_subscriptions_api
-from pandadoc_client.model.webhook_subscription_shared_key_response import WebhookSubscriptionSharedKeyResponse
+from pandadoc_client.models.webhook_subscription_shared_key_response import WebhookSubscriptionSharedKeyResponse
+from pandadoc_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api.pandadoc.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pandadoc_client.Configuration(
-    host="https://api.pandadoc.com",
+    host = "https://api.pandadoc.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -476,35 +469,36 @@ configuration = pandadoc_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKey
-configuration.api_key['apiKey'] = 'YOUR_API_KEY'
-configuration.api_key_prefix['apiKey'] = 'API-Key'
+configuration.api_key['apiKey'] = os.environ["API_KEY"]
 
-# Configure OAuth2 access token for authorization: oauth2
-# configuration = pandadoc_client.Configuration(
-#    host="https://api.pandadoc.com",
-# )
-# configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['apiKey'] = 'Bearer'
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pandadoc_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = webhook_subscriptions_api.WebhookSubscriptionsApi(api_client)
-    id = "id_example"  # str | Webhook subscription uuid
+    api_instance = pandadoc_client.WebhookSubscriptionsApi(api_client)
+    id = 'd173751d-0057-4d5c-ab75-49a670a4ca68' # str | Webhook subscription uuid
 
-    # example passing only required values which don't have defaults set
     try:
-        # Regenerate webhook subscription shared key
+        # Update Webhook Subscription Shared Key
         api_response = api_instance.update_webhook_subscription_shared_key(id)
+        print("The response of WebhookSubscriptionsApi->update_webhook_subscription_shared_key:\n")
         pprint(api_response)
-    except pandadoc_client.ApiException as e:
+    except Exception as e:
         print("Exception when calling WebhookSubscriptionsApi->update_webhook_subscription_shared_key: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Webhook subscription uuid |
+ **id** | **str**| Webhook subscription uuid | 
 
 ### Return type
 
@@ -519,7 +513,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -530,5 +523,5 @@ Name | Type | Description  | Notes
 **404** | Not found |  -  |
 **429** | Too Many Requests |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
